@@ -20,7 +20,7 @@
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; min-height: 100%; }
     
     body {
       font-family: 'Noto Sans JP', sans-serif;
@@ -29,9 +29,8 @@
       line-height: 1.7;
       overflow-x: hidden;
       touch-action: manipulation;
+      min-height: 100vh;
     }
-    
-    html { scroll-behavior: smooth; }
     
     /* Ensure scrolling works */
     * { scrollbar-width: thin; }
@@ -185,7 +184,7 @@
     .page-header h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(28px, 5vw, 42px); font-weight: 600; margin-bottom: 15px; }
     .page-header p { font-size: 16px; opacity: 0.8; }
     
-    main { max-width: 800px; margin: 0 auto; padding: 80px 30px; }
+    main { max-width: 800px; margin: 0 auto; padding: 80px 30px; min-height: calc(100vh - 200px); }
     
     .page-header {
       background: linear-gradient(135deg, rgba(10,22,40,0.95) 0%, rgba(20,35,60,0.9) 100%);
