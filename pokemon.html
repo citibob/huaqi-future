@@ -38,45 +38,56 @@
     }
     .page-header h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(24px, 5vw, 38px); font-weight: 600; margin-bottom: 10px; }
     .page-header p { font-size: 15px; opacity: 0.85; }
+    .page-header .mission { font-size: clamp(14px, 2vw, 18px); color: var(--accent); margin-top: 12px; font-weight: 300; }
     
     main { max-width: 900px; margin: 0 auto; padding: 50px 25px; }
     
-    .content-section { background: var(--white); padding: 35px 30px; border-radius: 4px; margin-bottom: 25px; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
-    .content-section h2 { font-family: 'Noto Serif JP', serif; font-size: 19px; color: var(--primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
-    .content-section p { color: var(--text-light); font-size: 14px; margin-bottom: 14px; }
-    .content-section ul { list-style: none; margin-top: 18px; }
-    .content-section li { padding: 10px 0; border-bottom: 1px solid #eee; color: var(--text-light); font-size: 13px; display: flex; align-items: center; }
-    .content-section li::before { content: '◆'; color: var(--accent); margin-right: 10px; font-size: 7px; }
+    .hero-message { background: linear-gradient(135deg, #ff6b6b, #ffa500); color: var(--white); padding: 35px; border-radius: 4px; margin-bottom: 30px; text-align: center; }
+    .hero-message h2 { font-family: 'Noto Serif JP', serif; font-size: 20px; margin-bottom: 10px; }
+    .hero-message p { font-size: 14px; opacity: 0.95; }
     
-    .highlight-box { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 28px; border-radius: 4px; margin: 25px 0; }
-    .highlight-box h3 { font-size: 15px; margin-bottom: 12px; color: var(--accent); }
+    .content-section { background: var(--white); padding: 32px 28px; border-radius: 4px; margin-bottom: 22px; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
+    .content-section h2 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+    .content-section p { color: var(--text-light); font-size: 14px; margin-bottom: 13px; }
+    .content-section ul { list-style: none; margin-top: 16px; }
+    .content-section li { padding: 9px 0; border-bottom: 1px solid #eee; color: var(--text-light); font-size: 13px; display: flex; align-items: center; }
+    .content-section li::before { content: '◆'; color: var(--accent); margin-right: 10px; font-size: 6px; }
+    
+    .highlight-box { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 26px; border-radius: 4px; margin: 22px 0; }
+    .highlight-box h3 { font-size: 14px; margin-bottom: 11px; color: var(--accent); }
     .highlight-box p { font-size: 13px; opacity: 0.9; }
     
-    .flow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 25px; }
-    @media (max-width: 600px) { .flow-steps { grid-template-columns: 1fr; } }
-    .flow-step { background: var(--bg); padding: 22px 18px; border-radius: 4px; text-align: center; }
-    .flow-step .step-num { display: inline-block; width: 28px; height: 28px; line-height: 28px; background: var(--accent); color: var(--primary); border-radius: 50%; font-size: 13px; font-weight: bold; margin-bottom: 10px; }
-    .flow-step h4 { font-size: 13px; color: var(--primary); margin-bottom: 6px; }
-    .flow-step p { font-size: 11px; color: var(--text-light); }
+    .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+    @media (max-width: 600px) { .value-grid { grid-template-columns: 1fr; } }
+    .value-item { background: var(--bg); padding: 20px 15px; border-radius: 4px; text-align: center; }
+    .value-item .icon { font-size: 28px; margin-bottom: 10px; }
+    .value-item h4 { font-size: 13px; color: var(--primary); margin-bottom: 6px; }
+    .value-item p { font-size: 11px; color: var(--text-light); }
     
-    /* FAQ Section */
-    .faq-section { margin-top: 40px; }
-    .faq-section h2 { font-family: 'Noto Serif JP', serif; font-size: 20px; color: var(--primary); margin-bottom: 20px; text-align: center; }
-    .faq-item { background: var(--white); border-radius: 4px; margin-bottom: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
-    .faq-question { padding: 18px 22px; background: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 500; color: var(--primary); font-size: 14px; }
-    .faq-question::after { content: '+'; font-size: 18px; color: var(--accent); }
-    .faq-answer { padding: 0 22px; max-height: 0; overflow: hidden; transition: all 0.3s; color: var(--text-light); font-size: 13px; }
-    .faq-item.active .faq-answer { padding: 15px 22px; max-height: 200px; }
+    .flow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 22px; }
+    @media (max-width: 600px) { .flow-steps { grid-template-columns: 1fr; } }
+    .flow-step { background: var(--bg); padding: 18px 14px; border-radius: 4px; text-align: center; }
+    .flow-step .step-num { display: inline-block; width: 26px; height: 26px; line-height: 26px; background: var(--accent); color: var(--primary); border-radius: 50%; font-size: 12px; font-weight: bold; margin-bottom: 8px; }
+    .flow-step h4 { font-size: 12px; color: var(--primary); margin-bottom: 5px; }
+    .flow-step p { font-size: 10px; color: var(--text-light); }
+    
+    .faq-section { margin-top: 35px; }
+    .faq-section h2 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 18px; text-align: center; }
+    .faq-item { background: var(--white); border-radius: 4px; margin-bottom: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+    .faq-question { padding: 16px 20px; background: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 500; color: var(--primary); font-size: 13px; }
+    .faq-question::after { content: '+'; font-size: 16px; color: var(--accent); }
+    .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.3s; color: var(--text-light); font-size: 12px; }
+    .faq-item.active .faq-answer { padding: 14px 20px; max-height: 150px; }
     .faq-item.active .faq-question::after { content: '-'; }
     
-    .cta-section { text-align: center; padding: 40px 20px; background: var(--bg); border-radius: 4px; margin-top: 40px; }
-    .cta-section h3 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 12px; }
-    .cta-section p { color: var(--text-light); margin-bottom: 18px; font-size: 13px; }
-    .btn { display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: var(--white); text-decoration: none; border-radius: 2px; font-size: 12px; letter-spacing: 1px; }
+    .cta-section { text-align: center; padding: 35px 20px; background: var(--bg); border-radius: 4px; margin-top: 35px; }
+    .cta-section h3 { font-family: 'Noto Serif JP', serif; font-size: 17px; color: var(--primary); margin-bottom: 11px; }
+    .cta-section p { color: var(--text-light); margin-bottom: 16px; font-size: 12px; }
+    .btn { display: inline-block; padding: 11px 28px; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: var(--white); text-decoration: none; border-radius: 2px; font-size: 12px; letter-spacing: 1px; }
     
-    footer { background: var(--primary); color: var(--white); padding: 35px 25px; text-align: center; }
-    footer .logo { margin-bottom: 12px; }
-    footer .logo img { height: 28px; }
+    footer { background: var(--primary); color: var(--white); padding: 32px 22px; text-align: center; }
+    footer .logo { margin-bottom: 11px; }
+    footer .logo img { height: 26px; }
     footer p { font-size: 11px; opacity: 0.6; margin: 4px 0; }
     footer a { color: var(--accent); text-decoration: none; }
     
@@ -89,8 +100,8 @@
       nav ul { flex-direction: column; gap: 22px; }
       nav a { font-size: 15px; }
       .page-header { padding: 110px 20px 45px; }
-      main { padding: 30px 18px; }
-      .content-section { padding: 25px 20px; }
+      main { padding: 28px 16px; }
+      .content-section { padding: 24px 18px; }
     }
   </style>
 </head>
@@ -113,25 +124,47 @@
   
   <section class="page-header">
     <h1>ポケモンカード輸入販売</h1>
-    <p>中国版寶可夢卡牌 Reliable Import & Sales</p>
+    <p>世界中を愛するPokémonの世界を、日本のファンへ</p>
+    <p class="mission">世界中を愛するPokémonカードを、日本のコレクターへ</p>
   </section>
   
   <main>
-    <div class="content-section">
-      <h2>中国版ポケモンカードとは</h2>
-      <p>中国版ポケモンカード（中国語版宝可梦卡牌）は、独自のディズインと高い收藏価値で世界中から注目を集めています。日本では入手困難な限定カードや、プロモーションカードが豊富に含まれることが特徴です。</p>
-      <p>私どもは中国の正規授權店と直接取引を行い、確実な商品供应をお約束します。</p>
+    <div class="hero-message">
+      <h2>世界中を旅するポケモンカードの世界</h2>
+      <p>中国版ポケモンカードは、独自のディズインと高い收藏価値で世界中から注目を集めています。</p>
     </div>
     
     <div class="content-section">
-      <h2>日本市場における魅力</h2>
-      <p>中国版のポケモンカードは、日本ではまだ本格的な流通が始まっていない品种居多。コレクターやプレイヤーの間で需要が高く、希少価値があります。</p>
+      <h2>なぜ中国版ポケモンカードなのか</h2>
+      <p>中国版ポケモンカードは、日本版とは異なる特别的ディズインと限定カードが豊富に含まれています。コレクター垂涎の幻のカードを多数取扱い。</p>
       <ul>
-        <li>日本未発売のディズインカード</li>
-        <li>中国限定のプロモカード</li>
-        <li>希少性の高いヴィンテージカード</li>
+        <li>日本未ディズインのexclusiveカード</li>
+        <li>中国限定のプロモーションカード</li>
+        <li>收藏価値の高いヴィンテージカード</li>
         <li>PSA/BGS鑑定済みカードの信頼性</li>
       </ul>
+    </div>
+    
+    <div class="content-section">
+      <h2>投資価値としてのポケモンカード</h2>
+      <p>ポケモンカードは単なるトレーディングカードゲームを超え、投资対象としても注目されています。特に希少性の高いPSA10鉴定卡片は、市场で高値取引されています。</p>
+      <div class="value-grid">
+        <div class="value-item">
+          <div class="icon">💎</div>
+          <h4>希少性</h4>
+          <p>日本未发售のカードを多数所有</p>
+        </div>
+        <div class="value-item">
+          <div class="icon">📈</div>
+          <h4>投資価値</h4>
+          <p>鑑定済みカードの価値は右肩上がり</p>
+        </div>
+        <div class="value-item">
+          <div class="icon">🏆</div>
+          <h4>コレクター価値</h4>
+          <p>貴重なカードを多数取揃</p>
+        </div>
+      </div>
     </div>
     
     <div class="content-section">
@@ -191,7 +224,7 @@
         <div class="faq-answer">可能です。大量注文時は別途お見積もりいたします。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">PSA鑑定卡も取扱していますか？</div>
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">PSA鑑定カードも取扱していますか？</div>
         <div class="faq-answer">はい。PSA9・PSA10の鑑定済みカードも豊富に取り扱っています。</div>
       </div>
     </div>
@@ -206,7 +239,7 @@
   <footer>
     <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
     <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
-    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
+    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハインダード615号室</p>
     <p>Email: <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
   </footer>
   

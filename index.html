@@ -31,7 +31,7 @@
     .nav-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
     .nav-overlay.active { display: block; }
     
-    /* Hero with background image */
+    /* Hero */
     .hero {
       min-height: 100vh;
       padding-top: 80px;
@@ -47,8 +47,9 @@
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     .hero-logo { margin-bottom: 35px; animation: fadeInUp 1s ease 0.2s both; }
     .hero-logo img { max-width: 320px; width: 100%; }
-    .hero h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(26px, 5vw, 44px); font-weight: 600; margin-bottom: 18px; letter-spacing: 2px; }
-    .hero p { font-size: clamp(14px, 2vw, 17px); opacity: 0.9; max-width: 520px; margin: 0 auto; }
+    .hero h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(26px, 5vw, 48px); font-weight: 600; margin-bottom: 15px; letter-spacing: 3px; }
+    .hero .mission { font-size: clamp(16px, 2.5vw, 22px); font-weight: 300; color: var(--accent); margin-bottom: 20px; letter-spacing: 1px; }
+    .hero p { font-size: clamp(13px, 1.8vw, 16px); opacity: 0.85; max-width: 500px; margin: 0 auto; }
     .hero-scroll { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; }
     .hero-scroll span { display: block; width: 20px; height: 20px; border-right: 2px solid rgba(255,255,255,0.5); border-bottom: 2px solid rgba(255,255,255,0.5); transform: rotate(45deg); }
     @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
@@ -60,25 +61,26 @@
     .section-header p { color: var(--text-light); font-size: 15px; }
     .section-header .divider { width: 55px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); margin: 18px auto 0; }
     
-    /* Business Cards with images */
+    /* Stats */
+    .stats-bar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 45px 30px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .stat-item .number { font-size: 38px; font-weight: 700; color: var(--accent); font-family: 'Noto Serif JP', serif; }
+    .stat-item .label { font-size: 12px; opacity: 0.9; margin-top: 5px; }
+    @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } .stat-item .number { font-size: 32px; } }
+    
+    /* Business Cards */
     .business-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
     .business-card { background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); transition: all 0.4s ease; }
     .business-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-    .business-card .card-img { height: 180px; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; font-size: 50px; }
+    .business-card .card-img { height: 160px; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; font-size: 45px; }
     .business-card .card-img.pokemon { background: linear-gradient(135deg, #ff6b6b, #ffa500); }
     .business-card .card-img.genshin { background: linear-gradient(135deg, #667eea, #764ba2); }
     .business-card .card-img.culture { background: linear-gradient(135deg, #11998e, #38ef7d); }
-    .business-card .card-body { padding: 28px; }
-    .business-card h3 { font-size: 18px; color: var(--primary); margin-bottom: 10px; font-weight: 500; }
-    .business-card p { color: var(--text-light); font-size: 13px; line-height: 1.7; margin-bottom: 18px; }
+    .business-card .card-body { padding: 26px; }
+    .business-card h3 { font-size: 17px; color: var(--primary); margin-bottom: 10px; font-weight: 500; }
+    .business-card p { color: var(--text-light); font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
     .business-card .card-link { color: var(--accent); font-size: 13px; text-decoration: none; font-weight: 500; }
     .business-card .card-link:hover { text-decoration: underline; }
-    
-    /* Stats */
-    .stats-section { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 60px 30px; }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; max-width: 800px; margin: 0 auto; text-align: center; }
-    .stat-item .number { font-size: 42px; font-weight: 700; color: var(--accent); font-family: 'Noto Serif JP', serif; }
-    .stat-item .label { font-size: 13px; opacity: 0.85; margin-top: 5px; }
     
     /* About */
     .about { background: var(--white); }
@@ -86,13 +88,13 @@
     @media (max-width: 768px) { .about-content { grid-template-columns: 1fr; } }
     .about-text h3 { font-family: 'Noto Serif JP', serif; font-size: 22px; color: var(--primary); margin-bottom: 18px; }
     .about-text p { color: var(--text-light); font-size: 14px; margin-bottom: 14px; }
-    .about-img { height: 300px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 60px; }
+    .about-img { height: 280px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 55px; }
     
     /* Company Info */
     .company-section { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); }
     .company-section .section-header h2, .company-section .section-header p { color: var(--white); }
-    .company-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 35px; }
-    .info-block h4 { font-size: 13px; color: var(--accent); margin-bottom: 12px; letter-spacing: 2px; text-transform: uppercase; }
+    .company-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 35px; }
+    .info-block h4 { font-size: 12px; color: var(--accent); margin-bottom: 12px; letter-spacing: 2px; text-transform: uppercase; }
     .info-block p { font-size: 14px; opacity: 0.9; line-height: 1.7; }
     
     /* CTA */
@@ -121,7 +123,7 @@
       .hero { min-height: 85vh; padding-top: 70px; }
       section { padding: 50px 20px; }
       .business-grid { grid-template-columns: 1fr; }
-      .business-card .card-img { height: 150px; }
+      .business-card .card-img { height: 140px; }
     }
   </style>
 </head>
@@ -145,10 +147,32 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
-      <h1>中日貿易の架け橋となる</h1>
+      <h1>華啓未来株式会社</h1>
+      <p class="mission">アジア文化の架け橋として、最高品質のエンターテインメントを届ける</p>
       <p>信頼と品質を基盤に、文化交流とビジネス成長を支援いたします</p>
     </div>
     <div class="hero-scroll"><span></span></div>
+  </section>
+  
+  <section class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="number">500+</div>
+        <div class="label">取扱商品数</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">1,000+</div>
+        <div class="label">累計顧客数</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">47</div>
+        <div class="label">取引都道府県</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">98.5%</div>
+        <div class="label">顧客満足度</div>
+      </div>
+    </div>
   </section>
   
   <section class="container">
@@ -162,7 +186,7 @@
         <div class="card-img pokemon">🎴</div>
         <div class="card-body">
           <h3>ポケモンカード輸入販売</h3>
-          <p>中国版のポケモンカードを日本へ輸入。信頼あるサプライチェーンで安定した商品提供を実現しています。</p>
+          <p>世界中を愛するポケモンの世界を、日本のファンへ。正規品のみ取り扱い。</p>
           <a href="pokemon.html" class="card-link">詳細を見る →</a>
         </div>
       </div>
@@ -170,7 +194,7 @@
         <div class="card-img genshin">🎮</div>
         <div class="card-body">
           <h3>原神関連グッズ輸入販売</h3>
-          <p>大ヒットゲーム「原神」の魅力を 日本へ。フィギュアから文具まで、多様な商品を輸入しています。</p>
+          <p>中国発の世界的大ヒットRPG、原神の世界観を日本的小伙伴へ。</p>
           <a href="genshin.html" class="card-link">詳細を見る →</a>
         </div>
       </div>
@@ -178,30 +202,9 @@
         <div class="card-img culture">🌏</div>
         <div class="card-body">
           <h3>中日文化貿易</h3>
-          <p>文化交流を通じて両国の理解を深め、新しいビジネスソリューションを提供します。</p>
+          <p>日中国交正常化50周年。文化交流が両国の未来を開く。</p>
           <a href="culture.html" class="card-link">詳細を見る →</a>
         </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="stats-section">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="number">5,000+</div>
-        <div class="label">取引件数</div>
-      </div>
-      <div class="stat-item">
-        <div class="number">3</div>
-        <div class="label">年実績</div>
-      </div>
-      <div class="stat-item">
-        <div class="number">50+</div>
-        <div class="label">取引企業</div>
-      </div>
-      <div class="stat-item">
-        <div class="number">98%</div>
-        <div class="label">顧客満足度</div>
       </div>
     </div>
   </section>
@@ -234,7 +237,7 @@
         </div>
         <div class="info-block">
           <h4>所在地</h4>
-          <p>神奈川県横浜市中区曙町1-3<br>藤和伊勢佐木ハイタウン615号室</p>
+          <p>神奈川県横浜市中区曙町1-3<br>藤和伊勢佐木ハインダード615号室</p>
         </div>
         <div class="info-block">
           <h4>代表者</h4>
@@ -257,7 +260,7 @@
   <footer>
     <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
     <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
-    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイetown615号室</p>
+    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハインダード615号室</p>
     <p>Email: <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
   </footer>
   
