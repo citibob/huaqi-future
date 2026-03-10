@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中日文化貿易 | 華啓未来株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0a1628;
+      --secondary: #1a365d;
+      --accent: #d4af37;
+      --accent-light: #f4d03f;
+      --text: #333;
+      --text-light: #666;
+      --white: #fff;
+      --bg: #f8f9fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--bg); line-height: 1.8; }
+    
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); }
+    header.scrolled { background: rgba(10, 22, 40, 0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .logo img { height: 36px; width: auto; }
+    nav ul { display: flex; list-style: none; gap: 35px; }
+    nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.3s; position: relative; }
+    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    
+    .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1001; }
+    .hamburger span { display: block; width: 100%; height: 2px; background: #fff; transition: all 0.3s; border-radius: 2px; }
+    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .nav-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
+    .nav-overlay.active { display: block; }
+    
+    .page-header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 120px 30px 60px; text-align: center; }
+    .page-header h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(24px, 5vw, 36px); font-weight: 600; margin-bottom: 10px; }
+    .page-header p { font-size: 15px; opacity: 0.85; }
+    
+    main { max-width: 900px; margin: 0 auto; padding: 50px 25px; }
+    
+    .content-section { background: var(--white); padding: 40px 35px; border-radius: 4px; margin-bottom: 30px; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
+    .content-section h2 { font-family: 'Noto Serif JP', serif; font-size: 20px; color: var(--primary); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); }
+    .content-section p { color: var(--text-light); font-size: 15px; margin-bottom: 15px; }
+    
+    .vision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 25px; }
+    .vision-item { background: var(--bg); padding: 30px; border-radius: 4px; border-left: 3px solid var(--accent); }
+    .vision-item h3 { font-size: 16px; color: var(--primary); margin-bottom: 12px; }
+    .vision-item p { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+    
+    .highlight-box { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 30px; border-radius: 4px; margin: 30px 0; }
+    .highlight-box h3 { font-size: 16px; margin-bottom: 15px; color: var(--accent); }
+    .highlight-box p { font-size: 14px; opacity: 0.9; line-height: 1.8; }
+    
+    .timeline { margin-top: 30px; }
+    .timeline-item { display: flex; gap: 20px; margin-bottom: 25px; }
+    .timeline-item .year { min-width: 60px; font-size: 14px; font-weight: bold; color: var(--accent); }
+    .timeline-item .desc { font-size: 14px; color: var(--text-light); }
+    
+    .cta-section { text-align: center; padding: 40px 20px; background: var(--bg); border-radius: 4px; }
+    .cta-section h3 { font-family: 'Noto Serif JP', serif; font-size: 20px; color: var(--primary); margin-bottom: 15px; }
+    .cta-section p { color: var(--text-light); margin-bottom: 20px; font-size: 14px; }
+    .btn { display: inline-block; padding: 14px 35px; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: var(--white); text-decoration: none; border-radius: 2px; font-size: 13px; letter-spacing: 1px; transition: all 0.3s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26, 54, 93, 0.25); }
+    
+    footer { background: var(--primary); color: var(--white); padding: 35px 25px; text-align: center; }
+    footer .logo { margin-bottom: 12px; }
+    footer .logo img { height: 30px; }
+    footer p { font-size: 12px; opacity: 0.6; margin: 4px 0; }
+    
+    @media (max-width: 768px) {
+      .header-inner { padding: 8px 12px; }
+      .logo img { height: 28px; max-width: 90px; }
+      .hamburger { display: flex; }
+      nav { position: fixed; top: 0; right: -100%; width: 75%; max-width: 260px; height: 100vh; background: rgba(10, 22, 40, 0.98); padding: 70px 25px 25px; transition: right 0.3s; box-shadow: -5px 0 20px rgba(0,0,0,0.3); }
+      nav.active { right: 0; }
+      nav ul { flex-direction: column; gap: 22px; }
+      nav a { font-size: 15px; }
+      .page-header { padding: 100px 20px 45px; }
+      main { padding: 30px 18px; }
+      .content-section { padding: 28px 22px; }
+      .content-section h2 { font-size: 18px; }
+      .content-section p { font-size: 14px; }
+      .vision-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><a href="index.html"><img src="logo.svg" alt="華啓未来株式会社"></a></div>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="business.html">事業案内</a></li>
+          <li><a href="company.html">会社情報</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nav-overlay" onclick="toggleMenu()"></div>
+  </header>
+  
+  <section class="page-header">
+    <h1>中日文化貿易</h1>
+    <p>文化交流の架け橋となる</p>
+  </section>
+  
+  <main>
+    <div class="content-section">
+      <h2>会社のビジョン</h2>
+      <p>華啓未来株式会社は、中日両国間の文化交流と経済交流に貢献することをミッションとしています。</p>
+      <p>単なる貿易取引にとどまらず、两国の人々の心が通じる架け橋となることを目指しています。文化には国を超える力があると信じています。</p>
+    </div>
+    
+    <div class="content-section">
+      <h2>我们的使命</h2>
+      <div class="vision-grid">
+        <div class="vision-item">
+          <h3>文化交流の促進</h3>
+          <p>中日両国の魅力的な文化コンテンツを互相に紹介し、国民間の相互理解 深めます。</p>
+        </div>
+        <div class="vision-item">
+          <h3>ビジネス成長支援</h3>
+          <p>両国の企业提供最佳的貿易ソリューション，帮助ビジネス成長します。</p>
+        </div>
+        <div class="vision-item">
+          <h3>信頼関係の構築</h3>
+          <p>長期的な信頼関係を重視し、win-winのパートナーシップを築きます。</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="highlight-box">
+      <h3>今後の展開</h3>
+      <p>現在はポケモンカード・原神グッズの貿易を中心に展開していますが今後は更多のカテゴリーに拡大予定です。アニメーション、漫画、音楽など、中国のポップカルチャーコンテンツを日本へご紹介することも検討しています。</p>
+    </div>
+    
+    <div class="content-section">
+      <h2>沿革</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">2024年</div>
+          <div class="desc">華啓未来株式会社設立。中日貿易事業を開始。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">現在</div>
+          <div class="desc">ポケモンカード・原神グッズの輸入販売を主营。安定したサプライチェーンを構築。</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">今後</div>
+          <div class="desc">更多のカテゴリーへ事業拡大。文化交流事業の展開を予定。</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content-section">
+      <h2>合作伙伴</h2>
+      <p>中日両国に信頼できるビジネスパートナーのネットワークを有しています。商品の仕入れから物流、配送まで、効率的にサポートします。</p>
+      <p>新しいビジネスパートナー様の募集も，欢迎です。</p>
+    </div>
+    
+    <div class="cta-section">
+      <h3>お問い合わせ</h3>
+      <p>贸易・合作关系に関するお問い合わせは、お気軽にお問い合わせください</p>
+      <a href="contact.html" class="btn">お問い合わせフォーム</a>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
+    <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
+    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
+  </footer>
+  
+  <script>
+    window.addEventListener('scroll', () => document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50));
+    function toggleMenu() {
+      document.querySelector('.hamburger').classList.toggle('active');
+      document.querySelector('nav').classList.toggle('active');
+      document.querySelector('.nav-overlay').classList.toggle('active');
+    }
+    document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => toggleMenu()));
+  </script>
+</body>
+</html>
