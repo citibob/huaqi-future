@@ -13,6 +13,7 @@
 | 全站 | 添加sitemap.xml | SEO优化 |
 | 全站 | 添加robots.txt | SEO优化 |
 | business.html | 修复Pokemon图片路径 | 图片加载失败 |
+| **全站** | **修复中文字符** | **日文页面混入中文** |
 
 ### 明日待办
 
