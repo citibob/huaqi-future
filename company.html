@@ -28,9 +28,18 @@
       background: var(--bg);
       line-height: 1.7;
       overflow-x: hidden;
+      touch-action: manipulation;
     }
     
     html { scroll-behavior: smooth; }
+    
+    /* Ensure scrolling works */
+    * { scrollbar-width: thin; }
+    
+    @media (max-width: 768px) {
+      body { overflow-y: auto; }
+      main { padding-top: 100px; }
+    }
     
     header {
       position: fixed;
