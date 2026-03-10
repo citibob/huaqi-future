@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://citibob.github.io/huaqi-future/sitemap.xml
