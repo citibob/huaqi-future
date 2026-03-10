@@ -27,7 +27,10 @@
       color: var(--text);
       background: var(--bg);
       line-height: 1.7;
+      overflow-x: hidden;
     }
+    
+    html { scroll-behavior: smooth; }
     
     header {
       position: fixed;
@@ -177,10 +180,9 @@
     
     .page-header {
       background: linear-gradient(135deg, rgba(10,22,40,0.95) 0%, rgba(20,35,60,0.9) 100%);
-      padding: 80px 30px;
+      padding: 120px 30px 80px;
       text-align: center;
       position: relative;
-      overflow: hidden;
     }
     
     .page-header::before {
@@ -268,6 +270,7 @@
     footer .logo { margin-bottom: 15px; }
     footer .logo img { height: 32px; }
     footer p { font-size: 12px; opacity: 0.6; margin: 5px 0; }
+    footer a { color: #00ffff; text-decoration: underline; }
     
     @media (max-width: 768px) {
       .header-inner { padding: 8px 12px; }
