@@ -143,10 +143,28 @@
     .business-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
     .business-card { background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); transition: all 0.4s ease; }
     .business-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-    .business-card .card-img { height: 160px; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; font-size: 45px; }
-    .business-card .card-img.pokemon { background: linear-gradient(135deg, #ff6b6b, #ffa500); }
-    .business-card .card-img.genshin { background: linear-gradient(135deg, #667eea, #764ba2); }
-    .business-card .card-img.culture { background: linear-gradient(135deg, #11998e, #38ef7d); }
+    .business-card .card-img { 
+      height: 160px; 
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-size: 45px;
+      position: relative;
+      overflow: hidden;
+    }
+    .business-card .card-img.pokemon { 
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-bottom: 3px solid rgba(255,215,0,0.5);
+    }
+    .business-card .card-img.genshin { 
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-bottom: 3px solid rgba(0,255,255,0.5);
+    }
+    .business-card .card-img.culture { 
+      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-bottom: 3px solid rgba(56, 239, 125, 0.5);
+    }
     .business-card .card-body { padding: 26px; }
     .business-card h3 { font-size: 17px; color: var(--primary); margin-bottom: 10px; font-weight: 500; }
     .business-card p { color: var(--text-light); font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
@@ -300,7 +318,10 @@
     </div>
     <div class="business-grid">
       <div class="business-card">
-        <div class="card-img pokemon">🎴</div>
+        <div class="card-img pokemon" style="flex-direction:column;">
+            <div style="font-size:40px;margin-bottom:5px;">⚔️</div>
+            <div style="font-size:10px;color:rgba(255,215,0,0.7);letter-spacing:1px;">POKEMON CARD</div>
+          </div>
         <div class="card-body">
           <h3>ポケモンカード輸入販売</h3>
           <p>世界中を愛するポケモンの世界を、日本のファンへ。正規品のみ取り扱い。</p>
@@ -308,7 +329,10 @@
         </div>
       </div>
       <div class="business-card">
-        <div class="card-img genshin">🎮</div>
+        <div class="card-img genshin" style="flex-direction:column;">
+            <div style="font-size:40px;margin-bottom:5px;">🌌</div>
+            <div style="font-size:10px;color:rgba(0,255,255,0.7);letter-spacing:1px;">GENSHIN</div>
+          </div>
         <div class="card-body">
           <h3>原神関連グッズ輸入販売</h3>
           <p>中国発の世界的大ヒットRPG、原神の世界観を日本的小伙伴へ。</p>
@@ -316,7 +340,10 @@
         </div>
       </div>
       <div class="business-card">
-        <div class="card-img culture">🌏</div>
+        <div class="card-img culture" style="flex-direction:column;">
+            <div style="font-size:40px;margin-bottom:5px;">🤝</div>
+            <div style="font-size:10px;color:rgba(56,239,125,0.7);letter-spacing:1px;">TRADE</div>
+          </div>
         <div class="card-body">
           <h3>中日文化貿易</h3>
           <p>日中国交正常化50周年。文化交流が両国の未来を開く。</p>
