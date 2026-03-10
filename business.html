@@ -29,6 +29,26 @@
 
     /* Neon Logo */
     @keyframes flicker {
+      0%, 100% {
+        text-shadow:
+          0 0 7px rgba(255,255,255,0.8),
+          0 0 10px rgba(255,255,255,0.7),
+          0 0 21px #8a2be2,
+          0 0 42px #8a2be2,
+          0 0 82px #8a2be2,
+          0 0 92px #8a2be2;
+        opacity: 1;
+      }
+      50% {
+        text-shadow:
+          0 0 2px rgba(255,255,255,0.3),
+          0 0 5px rgba(255,255,255,0.2),
+          0 0 10px #8a2be2,
+          0 0 20px #8a2be2,
+          0 0 40px #8a2be2;
+        opacity: 0.6;
+      }
+    }
       0%, 100% { filter: brightness(100%); }
       50% { filter: brightness(110%) drop-shadow(0 0 5px rgba(255,255,255,1)); }
     }
@@ -54,7 +74,7 @@
         0 0 42px #8a2be2,
         0 0 82px #8a2be2,
         0 0 92px #8a2be2;
-      animation: flicker 2s infinite, pulse 3s infinite;
+      animation: flicker 4s infinite;
     }
     
     .hqft-neon-logo .neon-subtitle {
