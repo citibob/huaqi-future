@@ -87,6 +87,24 @@
     .faq-item.active .faq-question::after { content: '-'; }
     
     .cta-section { text-align: center; padding: 35px 20px; background: var(--bg); border-radius: 4px; margin-top: 35px; }
+    
+    /* Gallery */
+    .gallery-section { margin-top: 35px; }
+    .gallery-section h2 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 18px; text-align: center; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 500px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    .gallery-item { height: 120px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+    
+    /* Limited */
+    .limited-section { background: var(--white); padding: 32px 28px; border-radius: 4px; margin: 22px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
+    .limited-section h2 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+    .limited-section p { color: var(--text-light); font-size: 14px; margin-bottom: 13px; }
+    .limited-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
+    @media (max-width: 500px) { .limited-grid { grid-template-columns: 1fr; } }
+    .limited-item { background: var(--bg); padding: 16px; border-radius: 4px; }
+    .limited-item h4 { font-size: 13px; color: var(--primary); margin-bottom: 6px; }
+    .limited-item p { font-size: 11px; color: var(--text-light); margin: 0; }
+    
     .cta-section h3 { font-family: 'Noto Serif JP', serif; font-size: 17px; color: var(--primary); margin-bottom: 11px; }
     .cta-section p { color: var(--text-light); margin-bottom: 16px; font-size: 12px; }
     .btn { display: inline-block; padding: 11px 28px; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: var(--white); text-decoration: none; border-radius: 2px; font-size: 12px; letter-spacing: 1px; }
@@ -221,6 +239,41 @@
       <p>全てのグッズは中国・香港の正規授權店から仕入れており、miHoYo公式ライセンス品です。偽物品は取り扱っておりません。厳しい品質管理のもと、玩家の皆様に高品質な商品をお届けします。</p>
     </div>
     
+    <div class="gallery-section">
+      <h2>商品ギャラリー</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">🎎</div>
+        <div class="gallery-item">🖼️</div>
+        <div class="gallery-item">🎀</div>
+        <div class="gallery-item">📔</div>
+        <div class="gallery-item">👕</div>
+        <div class="gallery-item">☕</div>
+      </div>
+    </div>
+    
+    <div class="limited-section">
+      <h2>限定商品特集</h2>
+      <p>アジアサーリミテッド商品や中国版限定品は、日本での入手が困難でコレクター価値が高いです。</p>
+      <div class="limited-grid">
+        <div class="limited-item">
+          <h4>🎯 限定版的価値</h4>
+          <p>アジアサーリミテッド商品は日本での入手が困難で、收藏価値が高い。</p>
+        </div>
+        <div class="limited-item">
+          <h4>⭐ レア商品</h4>
+          <p>中国版限定ディズインはコレクターにとって非常に珍贵的。</p>
+        </div>
+        <div class="limited-item">
+          <h4>🏆 数量限定</h4>
+          <p>生產数が限られた希少価値の高い商品。</p>
+        </div>
+        <div class="limited-item">
+          <h4>💎 投資価値</h4>
+          <p>希少性の高い商品は將来的に価値が上昇的可能性。</p>
+        </div>
+      </div>
+    </div>
+    
     <div class="faq-section">
       <h2>よくあるご質問</h2>
       <div class="faq-item">
@@ -234,6 +287,10 @@
       <div class="faq-item">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">大量の注文は可能ですか？</div>
         <div class="faq-answer">可能です。卸売・了大量注文は別途お見積もりいたします。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">到着までどのくらいかかりますか？</div>
+        <div class="faq-answer">仕入から発送まで3-5営業日、日本までの配送は約1週間程度です。</div>
       </div>
     </div>
     

@@ -65,7 +65,7 @@
     .stats-bar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 45px 30px; }
     .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; max-width: 900px; margin: 0 auto; text-align: center; }
     .stat-item .number { font-size: 38px; font-weight: 700; color: var(--accent); font-family: 'Noto Serif JP', serif; }
-    .stat-item .label { font-size: 12px; opacity: 0.9; margin-top: 5px; }
+    .stat-item .label { font-size: 12px; color: #fff; margin-top: 5px; font-weight: 500; }
     @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } .stat-item .number { font-size: 32px; } }
     
     /* Business Cards */
@@ -88,7 +88,7 @@
     @media (max-width: 768px) { .about-content { grid-template-columns: 1fr; } }
     .about-text h3 { font-family: 'Noto Serif JP', serif; font-size: 22px; color: var(--primary); margin-bottom: 18px; }
     .about-text p { color: var(--text-light); font-size: 14px; margin-bottom: 14px; }
-    .about-img { height: 280px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 55px; }
+    .about-img { height: 280px; background: url('https://images.unsplash.com/photo-1521791136064-7986c2920277?w=800&q=80') center/cover no-repeat; border-radius: 4px; }
     
     /* Company Info */
     .company-section { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); }
@@ -99,6 +99,29 @@
     
     /* CTA */
     .cta-section { text-align: center; padding: 60px 30px; background: var(--bg); }
+    
+    /* Reviews */
+    .reviews-section { background: var(--white); padding: 60px 30px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+    .review-card { background: var(--bg); padding: 25px; border-radius: 4px; border-left: 3px solid var(--accent); }
+    .review-card .avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; }
+    .review-card p { font-size: 13px; color: var(--text-light); font-style: italic; line-height: 1.7; margin-bottom: 12px; }
+    .review-card .author { font-size: 12px; color: var(--primary); font-weight: 500; }
+    .review-card .author span { color: var(--text-light); font-weight: 400; }
+    
+    /* News */
+    .news-section { padding: 60px 30px; background: var(--bg); }
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .news-card { background: var(--white); padding: 22px; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+    .news-card .date { font-size: 11px; color: var(--accent); margin-bottom: 8px; }
+    .news-card h4 { font-size: 14px; color: var(--primary); margin-bottom: 8px; line-height: 1.5; }
+    .news-card p { font-size: 12px; color: var(--text-light); }
+    
+    /* Partners */
+    .partners-section { background: var(--white); padding: 50px 30px; }
+    .partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; text-align: center; }
+    .partner-logo { height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 500; opacity: 0.8; }
+    
     .cta-section h3 { font-family: 'Noto Serif JP', serif; font-size: 24px; color: var(--primary); margin-bottom: 15px; }
     .cta-section p { color: var(--text-light); margin-bottom: 25px; font-size: 14px; }
     .btn { display: inline-block; padding: 14px 40px; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: var(--white); text-decoration: none; border-radius: 2px; font-size: 13px; letter-spacing: 1px; transition: all 0.3s; }
@@ -218,7 +241,7 @@
           <p>単なる商品取引にとどまらず、文化の理解しビジネスの成功をサポートすることが私たちの喜びです。</p>
           <p>経験豊富なチームと強力なネットワークで、お客様のニーズに最善のサポートいたします。</p>
         </div>
-        <div class="about-img">🤝</div>
+        <div class="about-img"></div>
       </div>
     </div>
   </section>
@@ -247,6 +270,78 @@
           <h4>お問い合わせ</h4>
           <p>asiacardptcg@gmail.com</p>
         </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>お客様の声</h2>
+        <p>お客様からいただいた貴重なご意見</p>
+        <div class="divider"></div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="avatar">⭐</div>
+          <p>中国版のポケモンカードを複数購入しました。状態のよく、配送もとても早かったです。また利用したいです。</p>
+          <div class="author">田中 健太 <span>様 / 東京都</span></div>
+        </div>
+        <div class="review-card">
+          <div class="avatar">🎮</div>
+          <p>原神のディズ在庫豊富に揃っていて満足です。スタッフの方の対応もとても親切で助かりました。</p>
+          <div class="author">佐藤 さくら <span>様 / 神奈川県</span></div>
+        </div>
+        <div class="review-card">
+          <div class="avatar">🛒</div>
+          <p>初めての利用でしたが、説明も分かりやすく、商品の品質にも満足しています。おすすめします！</p>
+          <div class="author">鈴木 一郎 <span>様 / 大阪府</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="news-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>最新ニュース</h2>
+        <p>お知らせ・新着情報</p>
+        <div class="divider"></div>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="date">2024.03.05</div>
+          <h4>新商品のご案内</h4>
+          <p>ポケモンカード新シリーズの受注を開始しました。</p>
+        </div>
+        <div class="news-card">
+          <div class="date">2024.02.20</div>
+          <h4>春博会に出展</h4>
+          <p>中日貿易イベントへの参加が決まりました。</p>
+        </div>
+        <div class="news-card">
+          <div class="date">2024.02.01</div>
+          <h4>取扱い商品拡大</h4>
+          <p>原神グッズの取扱いを開始しました。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="partners-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>取引先・パートナー</h2>
+        <p>多くの企業と向き合い、ともに成長しています</p>
+        <div class="divider"></div>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-logo">パートナー企業A</div>
+        <div class="partner-logo">パートナー企業B</div>
+        <div class="partner-logo">パートナー企業C</div>
+        <div class="partner-logo">パートナー企業D</div>
+        <div class="partner-logo">パートナー企業E</div>
+        <div class="partner-logo">パートナー企業F</div>
       </div>
     </div>
   </section>

@@ -81,6 +81,24 @@
     .faq-item.active .faq-question::after { content: '-'; }
     
     .cta-section { text-align: center; padding: 35px 20px; background: var(--bg); border-radius: 4px; margin-top: 35px; }
+    
+    /* Gallery */
+    .gallery-section { margin-top: 35px; }
+    .gallery-section h2 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 18px; text-align: center; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 500px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    .gallery-item { height: 120px; background: linear-gradient(135deg, #ff6b6b, #ffa500); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+    
+    /* PSA Section */
+    .psa-section { background: var(--white); padding: 32px 28px; border-radius: 4px; margin: 22px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
+    .psa-section h2 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); }
+    .psa-section p { color: var(--text-light); font-size: 14px; margin-bottom: 13px; }
+    .psa-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
+    @media (max-width: 500px) { .psa-grid { grid-template-columns: 1fr; } }
+    .psa-item { background: var(--bg); padding: 16px; border-radius: 4px; }
+    .psa-item h4 { font-size: 13px; color: var(--primary); margin-bottom: 6px; }
+    .psa-item p { font-size: 11px; color: var(--text-light); margin: 0; }
+    
     .cta-section h3 { font-family: 'Noto Serif JP', serif; font-size: 17px; color: var(--primary); margin-bottom: 11px; }
     .cta-section p { color: var(--text-light); margin-bottom: 16px; font-size: 12px; }
     .btn { display: inline-block; padding: 11px 28px; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: var(--white); text-decoration: none; border-radius: 2px; font-size: 12px; letter-spacing: 1px; }
@@ -209,6 +227,41 @@
       </div>
     </div>
     
+    <div class="gallery-section">
+      <h2>商品ギャラリー</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">🎴</div>
+        <div class="gallery-item">🃏</div>
+        <div class="gallery-item">✨</div>
+        <div class="gallery-item">🏆</div>
+        <div class="gallery-item">💎</div>
+        <div class="gallery-item">🌟</div>
+      </div>
+    </div>
+    
+    <div class="psa-section">
+      <h2>PSA鑑定について</h2>
+      <p>PSA（Professional Sports Authenticators）は、世界で最も信頼されているカード鑑定機関です。PSA鑑定済みのカードは、カードの真正性と状態を保証します。</p>
+      <div class="psa-grid">
+        <div class="psa-item">
+          <h4>PSA10 Gem Mint</h4>
+          <p>完璧な状態。傷・擦れ一切なし。</p>
+        </div>
+        <div class="psa-item">
+          <h4>PSA9 Mint</h4>
+          <p>ほぼ完璧。非常に浅い傷のみ。</p>
+        </div>
+        <div class="psa-item">
+          <h4>PSA8 NM-MT</h4>
+          <p>後期美品。わずかな傷。</p>
+        </div>
+        <div class="psa-item">
+          <h4>鑑定流程</h4>
+          <p>正規鑑定機関での厳格な審査。</p>
+        </div>
+      </div>
+    </div>
+    
     <div class="faq-section">
       <h2>よくあるご質問</h2>
       <div class="faq-item">
@@ -226,6 +279,10 @@
       <div class="faq-item">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">PSA鑑定カードも取扱していますか？</div>
         <div class="faq-answer">はい。PSA9・PSA10の鑑定済みカードも豊富に取り扱っています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">カードの状態でトラブルがあったら？</div>
+        <div class="faq-answer">到着時に状態に問題がある場合、全額返金または交換対応をいたします。</div>
       </div>
     </div>
     
