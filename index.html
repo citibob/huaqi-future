@@ -12,19 +12,19 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--bg); line-height: 1.8; }
-    
+
     header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); }
     header.scrolled { background: rgba(10, 22, 40, 0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
     .header-inner { max-width: 1200px; margin: 0 auto; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; }
     .logo img { height: 36px; width: auto; }
-    
+
     /* Neon Logo */
     @keyframes flicker {
       0%, 100% {
         text-shadow:
           0 0 7px rgba(255,255,255,0.8),
           0 0 10px rgba(255,255,255,0.7),
-          0 0 21px #8a2be2, 
+          0 0 21px #8a2be2,
           0 0 42px #8a2be2,
           0 0 82px #8a2be2,
           0 0 92px #8a2be2;
@@ -34,25 +34,25 @@
         text-shadow:
           0 0 2px rgba(255,255,255,0.3),
           0 0 5px rgba(255,255,255,0.2),
-          0 0 10px #8a2be2, 
+          0 0 10px #8a2be2,
           0 0 20px #8a2be2,
           0 0 40px #8a2be2;
         opacity: 0.6;
       }
     }
-    
+
     @keyframes pulse {
       0%, 100% { filter: brightness(100%) drop-shadow(0 0 2px rgba(255,255,255,0.8)); }
       50% { filter: brightness(110%) drop-shadow(0 0 5px rgba(255,255,255,1)); }
     }
-    
+
     .hqft-neon-logo {
       display: inline-block;
       text-align: center;
       padding: 5px 10px;
       background: transparent;
     }
-    
+
     .hqft-neon-logo .neon-title {
       font-family: 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
       font-size: 24px;
@@ -71,7 +71,7 @@
         0 0 151px #8a2be2;
       animation: flicker 4s infinite;
     }
-    
+
     .hqft-neon-logo .neon-subtitle {
       font-family: 'Futura', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
       font-size: 6px;
@@ -93,7 +93,7 @@
     nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
     nav a:hover, nav a.active { color: var(--accent); }
     nav a:hover::after, nav a.active::after { width: 100%; }
-    
+
     .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1001; }
     .hamburger span { display: block; width: 100%; height: 2px; background: #fff; transition: all 0.3s; border-radius: 2px; }
     .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -101,7 +101,7 @@
     .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     .nav-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
     .nav-overlay.active { display: block; }
-    
+
     /* Hero */
     .hero {
       min-height: 100vh;
@@ -113,7 +113,7 @@
       justify-content: center;
       position: relative;
     }
-    
+
     .hero-content { text-align: center; color: var(--white); z-index: 1; padding: 0 20px; animation: fadeInUp 1s ease; }
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     .hero-logo { margin-bottom: 35px; animation: fadeInUp 1s ease 0.2s both; }
@@ -124,53 +124,42 @@
     .hero-scroll { position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; }
     .hero-scroll span { display: block; width: 20px; height: 20px; border-right: 2px solid rgba(255,255,255,0.5); border-bottom: 2px solid rgba(255,255,255,0.5); transform: rotate(45deg); }
     @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
-    
+
     section { padding: 80px 30px; }
     .container { max-width: 1100px; margin: 0 auto; }
     .section-header { text-align: center; margin-bottom: 50px; }
     .section-header h2 { font-family: 'Noto Serif JP', serif; font-size: clamp(22px, 4vw, 32px); color: var(--primary); margin-bottom: 12px; font-weight: 600; }
     .section-header p { color: var(--text-light); font-size: 15px; }
     .section-header .divider { width: 55px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); margin: 18px auto 0; }
-    
+
     /* Stats */
     .stats-bar { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 45px 30px; }
     .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; max-width: 900px; margin: 0 auto; text-align: center; }
     .stat-item .number { font-size: 38px; font-weight: 700; color: var(--accent); font-family: 'Noto Serif JP', serif; }
     .stat-item .label { font-size: 12px; color: #fff; margin-top: 5px; font-weight: 500; }
     @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } .stat-item .number { font-size: 32px; } }
-    
+
     /* Business Cards */
     .business-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
     .business-card { background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 25px rgba(0,0,0,0.06); transition: all 0.4s ease; }
     .business-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
     .business-card .card-img { 
       height: 160px; 
-      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 45px;
-      position: relative;
-      overflow: hidden;
     }
-    .business-card .card-img.pokemon { 
-      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      border-bottom: 3px solid rgba(255,215,0,0.5);
-    }
-    .business-card .card-img.genshin { 
-      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      border-bottom: 3px solid rgba(0,255,255,0.5);
-    }
-    .business-card .card-img.culture { 
-      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      border-bottom: 3px solid rgba(56, 239, 125, 0.5);
-    }
+    .business-card .card-img.pokemon { background: linear-gradient(135deg, #ff6b6b, #ffa500); }
+    .business-card .card-img.genshin { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .business-card .card-img.culture { background: linear-gradient(135deg, #11998e, #38ef7d); }
     .business-card .card-body { padding: 26px; }
     .business-card h3 { font-size: 17px; color: var(--primary); margin-bottom: 10px; font-weight: 500; }
     .business-card p { color: var(--text-light); font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
     .business-card .card-link { color: var(--accent); font-size: 13px; text-decoration: none; font-weight: 500; }
     .business-card .card-link:hover { text-decoration: underline; }
-    
+
     /* About */
     .about { background: var(--white); }
     .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
@@ -178,17 +167,17 @@
     .about-text h3 { font-family: 'Noto Serif JP', serif; font-size: 22px; color: var(--primary); margin-bottom: 18px; }
     .about-text p { color: var(--text-light); font-size: 14px; margin-bottom: 14px; }
     .about-img { height: 280px; background: url('https://images.unsplash.com/photo-1521791136064-7986c2920277?w=800&q=80') center/cover no-repeat; border-radius: 4px; }
-    
+
     /* Company Info */
     .company-section { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); }
     .company-section .section-header h2, .company-section .section-header p { color: var(--white); }
     .company-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 35px; }
     .info-block h4 { font-size: 12px; color: var(--accent); margin-bottom: 12px; letter-spacing: 2px; text-transform: uppercase; }
     .info-block p { font-size: 14px; opacity: 0.9; line-height: 1.7; }
-    
+
     /* CTA */
     .cta-section { text-align: center; padding: 60px 30px; background: var(--bg); }
-    
+
     /* Reviews */
     .reviews-section { background: var(--white); padding: 60px 30px; }
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
@@ -197,7 +186,7 @@
     .review-card p { font-size: 13px; color: var(--text-light); font-style: italic; line-height: 1.7; margin-bottom: 12px; }
     .review-card .author { font-size: 12px; color: var(--primary); font-weight: 500; }
     .review-card .author span { color: var(--text-light); font-weight: 400; }
-    
+
     /* News */
     .news-section { padding: 60px 30px; background: var(--bg); }
     .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
@@ -205,12 +194,12 @@
     .news-card .date { font-size: 11px; color: var(--accent); margin-bottom: 8px; }
     .news-card h4 { font-size: 14px; color: var(--primary); margin-bottom: 8px; line-height: 1.5; }
     .news-card p { font-size: 12px; color: var(--text-light); }
-    
+
     /* Partners */
     .partners-section { background: var(--white); padding: 50px 30px; }
     .partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; text-align: center; }
     .partner-logo { height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 500; opacity: 0.8; }
-    
+
     .neon-btn {
       display: inline-block;
       padding: 16px 50px;
@@ -226,26 +215,26 @@
       box-shadow: 0 0 10px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1);
       transition: all 0.3s ease;
     }
-    
+
     .neon-btn:hover {
       background: #00ffff;
       color: #0a1628;
       text-shadow: none;
       box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
     }
-    
+
     .cta-section h3 { font-family: 'Noto Serif JP', serif; font-size: 24px; color: var(--primary); margin-bottom: 15px; }
     .cta-section p { color: var(--text-light); margin-bottom: 25px; font-size: 14px; }
     .btn { display: inline-block; padding: 14px 40px; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: var(--white); text-decoration: none; border-radius: 2px; font-size: 13px; letter-spacing: 1px; transition: all 0.3s; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(26, 54, 93, 0.3); }
-    
+
     /* Footer */
     footer { background: var(--primary); color: var(--white); padding: 40px 30px; text-align: center; }
     footer .logo { margin-bottom: 12px; }
     footer .logo img { height: 30px; }
     footer p { font-size: 12px; opacity: 0.6; margin: 4px 0; }
     footer a { color: var(--accent); text-decoration: none; }
-    
+
     /* Mobile */
     @media (max-width: 768px) {
       .header-inner { padding: 8px 12px; }
@@ -278,7 +267,7 @@
     </div>
     <div class="nav-overlay" onclick="toggleMenu()"></div>
   </header>
-  
+
   <section class="hero">
     <div class="hero-content">
       <div class="hero-logo"><div class="hqft-neon-logo" style="padding: 20px 40px;"><div class="neon-title" style="font-size: 48px;">華啓</div><div class="neon-subtitle" style="font-size: 12px;">FUTURE TRADING</div></div></div>
@@ -288,7 +277,7 @@
     </div>
     <div class="hero-scroll"><span></span></div>
   </section>
-  
+
   <section class="stats-bar">
     <div class="stats-grid">
       <div class="stat-item">
@@ -309,7 +298,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="container">
     <div class="section-header">
       <h2>事業案内</h2>
@@ -318,10 +307,7 @@
     </div>
     <div class="business-grid">
       <div class="business-card">
-        <div class="card-img pokemon" style="flex-direction:column;">
-            <div style="font-size:40px;margin-bottom:5px;">⚔️</div>
-            <div style="font-size:10px;color:rgba(255,215,0,0.7);letter-spacing:1px;">POKEMON CARD</div>
-          </div>
+        <div class="card-img pokemon">🎴</div>
         <div class="card-body">
           <h3>ポケモンカード輸入販売</h3>
           <p>世界中を愛するポケモンの世界を、日本のファンへ。正規品のみ取り扱い。</p>
@@ -329,10 +315,7 @@
         </div>
       </div>
       <div class="business-card">
-        <div class="card-img genshin" style="flex-direction:column;">
-            <div style="font-size:40px;margin-bottom:5px;">🌌</div>
-            <div style="font-size:10px;color:rgba(0,255,255,0.7);letter-spacing:1px;">GENSHIN</div>
-          </div>
+        <div class="card-img genshin">🎮</div>
         <div class="card-body">
           <h3>原神関連グッズ輸入販売</h3>
           <p>中国発の世界的大ヒットRPG、原神の世界観を日本的小伙伴へ。</p>
@@ -340,10 +323,7 @@
         </div>
       </div>
       <div class="business-card">
-        <div class="card-img culture" style="flex-direction:column;">
-            <div style="font-size:40px;margin-bottom:5px;">🤝</div>
-            <div style="font-size:10px;color:rgba(56,239,125,0.7);letter-spacing:1px;">TRADE</div>
-          </div>
+        <div class="card-img culture">🌏</div>
         <div class="card-body">
           <h3>中日文化貿易</h3>
           <p>日中国交正常化50周年。文化交流が両国の未来を開く。</p>
@@ -352,7 +332,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="about">
     <div class="container">
       <div class="about-content">
@@ -366,7 +346,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="company-section">
     <div class="container">
       <div class="section-header">
@@ -394,7 +374,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="reviews-section">
     <div class="container">
       <div class="section-header">
@@ -421,7 +401,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="news-section">
     <div class="container">
       <div class="section-header">
@@ -448,7 +428,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="partners-section">
     <div class="container">
       <div class="section-header">
@@ -461,20 +441,20 @@
       </div>
     </div>
   </section>
-  
+
   <section class="cta-section">
     <h3>お問い合わせ</h3>
     <p>ご質問やご要望がございましたら、お気軽にお問い合わせください</p>
     <a href="contact.html" class="btn">お問い合わせフォーム</a>
   </section>
-  
+
   <footer>
     <div class="logo"><div class="hqft-neon-logo" style="padding: 5px 10px;"><div class="neon-title" style="font-size: 18px;">華啓</div><div class="neon-subtitle" style="font-size: 5px;">FUTURE TRADING</div></div></div>
     <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
     <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハインダード615号室</p>
     <p>Email: <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
   </footer>
-  
+
   <script>
     window.addEventListener('scroll', () => document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50));
     function toggleMenu() {

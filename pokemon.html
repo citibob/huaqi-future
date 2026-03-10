@@ -153,38 +153,7 @@
     .gallery-section h2 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 18px; text-align: center; }
     .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     @media (max-width: 500px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-    .gallery-item { 
-      height: 140px; 
-      background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      border-radius: 8px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      font-size: 28px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,215,0,0.2);
-    }
-    
-    .gallery-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 40%;
-      background: linear-gradient(180deg, rgba(255,215,0,0.1) 0%, transparent 100%);
-    }
-    
-    .gallery-item::after {
-      content: 'POKEMON';
-      position: absolute;
-      bottom: 8px;
-      font-size: 8px;
-      color: rgba(255,215,0,0.4);
-      letter-spacing: 2px;
-    }
+    .gallery-item { height: 120px; background: linear-gradient(135deg, #ff6b6b, #ffa500); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
     
     /* PSA Section */
     .psa-section { background: var(--white); padding: 32px 28px; border-radius: 4px; margin: 22px 0; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
@@ -327,30 +296,12 @@
     <div class="gallery-section">
       <h2>商品ギャラリー</h2>
       <div class="gallery-grid">
-        <div class="gallery-item" style="flex-direction:column;">
-          <div style="font-size:36px;margin-bottom:8px;">⚔️</div>
-          <div style="font-size:10px;color:rgba(255,215,0,0.7);">扩建包</div>
-        </div>
-        <div class="gallery-item" style="flex-direction:column;">
-          <div style="font-size:36px;margin-bottom:8px;">🎯</div>
-          <div style="font-size:10px;color:rgba(255,215,0,0.7);">構築済みデッキ</div>
-        </div>
-        <div class="gallery-item" style="flex-direction:column;">
-          <div style="font-size:36px;margin-bottom:8px;">💎</div>
-          <div style="font-size:10px;color:rgba(255,215,0,0.7);">PSA鑑定カード</div>
-        </div>
-        <div class="gallery-item" style="flex-direction:column;">
-          <div style="font-size:36px;margin-bottom:8px;">🏆</div>
-          <div style="font-size:10px;color:rgba(255,215,0,0.7);">プロモカード</div>
-        </div>
-        <div class="gallery-item" style="flex-direction:column;">
-          <div style="font-size:36px;margin-bottom:8px;">✨</div>
-          <div style="font-size:10px;color:rgba(255,215,0,0.7);">ヴィンテージ</div>
-        </div>
-        <div class="gallery-item" style="flex-direction:column;">
-          <div style="font-size:36px;margin-bottom:8px;">🌟</div>
-          <div style="font-size:10px;color:rgba(255,215,0,0.7);">限定セット</div>
-        </div>
+        <div class="gallery-item">🎴</div>
+        <div class="gallery-item">🃏</div>
+        <div class="gallery-item">✨</div>
+        <div class="gallery-item">🏆</div>
+        <div class="gallery-item">💎</div>
+        <div class="gallery-item">🌟</div>
       </div>
     </div>
     
