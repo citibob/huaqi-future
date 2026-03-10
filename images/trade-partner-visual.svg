@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d1525;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Glow gradients -->
+    <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4f8ef7;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#4f8ef7;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="glowPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Node gradients -->
+    <radialGradient id="nodeJP" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#7dd3fc" />
+      <stop offset="100%" style="stop-color:#1d4ed8" />
+    </radialGradient>
+    <radialGradient id="nodeCN" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#f9a8d4" />
+      <stop offset="100%" style="stop-color:#9333ea" />
+    </radialGradient>
+    <radialGradient id="nodeHub" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#67e8f9" />
+      <stop offset="100%" style="stop-color:#0284c7" />
+    </radialGradient>
+    <radialGradient id="nodeSG" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#86efac" />
+      <stop offset="100%" style="stop-color:#15803d" />
+    </radialGradient>
+
+    <!-- Grid line pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e2d4a" stroke-width="0.5" opacity="0.6"/>
+    </pattern>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip -->
+    <clipPath id="roundedClip">
+      <rect width="600" height="420" rx="16"/>
+    </clipPath>
+
+    <!-- Arrow marker -->
+    <marker id="arrowBlue" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#4f8ef7" opacity="0.8"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#a855f7" opacity="0.8"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#06b6d4" opacity="0.8"/>
+    </marker>
+
+    <!-- Animated dash -->
+    <style>
+      .flow1 { stroke-dasharray: 8 16; animation: dash1 3s linear infinite; }
+      .flow2 { stroke-dasharray: 8 16; animation: dash2 4s linear infinite; }
+      .flow3 { stroke-dasharray: 8 16; animation: dash3 3.5s linear infinite; }
+      .flow4 { stroke-dasharray: 8 16; animation: dash4 2.5s linear infinite; }
+      .pulse1 { animation: pulse 3s ease-in-out infinite; }
+      .pulse2 { animation: pulse 3s ease-in-out infinite 1s; }
+      .pulse3 { animation: pulse 3s ease-in-out infinite 2s; }
+      .orbit { animation: orbit 8s linear infinite; transform-origin: 300px 210px; }
+      @keyframes dash1 { to { stroke-dashoffset: -120; } }
+      @keyframes dash2 { to { stroke-dashoffset: -120; } }
+      @keyframes dash3 { to { stroke-dashoffset: -120; } }
+      @keyframes dash4 { to { stroke-dashoffset: -120; } }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.4; r: 6; }
+        50% { opacity: 1; r: 8; }
+      }
+      @keyframes orbit {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#roundedClip)">
+    <!-- Background -->
+    <rect width="600" height="420" fill="url(#bgGrad)"/>
+    <rect width="600" height="420" fill="url(#grid)"/>
+
+    <!-- Ambient glow blobs -->
+    <ellipse cx="160" cy="180" rx="120" ry="100" fill="url(#glowPurple)" opacity="0.3"/>
+    <ellipse cx="450" cy="220" rx="130" ry="110" fill="url(#glowBlue)" opacity="0.3"/>
+    <ellipse cx="300" cy="310" rx="100" ry="80" fill="url(#glowCyan)" opacity="0.2"/>
+
+    <!-- Decorative background arcs -->
+    <circle cx="300" cy="210" r="160" fill="none" stroke="#1e3a5f" stroke-width="1" opacity="0.4" stroke-dasharray="4 8"/>
+    <circle cx="300" cy="210" r="200" fill="none" stroke="#1e2d4a" stroke-width="0.5" opacity="0.3" stroke-dasharray="2 10"/>
+
+    <!-- Orbiting ring -->
+    <g class="orbit">
+      <circle cx="300" cy="50" r="4" fill="#4f8ef7" opacity="0.6" filter="url(#glow)"/>
+    </g>
+
+    <!-- ── Connection lines ── -->
+    <!-- JP <-> Hub -->
+    <line x1="155" y1="155" x2="282" y2="202" stroke="#4f8ef7" stroke-width="1.5" opacity="0.5" class="flow1" marker-end="url(#arrowBlue)"/>
+    <line x1="282" y1="202" x2="155" y2="155" stroke="#4f8ef7" stroke-width="1" opacity="0.3" class="flow2"/>
+
+    <!-- CN <-> Hub -->
+    <line x1="445" y1="155" x2="318" y2="202" stroke="#a855f7" stroke-width="1.5" opacity="0.5" class="flow2" marker-end="url(#arrowPurple)"/>
+    <line x1="318" y1="202" x2="445" y2="155" stroke="#a855f7" stroke-width="1" opacity="0.3" class="flow1"/>
+
+    <!-- Hub <-> SG -->
+    <line x1="300" y1="232" x2="300" y2="318" stroke="#06b6d4" stroke-width="1.5" opacity="0.5" class="flow3" marker-end="url(#arrowCyan)"/>
+
+    <!-- Hub <-> side nodes -->
+    <line x1="272" y1="210" x2="120" y2="290" stroke="#4f8ef7" stroke-width="1" opacity="0.3" class="flow4"/>
+    <line x1="328" y1="210" x2="480" y2="290" stroke="#a855f7" stroke-width="1" opacity="0.3" class="flow3"/>
+
+    <!-- Small satellite nodes -->
+    <circle cx="120" cy="290" r="5" fill="#4f8ef7" opacity="0.5" filter="url(#glow)"/>
+    <circle cx="480" cy="290" r="5" fill="#a855f7" opacity="0.5" filter="url(#glow)"/>
+    <circle cx="200" cy="320" r="4" fill="#06b6d4" opacity="0.4"/>
+    <circle cx="400" cy="320" r="4" fill="#06b6d4" opacity="0.4"/>
+    <line x1="120" y1="290" x2="200" y2="320" stroke="#4f8ef7" stroke-width="0.8" opacity="0.2"/>
+    <line x1="480" y1="290" x2="400" y2="320" stroke="#a855f7" stroke-width="0.8" opacity="0.2"/>
+    <line x1="200" y1="320" x2="300" y2="330" stroke="#06b6d4" stroke-width="0.8" opacity="0.2"/>
+    <line x1="400" y1="320" x2="300" y2="330" stroke="#06b6d4" stroke-width="0.8" opacity="0.2"/>
+
+    <!-- ── Main Nodes ── -->
+
+    <!-- Japan node -->
+    <circle cx="150" cy="148" r="48" fill="url(#nodeJP)" opacity="0.15" filter="url(#softGlow)"/>
+    <circle cx="150" cy="148" r="32" fill="#0f172a" stroke="#4f8ef7" stroke-width="2"/>
+    <circle cx="150" cy="148" r="30" fill="none" stroke="#7dd3fc" stroke-width="1" opacity="0.5" stroke-dasharray="3 5"/>
+    <!-- JP flag simplified -->
+    <rect x="126" y="134" width="48" height="28" rx="3" fill="#0f172a" stroke="#4f8ef7" stroke-width="1" opacity="0.6"/>
+    <circle cx="150" cy="148" r="9" fill="#ef4444" opacity="0.9"/>
+    <text x="150" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#7dd3fc" letter-spacing="1">JAPAN</text>
+    <!-- Pulse ring -->
+    <circle cx="150" cy="148" r="6" fill="#4f8ef7" class="pulse1"/>
+
+    <!-- China node -->
+    <circle cx="450" cy="148" r="48" fill="url(#nodeCN)" opacity="0.15" filter="url(#softGlow)"/>
+    <circle cx="450" cy="148" r="32" fill="#0f172a" stroke="#a855f7" stroke-width="2"/>
+    <circle cx="450" cy="148" r="30" fill="none" stroke="#f9a8d4" stroke-width="1" opacity="0.5" stroke-dasharray="3 5"/>
+    <!-- CN simplified star -->
+    <rect x="426" y="134" width="48" height="28" rx="3" fill="#0f172a" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
+    <polygon points="450,136 452.4,143.2 460,143.2 453.8,147.8 456.2,155 450,150.4 443.8,155 446.2,147.8 440,143.2 447.6,143.2" fill="#fbbf24" opacity="0.9" transform="scale(0.7) translate(192,64)"/>
+    <text x="450" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f9a8d4" letter-spacing="1">CHINA</text>
+    <!-- Pulse ring -->
+    <circle cx="450" cy="148" r="6" fill="#a855f7" class="pulse2"/>
+
+    <!-- Hub node (华启 center) -->
+    <circle cx="300" cy="210" r="55" fill="url(#nodeHub)" opacity="0.1" filter="url(#softGlow)"/>
+    <circle cx="300" cy="210" r="38" fill="#0d1a2e" stroke="#06b6d4" stroke-width="2.5"/>
+    <circle cx="300" cy="210" r="34" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.4" stroke-dasharray="4 6"/>
+    <!-- 华 character stylized -->
+    <text x="300" y="203" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#67e8f9" filter="url(#glow)">華啓</text>
+    <text x="300" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#94a3b8" letter-spacing="2">FUTURE</text>
+    <!-- Pulse ring -->
+    <circle cx="300" cy="210" r="7" fill="#06b6d4" class="pulse3" filter="url(#glow)"/>
+
+    <!-- Singapore/SE Asia node -->
+    <circle cx="300" cy="335" r="36" fill="url(#nodeSG)" opacity="0.12" filter="url(#softGlow)"/>
+    <circle cx="300" cy="335" r="24" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <circle cx="300" cy="335" r="22" fill="none" stroke="#86efac" stroke-width="1" opacity="0.4" stroke-dasharray="3 5"/>
+    <text x="300" y="331" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#86efac">SEA</text>
+    <text x="300" y="343" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#6ee7b7">MARKET</text>
+
+    <!-- ── Data packets (animated dots on lines) ── -->
+    <circle r="3" fill="#7dd3fc" opacity="0.9" filter="url(#glow)">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#pathJPHub"/>
+      </animateMotion>
+    </circle>
+    <circle r="3" fill="#f9a8d4" opacity="0.9" filter="url(#glow)">
+      <animateMotion dur="4s" repeatCount="indefinite">
+        <mpath href="#pathCNHub"/>
+      </animateMotion>
+    </circle>
+    <circle r="2.5" fill="#67e8f9" opacity="0.9" filter="url(#glow)">
+      <animateMotion dur="3.5s" repeatCount="indefinite">
+        <mpath href="#pathHubSG"/>
+      </animateMotion>
+    </circle>
+
+    <!-- Hidden paths for animateMotion -->
+    <path id="pathJPHub" d="M155,155 Q220,180 282,202" fill="none" stroke="none"/>
+    <path id="pathCNHub" d="M445,155 Q380,180 318,202" fill="none" stroke="none"/>
+    <path id="pathHubSG" d="M300,232 L300,318" fill="none" stroke="none"/>
+
+    <!-- ── Labels / stats ── -->
+    <!-- Top decorative bar -->
+    <rect x="0" y="0" width="600" height="3" fill="url(#glowBlue)" opacity="0.8"/>
+    <rect x="0" y="0" width="600" height="1" fill="#4f8ef7" opacity="0.6"/>
+
+    <!-- Stats at bottom -->
+    <rect x="24" y="368" width="130" height="38" rx="8" fill="#0f172a" stroke="#1e3a5f" stroke-width="1" opacity="0.9"/>
+    <text x="89" y="384" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4f8ef7">500+</text>
+    <text x="89" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" letter-spacing="1">取扱商品数</text>
+
+    <rect x="170" y="368" width="130" height="38" rx="8" fill="#0f172a" stroke="#1e3a5f" stroke-width="1" opacity="0.9"/>
+    <text x="235" y="384" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#a855f7">1,000+</text>
+    <text x="235" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" letter-spacing="1">累計顧客数</text>
+
+    <rect x="316" y="368" width="130" height="38" rx="8" fill="#0f172a" stroke="#1e3a5f" stroke-width="1" opacity="0.9"/>
+    <text x="381" y="384" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#06b6d4">47都</text>
+    <text x="381" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" letter-spacing="1">取引都道府県</text>
+
+    <rect x="462" y="368" width="114" height="38" rx="8" fill="#0f172a" stroke="#1e3a5f" stroke-width="1" opacity="0.9"/>
+    <text x="519" y="384" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#10b981">98.5%</text>
+    <text x="519" y="398" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8" letter-spacing="1">顧客満足度</text>
+
+    <!-- Top right label -->
+    <rect x="460" y="16" width="124" height="28" rx="6" fill="#0f172a" stroke="#1e3a5f" stroke-width="1" opacity="0.9"/>
+    <circle cx="476" cy="30" r="4" fill="#10b981"/>
+    <text x="488" y="34" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">LIVE TRADING</text>
+
+    <!-- Corner decoration -->
+    <line x1="16" y1="16" x2="40" y2="16" stroke="#4f8ef7" stroke-width="1.5" opacity="0.6"/>
+    <line x1="16" y1="16" x2="16" y2="40" stroke="#4f8ef7" stroke-width="1.5" opacity="0.6"/>
+    <line x1="584" y1="16" x2="560" y2="16" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
+    <line x1="584" y1="16" x2="584" y2="40" stroke="#a855f7" stroke-width="1.5" opacity="0.6"/>
+    <line x1="16" y1="356" x2="40" y2="356" stroke="#06b6d4" stroke-width="1.5" opacity="0.6"/>
+    <line x1="16" y1="356" x2="16" y2="332" stroke="#06b6d4" stroke-width="1.5" opacity="0.6"/>
+  </g>
+</svg>
