@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | 華啓未来株式会社</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: #333; background: #fafafa; }
+    header { background: linear-gradient(135deg, #1a365d 0%, #0d1f3c 100%); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 15px; }
+    .logo img { height: 50px; }
+    nav ul { display: flex; list-style: none; gap: 30px; }
+    nav a { color: #fff; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    nav a:hover, nav a.active { color: #ffd700; }
+    .hero { margin-top: 90px; background: linear-gradient(135deg, #1a365d 0%, #0d1f3c 100%); color: #fff; padding: 60px 20px; text-align: center; }
+    .hero h1 { font-size: 32px; margin-bottom: 15px; }
+    main { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+    .page-title { font-size: 28px; color: #1a365d; margin-bottom: 40px; padding-bottom: 15px; border-bottom: 3px solid #ffd700; }
+    .contact-form { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .form-group { margin-bottom: 25px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #1a365d; }
+    .form-group label span { color: #e53e3e; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; font-family: inherit; }
+    .form-group textarea { height: 150px; resize: vertical; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #1a365d; }
+    .submit-btn { background: #1a365d; color: #fff; padding: 15px 50px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: background 0.3s; }
+    .submit-btn:hover { background: #0d1f3c; }
+    .contact-info { margin-top: 40px; padding: 30px; background: #f0f4f8; border-radius: 8px; }
+    .contact-info h3 { color: #1a365d; margin-bottom: 15px; }
+    .contact-info p { margin-bottom: 10px; }
+    .contact-info a { color: #1a365d; }
+    footer { background: #1a365d; color: #fff; padding: 40px 20px; text-align: center; }
+    footer p { font-size: 14px; opacity: 0.8; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><img src="logo.jpg" alt="華啓未来株式会社"></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="business.html">事業内容</a></li>
+          <li><a href="company.html">会社概要</a></li>
+          <li><a href="contact.html" class="active">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="hero"><h1>お問い合わせ</h1><p>お気軽にご連絡ください</p></section>
+  <main>
+    <h2 class="page-title">お問い合わせフォーム</h2>
+    <div class="contact-form">
+      <form action="mailto:asiacardptcg@gmail.com" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">お名前 <span>*</span></label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">メールアドレス <span>*</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">件名</label>
+          <select id="subject" name="subject">
+            <option value="">選択してください</option>
+            <option value="business">事業について</option>
+            <option value="product">商品について</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">お問い合わせ内容 <span>*</span></label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">送信する</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <h3>联系方式</h3>
+      <p><strong>Email:</strong> <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
+      <p><strong>所在地:</strong> 神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
+    </div>
+  </main>
+  <footer>
+    <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
+    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタン615号室</p>
+  </footer>
+</body>
+</html>

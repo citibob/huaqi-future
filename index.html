@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>華啓未来株式会社 | 寶可夢カード輸入販売</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: #333; background: #fafafa; }
+    header { background: linear-gradient(135deg, #1a365d 0%, #0d1f3c 100%); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 15px; }
+    .logo img { height: 45px; width: auto; }
+    nav ul { display: flex; list-style: none; gap: 30px; }
+    nav a { color: #fff; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+    nav a:hover, nav a.active { color: #ffd700; }
+    .hero { margin-top: 90px; background: linear-gradient(135deg, #1a365d 0%, #0d1f3c 100%); color: #fff; padding: 100px 20px; text-align: center; }
+    .hero-logo { margin-bottom: 30px; }
+    .hero-logo img { height: 80px; }
+    .hero h1 { font-size: 42px; margin-bottom: 20px; color: #ffd700; }
+    .hero .subtitle { font-size: 20px; opacity: 0.9; margin-bottom: 30px; }
+    .hero p { font-size: 16px; opacity: 0.8; max-width: 600px; margin: 0 auto; line-height: 1.8; }
+    main { max-width: 1000px; margin: 0 auto; padding: 80px 20px; }
+    .section-title { font-size: 28px; color: #1a365d; margin-bottom: 40px; padding-bottom: 15px; border-bottom: 3px solid #ffd700; text-align: center; }
+    .business-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+    .business-card { background: #fff; padding: 40px 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; transition: transform 0.3s; }
+    .business-card:hover { transform: translateY(-5px); }
+    .business-card .icon { font-size: 48px; margin-bottom: 20px; }
+    .business-card h3 { color: #1a365d; font-size: 20px; margin-bottom: 15px; }
+    .business-card p { color: #666; font-size: 14px; }
+    .company-link { background: #fff; padding: 50px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; }
+    .company-link h3 { color: #1a365d; font-size: 24px; margin-bottom: 20px; }
+    .company-link p { color: #666; margin-bottom: 30px; }
+    .btn { display: inline-block; background: #1a365d; color: #fff; padding: 15px 40px; text-decoration: none; border-radius: 4px; font-weight: bold; transition: background 0.3s; }
+    .btn:hover { background: #0d1f3c; }
+    footer { background: #1a365d; color: #fff; padding: 50px 20px; text-align: center; }
+    footer .logo { justify-content: center; margin-bottom: 20px; }
+    footer p { font-size: 14px; opacity: 0.8; margin: 5px 0; }
+    footer a { color: #ffd700; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><img src="logo.jpg" alt="華啓未来株式会社"></div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">トップ</a></li>
+          <li><a href="business.html">事業内容</a></li>
+          <li><a href="company.html">会社概要</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-logo"><img src="logo.jpg" alt="華啓未来株式会社"></div>
+    <h1>華啓未来株式会社</h1>
+    <p class="subtitle">中日貿易の普及と友好関係の発展に貢献</p>
+    <p>神奈川県横浜市を拠点に、寶可夢カード・原神グッズの輸入販売を通じて、日中两国間の文化交流に貢献いたします。</p>
+  </section>
+  <main>
+    <h2 class="section-title">取り扱い商品</h2>
+    <div class="business-cards">
+      <div class="business-card">
+        <div class="icon">🎴</div>
+        <h3>寶可夢カード</h3>
+        <p>中国版Vol.1〜Vol.4を中心に、繁体字・簡体字中国語版の寶可夢卡牌を輸入販売。</p>
+      </div>
+      <div class="business-card">
+        <div class="icon">🎮</div>
+        <h3>原神グッズ</h3>
+        <p>大ヒットゲーム「原神」の関連グッズを中国から輸入。日本市場へお届け。</p>
+      </div>
+      <div class="business-card">
+        <div class="icon">🤝</div>
+        <h3>中日貿易</h3>
+        <p>信頼あるチャネルと豊富なネットワークで、安定した商品供給を実現。</p>
+      </div>
+    </div>
+    <div class="company-link">
+      <h3>会社概要</h3>
+      <p>華啓未来株式会社は、神奈川県横浜市中区曙町に所在する貿易会社であります。</p>
+      <a href="company.html" class="btn">詳細を見る</a>
+    </div>
+  </main>
+  <footer>
+    <div class="logo"><img src="logo.jpg" alt="華啓未来株式会社"></div>
+    <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
+    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
+    <p>Email: <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
+  </footer>
+</body>
+</html>
