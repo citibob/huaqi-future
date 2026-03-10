@@ -8,202 +8,86 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #0a1628;
-      --secondary: #1a365d;
-      --accent: #d4af37;
-      --accent-light: #f4d03f;
-      --text: #333;
-      --text-light: #666;
-      --white: #fff;
-      --bg: #f8f9fa;
-    }
-    
+    :root { --primary: #0a1628; --secondary: #1a365d; --accent: #d4af37; --accent-light: #f4d03f; --text: #333; --text-light: #666; --white: #fff; --bg: #f8f9fa; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--bg); line-height: 1.8; }
     
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.7;
-    }
-    
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(10, 22, 40, 0.95);
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-    
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); }
     header.scrolled { background: rgba(10, 22, 40, 0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
-    
-    .header-inner { max-width: 1200px; margin: 0 auto; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
-    .logo img { height: 40px; width: auto; }
-    
-    nav ul { display: flex; list-style: none; gap: 40px; }
-    nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.3s; position: relative; }
-    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .logo img { height: 36px; width: auto; }
+    nav ul { display: flex; list-style: none; gap: 35px; }
+    nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.3s; position: relative; }
+    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s; }
     nav a:hover, nav a.active { color: var(--accent); }
-    }
-    
-    /* Hamburger Menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 24px;
-      height: 18px;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    
-    .hamburger span {
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: #fff;
-      transition: all 0.3s ease;
-      border-radius: 2px;
-    }
-    
-    .hamburger.active span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-    
-    .nav-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-    }
-    
-    .nav-overlay.active { display: block; }
     nav a:hover::after, nav a.active::after { width: 100%; }
     
-    .page-header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: var(--white);
-      padding: 150px 30px 80px;
-      text-align: center;
-    }
+    .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 24px; height: 18px; cursor: pointer; z-index: 1001; }
+    .hamburger span { display: block; width: 100%; height: 2px; background: #fff; transition: all 0.3s; border-radius: 2px; }
+    .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .nav-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
+    .nav-overlay.active { display: block; }
     
-    .page-header h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(28px, 5vw, 42px); font-weight: 600; margin-bottom: 15px; }
-    .page-header p { font-size: 16px; opacity: 0.8; }
+    .page-header { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); padding: 120px 30px 50px; text-align: center; }
+    .page-header h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(24px, 5vw, 36px); font-weight: 600; margin-bottom: 10px; }
+    .page-header p { font-size: 15px; opacity: 0.85; }
     
-    main { max-width: 700px; margin: 0 auto; padding: 80px 30px; }
+    main { max-width: 900px; margin: 0 auto; padding: 45px 25px; }
     
-    .contact-form {
-      background: var(--white);
-      padding: 50px;
-      border-radius: 4px;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
     
-    .form-group { margin-bottom: 25px; }
-    .form-group label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 500; color: var(--primary); letter-spacing: 0.5px; }
+    .contact-form { background: var(--white); padding: 35px; border-radius: 4px; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
+    .contact-form h3 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 22px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 500; color: var(--primary); }
     .form-group label span { color: #c00; }
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%;
-      padding: 14px 18px;
-      border: 1px solid #ddd;
-      border-radius: 2px;
-      font-size: 14px;
-      font-family: inherit;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-      outline: none;
-      border-color: var(--secondary);
-      box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
-    }
-    .form-group textarea { height: 150px; resize: vertical; }
+    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 2px; font-size: 14px; font-family: inherit; transition: border-color 0.3s; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--secondary); }
+    .form-group textarea { height: 130px; resize: vertical; }
+    .submit-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); color: var(--white); border: none; border-radius: 2px; font-size: 13px; font-weight: 500; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26, 54, 93, 0.25); }
     
-    .submit-btn {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-      color: var(--white);
-      border: none;
-      border-radius: 2px;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+    .contact-info { background: var(--white); padding: 35px; border-radius: 4px; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
+    .contact-info h3 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 22px; }
+    .info-item { margin-bottom: 20px; }
+    .info-item h4 { font-size: 12px; color: var(--accent); margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase; }
+    .info-item p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+    .info-item a { color: var(--secondary); text-decoration: none; }
+    .info-item a:hover { text-decoration: underline; }
     
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
-    }
+    .map-container { margin-top: 30px; }
+    .map-container h3 { font-family: 'Noto Serif JP', serif; font-size: 18px; color: var(--primary); margin-bottom: 15px; }
+    .map-frame { width: 100%; height: 250px; border: none; border-radius: 4px; }
     
-    .contact-info {
-      margin-top: 40px;
-      padding: 30px;
-      background: var(--white);
-      border-radius: 4px;
-      text-align: center;
-    }
-    
-    .contact-info h3 {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 18px;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-    
-    .contact-info p { margin-bottom: 10px; color: var(--text-light); font-size: 14px; }
-    .contact-info a { color: var(--secondary); text-decoration: none; }
-    .contact-info a:hover { text-decoration: underline; }
-    
-    footer { background: var(--primary); color: var(--white); padding: 40px 30px; text-align: center; }
-    footer .logo { margin-bottom: 15px; }
-    footer .logo img { height: 32px; }
-    footer p { font-size: 12px; opacity: 0.6; margin: 5px 0; }
+    footer { background: var(--primary); color: var(--white); padding: 35px 25px; text-align: center; }
+    footer .logo { margin-bottom: 12px; }
+    footer .logo img { height: 28px; }
+    footer p { font-size: 11px; opacity: 0.6; margin: 4px 0; }
+    footer a { color: var(--accent); text-decoration: none; }
     
     @media (max-width: 768px) {
       .header-inner { padding: 8px 12px; }
-      .logo img { height: 32px; max-width: 100px; width: auto; }
+      .logo img { height: 28px; max-width: 90px; }
       .hamburger { display: flex; }
-      nav { position: fixed; top: 0; right: -100%; width: 70%; max-width: 280px; height: 100vh; background: rgba(10, 22, 40, 0.98); padding: 80px 30px 30px; transition: right 0.3s ease; box-shadow: -5px 0 20px rgba(0,0,0,0.3); }
+      nav { position: fixed; top: 0; right: -100%; width: 75%; max-width: 260px; height: 100vh; background: rgba(10, 22, 40, 0.98); padding: 70px 25px 25px; transition: right 0.3s; box-shadow: -5px 0 20px rgba(0,0,0,0.3); }
       nav.active { right: 0; }
-      nav ul { flex-direction: column; gap: 25px; }
-      nav a { font-size: 16px; }
-      .header-inner { padding: 12px 20px; }
-      nav ul { gap: 20px; }
-      nav a { font-size: 12px; }
-      .page-header { padding: 120px 20px 60px; }
-      main { padding: 50px 20px; }
-      .contact-form { padding: 30px; }
+      nav ul { flex-direction: column; gap: 22px; }
+      nav a { font-size: 15px; }
+      .page-header { padding: 110px 20px 45px; }
+      main { padding: 30px 18px; }
+      .contact-form, .contact-info { padding: 25px; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <div class="logo"><a href="index.html"><img src="logo.svg" alt="華啓未来株式会社"></a></div>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
       <nav>
         <ul>
           <li><a href="index.html">ホーム</a></li>
@@ -214,9 +98,7 @@
       </nav>
     </div>
     <div class="nav-overlay" onclick="toggleMenu()"></div>
-  <div class="header-inner">
-    </div>
-  <div class="header-inner">
+  </header>
   
   <section class="page-header">
     <h1>お問い合わせ</h1>
@@ -224,65 +106,77 @@
   </section>
   
   <main>
-    <div class="contact-form">
-      <form action="mailto:asiacardptcg@gmail.com" method="post" enctype="text/plain">
-        <div class="form-group">
-          <label for="name">お名前 <span>*</span></label>
-          <input type="text" id="name" name="name" required>
+    <div class="contact-grid">
+      <div class="contact-form">
+        <h3>お問い合わせフォーム</h3>
+        <form action="mailto:asiacardptcg@gmail.com" method="post" enctype="text/plain">
+          <div class="form-group">
+            <label for="name">お名前 <span>*</span></label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">メールアドレス <span>*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">件名</label>
+            <select id="subject" name="subject">
+              <option value="">選択してください</option>
+              <option value="business">事業について</option>
+              <option value="product">商品について</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">お問い合わせ内容 <span>*</span></label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">送信する</button>
+        </form>
+      </div>
+      
+      <div class="contact-info">
+        <h3>連絡先情報</h3>
+        <div class="info-item">
+          <h4>Email</h4>
+          <p><a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
         </div>
-        <div class="form-group">
-          <label for="email">メールアドレス <span>*</span></label>
-          <input type="email" id="email" name="email" required>
+        <div class="info-item">
+          <h4>所在地</h4>
+          <p>神奈川県横浜市中区曙町1-3<br>藤和伊勢佐木ハイetown615号室</p>
         </div>
-        <div class="form-group">
-          <label for="subject">件名</label>
-          <select id="subject" name="subject">
-            <option value="">選択してください</option>
-            <option value="business">事業について</option>
-            <option value="product">商品について</option>
-            <option value="other">その他</option>
-          </select>
+        <div class="info-item">
+          <h4>営業時間</h4>
+          <p>平日 9:00 - 18:00<br>（土日祝を除く）</p>
         </div>
-        <div class="form-group">
-          <label for="message">お問い合わせ内容 <span>*</span></label>
-          <textarea id="message" name="message" required></textarea>
+        <div class="info-item">
+          <h4>会社情報</h4>
+          <p>会社名：華啓未来株式会社<br>代表者：鮑 海明</p>
         </div>
-        <button type="submit" class="submit-btn">送信する</button>
-      </form>
-    </div>
-    
-    <div class="contact-info">
-      <h3>連絡先</h3>
-      <p><strong>Email:</strong> <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
-      <p><strong>所在地:</strong> 神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
+        
+        <div class="map-container">
+          <h3>アクセス</h3>
+          <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3249.293879224622!2d139.6376763152587!3d35.44750797927624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185c3f5e3b7a3d%3A0x12c5d4e6e1d0c5d4!2z5pel5pys44CB5q2m55Sw5biC5rOJ5bey5Y-w5p2x5rKz5Y-jLjIwLTYzMg!5e0!3m2!1sja!2sjp!4v1640000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
     </div>
   </main>
   
   <footer>
     <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
     <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
-    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
+    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイetown615号室</p>
+    <p>Email: <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
   </footer>
   
   <script>
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      header.classList.toggle('scrolled', window.scrollY > 50);
-    });
-    
+    window.addEventListener('scroll', () => document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50));
     function toggleMenu() {
       document.querySelector('.hamburger').classList.toggle('active');
       document.querySelector('nav').classList.toggle('active');
       document.querySelector('.nav-overlay').classList.toggle('active');
     }
-    
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelector('.hamburger').classList.remove('active');
-        document.querySelector('nav').classList.remove('active');
-        document.querySelector('.nav-overlay').classList.remove('active');
-      });
-    });
+    document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => toggleMenu()));
   </script>
 </body>
 </html>
