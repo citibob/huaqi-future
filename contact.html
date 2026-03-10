@@ -175,7 +175,7 @@
     <div class="contact-grid">
       <div class="contact-form">
         <h3>お問い合わせフォーム</h3>
-        <form action="mailto:asiacardptcg@gmail.com" method="post" enctype="text/plain">
+        <form id="contactForm" onsubmit="sendMail(event)">
           <div class="form-group">
             <label for="name">お名前 <span>*</span></label>
             <input type="text" id="name" name="name" required>
@@ -188,9 +188,9 @@
             <label for="subject">件名</label>
             <select id="subject" name="subject">
               <option value="">選択してください</option>
-              <option value="business">事業について</option>
-              <option value="product">商品について</option>
-              <option value="other">その他</option>
+              <option value="事業について">事業について</option>
+              <option value="商品について">商品について</option>
+              <option value="その他">その他</option>
             </select>
           </div>
           <div class="form-group">
@@ -209,7 +209,7 @@
         </div>
         <div class="info-item">
           <h4>所在地</h4>
-          <p>神奈川県横浜市中区曙町1-3<br>藤和伊勢佐木ハイetown615号室</p>
+          <p>神奈川県横浜市中区曙町1-3<br>藤和伊勢佐木ハイターン615号室</p>
         </div>
         <div class="info-item">
           <h4>営業時間</h4>
@@ -231,13 +231,6 @@
   
     <div class="logo"><div class="hqft-neon-logo" style="padding: 3px 8px;"><div class="neon-title" style="font-size: 14px;">華啓</div><div class="neon-subtitle" style="font-size: 4px;">FUTURE TRADING</div></div></div>
     <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
-    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイetown615号室</p>
-    <p>Email: <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
-  </footer>
-  
-  <script>
-    window.addEventListener('scroll', () => document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50));
-    function toggleMenu() {
       document.querySelector('.hamburger').classList.toggle('active');
       document.querySelector('nav').classList.toggle('active');
       document.querySelector('.nav-overlay').classList.toggle('active');
@@ -251,5 +244,16 @@
     <p>Email: <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
   </footer>
 
+  <script>
+    function sendMail(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const subject = document.getElementById("subject").value || "お問い合わせ";
+      const message = document.getElementById("message").value;
+      const body = "お名前: " + name + "\nメールアドレス: " + email + "\n\n" + message;
+      window.location.href = "mailto:asiacardptcg@gmail.com?subject=" + encodeURIComponent(subject) + "</body>body=" + encodeURIComponent(body);
+    }
+  </script>
 </body>
 </html>
