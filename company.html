@@ -45,6 +45,52 @@
     .header-inner { max-width: 1200px; margin: 0 auto; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
     .logo img { height: 40px; width: auto; }
     
+    /* Neon Logo */
+    @keyframes neon-pulse {
+      0%, 100% { filter: brightness(100%); }
+      50% { filter: brightness(110%); }
+    }
+    
+    .hqft-neon-logo {
+      display: inline-block;
+      text-align: center;
+      padding: 5px 10px;
+      background: transparent;
+    }
+    
+    .hqft-neon-logo .neon-title {
+      font-family: 'Segoe UI', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      margin: 0;
+      line-height: 1;
+      color: #fff;
+      text-shadow:
+        0 0 7px rgba(255,255,255,0.8),
+        0 0 10px rgba(255,255,255,0.7),
+        0 0 21px #8a2be2,
+        0 0 42px #8a2be2,
+        0 0 82px #8a2be2,
+        0 0 92px #8a2be2;
+      animation: neon-pulse 3s infinite alternate;
+    }
+    
+    .hqft-neon-logo .neon-subtitle {
+      font-family: 'Futura', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 6px;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin: 0;
+      line-height: 1.2;
+      color: #00ffff;
+      text-shadow:
+        0 0 4px rgba(255,255,255,0.6),
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+    
     nav ul { display: flex; list-style: none; gap: 40px; }
     nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.3s; position: relative; }
     nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
@@ -183,7 +229,7 @@
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo"><img src="logo.jpg" alt="華啓未来株式会社"></div>
+      <div class="logo"><div class="hqft-neon-logo"><div class="neon-title">華啓</div><div class="neon-subtitle">FUTURE TRADING</div></div></div>
       <div class="hamburger" onclick="toggleMenu()">
         <span></span>
         <span></span>
@@ -230,7 +276,7 @@
   </main>
   
   <footer>
-    <div class="logo"><img src="logo.jpg" alt="華啓未来株式会社"></div>
+    <div class="logo"><div class="hqft-neon-logo"><div class="neon-title">華啓</div><div class="neon-subtitle">FUTURE TRADING</div></div></div>
     <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
     <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
   </footer>
