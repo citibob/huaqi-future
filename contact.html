@@ -4,51 +4,165 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ | 華啓未来株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #0a1628;
+      --secondary: #1a365d;
+      --accent: #d4af37;
+      --accent-light: #f4d03f;
+      --text: #333;
+      --text-light: #666;
+      --white: #fff;
+      --bg: #f8f9fa;
+    }
+    
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: #333; background: #fafafa; }
-    header { background: linear-gradient(135deg, #1a365d 0%, #0d1f3c 100%); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
-    .logo img { height: 45px; width: auto; }
-    nav ul { display: flex; list-style: none; gap: 30px; }
-    nav a { color: #fff; text-decoration: none; font-size: 14px; transition: color 0.3s; }
-    nav a:hover, nav a.active { color: #ffd700; }
-    .hero { margin-top: 70px; background: linear-gradient(135deg, #1a365d 0%, #0d1f3c 100%); color: #fff; padding: 50px 20px; text-align: center; }
-    .hero h1 { font-size: 28px; }
-    main { max-width: 700px; margin: 0 auto; padding: 50px 20px; }
-    .page-title { font-size: 24px; color: #1a365d; margin-bottom: 30px; padding-bottom: 10px; border-bottom: 3px solid #ffd700; }
-    .contact-form { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; margin-bottom: 6px; font-weight: bold; color: #1a365d; font-size: 14px; }
-    .form-group label span { color: #e53e3e; }
-    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; font-family: inherit; }
-    .form-group textarea { height: 120px; resize: vertical; }
-    .submit-btn { background: #1a365d; color: #fff; padding: 12px 40px; border: none; border-radius: 4px; font-size: 14px; cursor: pointer; }
-    .contact-info { margin-top: 25px; padding: 20px; background: #f0f4f8; border-radius: 8px; font-size: 14px; }
-    .contact-info h3 { color: #1a365d; margin-bottom: 12px; font-size: 15px; }
-    .contact-info p { margin-bottom: 8px; }
-    .contact-info a { color: #1a365d; }
-    footer { background: #1a365d; color: #fff; padding: 30px 20px; text-align: center; }
-    footer p { font-size: 13px; opacity: 0.8; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled { background: rgba(10, 22, 40, 0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .logo img { height: 40px; width: auto; }
+    
+    nav ul { display: flex; list-style: none; gap: 40px; }
+    nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.3s; position: relative; }
+    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      padding: 150px 30px 80px;
+      text-align: center;
+    }
+    
+    .page-header h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(28px, 5vw, 42px); font-weight: 600; margin-bottom: 15px; }
+    .page-header p { font-size: 16px; opacity: 0.8; }
+    
+    main { max-width: 700px; margin: 0 auto; padding: 80px 30px; }
+    
+    .contact-form {
+      background: var(--white);
+      padding: 50px;
+      border-radius: 4px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+    }
+    
+    .form-group { margin-bottom: 25px; }
+    .form-group label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 500; color: var(--primary); letter-spacing: 0.5px; }
+    .form-group label span { color: #c00; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+    }
+    .form-group textarea { height: 150px; resize: vertical; }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 2px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
+    }
+    
+    .contact-info {
+      margin-top: 40px;
+      padding: 30px;
+      background: var(--white);
+      border-radius: 4px;
+      text-align: center;
+    }
+    
+    .contact-info h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .contact-info p { margin-bottom: 10px; color: var(--text-light); font-size: 14px; }
+    .contact-info a { color: var(--secondary); text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
+    
+    footer { background: var(--primary); color: var(--white); padding: 40px 30px; text-align: center; }
+    footer .logo { margin-bottom: 15px; }
+    footer .logo img { height: 32px; }
+    footer p { font-size: 12px; opacity: 0.6; margin: 5px 0; }
+    
+    @media (max-width: 768px) {
+      .header-inner { padding: 12px 20px; }
+      nav ul { gap: 20px; }
+      nav a { font-size: 12px; }
+      .page-header { padding: 120px 20px 60px; }
+      main { padding: 50px 20px; }
+      .contact-form { padding: 30px; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo"><img src="logo_nav.jpg" alt="華啓未来株式会社"></div>
+      <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
       <nav>
         <ul>
           <li><a href="index.html">ホーム</a></li>
-          <li><a href="business.html">事業内容</a></li>
-          <li><a href="company.html">会社概要</a></li>
+          <li><a href="business.html">事業案内</a></li>
+          <li><a href="company.html">会社情報</a></li>
           <li><a href="contact.html" class="active">お問い合わせ</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <section class="hero"><h1>お問い合わせ</h1></section>
+  
+  <section class="page-header">
+    <h1>お問い合わせ</h1>
+    <p>お気軽にご連絡ください</p>
+  </section>
+  
   <main>
-    <h2 class="page-title">お問い合わせ</h2>
     <div class="contact-form">
       <form action="mailto:asiacardptcg@gmail.com" method="post" enctype="text/plain">
         <div class="form-group">
@@ -75,15 +189,25 @@
         <button type="submit" class="submit-btn">送信する</button>
       </form>
     </div>
+    
     <div class="contact-info">
       <h3>連絡先</h3>
       <p><strong>Email:</strong> <a href="mailto:asiacardptcg@gmail.com">asiacardptcg@gmail.com</a></p>
-      <p><strong>所在地:</strong> 神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイetown615号室</p>
+      <p><strong>所在地:</strong> 神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
     </div>
   </main>
+  
   <footer>
+    <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
     <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
     <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
   </footer>
+  
+  <script>
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
 </html>

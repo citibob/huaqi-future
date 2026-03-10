@@ -3,60 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>会社概要 | 華啓未来株式会社</title>
+  <title>会社情報 | 華啓未来株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #0a1628;
+      --secondary: #1a365d;
+      --accent: #d4af37;
+      --accent-light: #f4d03f;
+      --text: #333;
+      --text-light: #666;
+      --white: #fff;
+      --bg: #f8f9fa;
+    }
+    
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif; line-height: 1.6; color: #333; background: #fafafa; }
-    header { background: linear-gradient(135deg, #1a365d 0%, #0d1f3c 100%); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
-    .logo img { height: 45px; width: auto; }
-    nav ul { display: flex; list-style: none; gap: 30px; }
-    nav a { color: #fff; text-decoration: none; font-size: 14px; transition: color 0.3s; }
-    nav a:hover, nav a.active { color: #ffd700; }
-    .hero { margin-top: 70px; background: linear-gradient(135deg, #1a365d 0%, #0d1f3c 100%); color: #fff; padding: 50px 20px; text-align: center; }
-    .hero h1 { font-size: 28px; }
-    main { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
-    .page-title { font-size: 24px; color: #1a365d; margin-bottom: 30px; padding-bottom: 10px; border-bottom: 3px solid #ffd700; }
-    .company-info { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-    .info-table { width: 100%; }
-    .info-table tr { border-bottom: 1px solid #eee; }
-    .info-table th { text-align: left; padding: 12px 0; color: #1a365d; width: 160px; font-size: 14px; }
-    .info-table td { padding: 12px 0; font-size: 14px; }
-    footer { background: #1a365d; color: #fff; padding: 30px 20px; text-align: center; }
-    footer p { font-size: 13px; opacity: 0.8; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled { background: rgba(10, 22, 40, 0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .logo img { height: 40px; width: auto; }
+    
+    nav ul { display: flex; list-style: none; gap: 40px; }
+    nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.3s; position: relative; }
+    nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      padding: 150px 30px 80px;
+      text-align: center;
+    }
+    
+    .page-header h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(28px, 5vw, 42px); font-weight: 600; margin-bottom: 15px; }
+    .page-header p { font-size: 16px; opacity: 0.8; }
+    
+    main { max-width: 800px; margin: 0 auto; padding: 80px 30px; }
+    
+    .company-table {
+      background: var(--white);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    .company-table table { width: 100%; border-collapse: collapse; }
+    .company-table th { 
+      background: var(--primary); 
+      color: var(--white); 
+      padding: 18px 25px; 
+      text-align: left; 
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      width: 160px;
+    }
+    .company-table td { 
+      padding: 18px 25px; 
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+    .company-table tr:last-child td { border-bottom: none; }
+    
+    .message {
+      background: var(--white);
+      padding: 50px;
+      border-radius: 4px;
+      margin-top: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    .message h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .message p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 15px;
+    }
+    
+    footer { background: var(--primary); color: var(--white); padding: 40px 30px; text-align: center; }
+    footer .logo { margin-bottom: 15px; }
+    footer .logo img { height: 32px; }
+    footer p { font-size: 12px; opacity: 0.6; margin: 5px 0; }
+    
+    @media (max-width: 768px) {
+      .header-inner { padding: 12px 20px; }
+      nav ul { gap: 20px; }
+      nav a { font-size: 12px; }
+      .page-header { padding: 120px 20px 60px; }
+      main { padding: 50px 20px; }
+      .company-table th, .company-table td { padding: 15px 20px; display: block; }
+      .company-table th { width: auto; background: var(--primary); color: var(--accent); }
+      .message { padding: 30px; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo"><img src="logo_nav.jpg" alt="華啓未来株式会社"></div>
+      <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
       <nav>
         <ul>
           <li><a href="index.html">ホーム</a></li>
-          <li><a href="business.html">事業内容</a></li>
-          <li><a href="company.html" class="active">会社概要</a></li>
+          <li><a href="business.html">事業案内</a></li>
+          <li><a href="company.html" class="active">会社情報</a></li>
           <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <section class="hero"><h1>会社概要</h1></section>
+  
+  <section class="page-header">
+    <h1>会社情報</h1>
+    <p>会社概要</p>
+  </section>
+  
   <main>
-    <h2 class="page-title">会社概要</h2>
-    <div class="company-info">
-      <table class="info-table">
+    <div class="company-table">
+      <table>
         <tr><th>会社名</th><td>華啓未来株式会社</td></tr>
         <tr><th>所在地</th><td>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</td></tr>
         <tr><th>代表者</th><td>鮑 海明</td></tr>
         <tr><th>設立</th><td>2024年</td></tr>
-        <tr><th>事業内容</th><td>ポケモンカード輸入販売<br>原神関連グッズ輸入販売</td></tr>
+        <tr><th>事業内容</th><td>ポケモンカード輸入販売<br>原神関連グッズ輸入販売<br>中日文化貿易</td></tr>
         <tr><th>お問い合わせ</th><td>asiacardptcg@gmail.com</td></tr>
       </table>
     </div>
+    
+    <div class="message">
+      <h3>代表者の言葉</h3>
+      <p>華啓未来株式会社は、中日両国間の貿易活性化に貢献することを使命としております。</p>
+      <p>私は多年中日間のビジネスに触れてまいりました。その経験を生かし、信頼できる商品と 服务を皆様にご提供することが私たちの責務でございます。</p>
+      <p>中日文化交流の架け橋となることを目指し、全力でまいります。</p>
+      <p style="text-align: right; margin-top: 20px;">華啓未来株式会社<br>鮑 海明</p>
+    </div>
   </main>
+  
   <footer>
+    <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
     <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
     <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
   </footer>
+  
+  <script>
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
 </html>
