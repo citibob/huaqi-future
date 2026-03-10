@@ -28,9 +28,9 @@
     .logo img { height: 36px; width: auto; }
 
     /* Neon Logo */
-    @keyframes neon-pulse {
+    @keyframes flicker {
       0%, 100% { filter: brightness(100%); }
-      50% { filter: brightness(110%); }
+      50% { filter: brightness(110%) drop-shadow(0 0 5px rgba(255,255,255,1)); }
     }
     
     .hqft-neon-logo {
@@ -54,7 +54,7 @@
         0 0 42px #8a2be2,
         0 0 82px #8a2be2,
         0 0 92px #8a2be2;
-      animation: neon-pulse 3s infinite alternate;
+      animation: flicker 2s infinite, pulse 3s infinite;
     }
     
     .hqft-neon-logo .neon-subtitle {
