@@ -175,54 +175,96 @@
     
     main { max-width: 800px; margin: 0 auto; padding: 80px 30px; }
     
-    .company-table {
-      background: var(--white);
-      border-radius: 4px;
+    .page-header {
+      background: linear-gradient(135deg, rgba(10,22,40,0.95) 0%, rgba(20,35,60,0.9) 100%);
+      padding: 80px 30px;
+      text-align: center;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
     
-    .company-table table { width: 100%; border-collapse: collapse; }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920') center/cover;
+      opacity: 0.15;
+    }
+    
+    .page-header h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      color: #fff;
+      position: relative;
+    }
+    
+    .page-header p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      position: relative;
+    }
+    
+    .company-table {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #0a1628;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      border: 1px solid rgba(212,175,55,0.3);
+    }
+    
+    .company-table table { 
+      width: 100%; 
+      border-collapse: collapse; 
+    }
     .company-table th { 
-      background: var(--primary); 
-      color: var(--white); 
-      padding: 18px 25px; 
+      background: transparent; 
+      color: #d4af37; 
+      padding: 20px 30px; 
       text-align: left; 
-      font-size: 13px;
-      font-weight: 400;
+      font-size: 14px;
+      font-weight: 600;
       letter-spacing: 1px;
       width: 160px;
+      border-bottom: 1px solid rgba(212,175,55,0.2);
     }
     .company-table td { 
-      padding: 18px 25px; 
-      border-bottom: 1px solid #eee;
+      padding: 20px 30px; 
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       font-size: 14px;
+      color: #fff;
     }
     .company-table tr:last-child td { border-bottom: none; }
     
     .message {
-      background: var(--white);
-      padding: 50px;
-      border-radius: 4px;
-      margin-top: 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      max-width: 700px;
+      margin: 40px auto;
+      background: #0a1628;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      border: 1px solid rgba(212,175,55,0.3);
     }
     
     .message h3 {
       font-family: 'Noto Serif JP', serif;
       font-size: 20px;
-      color: var(--primary);
+      color: #d4af37;
       margin-bottom: 20px;
     }
     
     .message p {
-      color: var(--text-light);
+      color: rgba(255,255,255,0.8);
       font-size: 14px;
       line-height: 1.9;
       margin-bottom: 15px;
     }
     
-    footer { background: var(--primary); color: var(--white); padding: 40px 30px; text-align: center; }
+    footer { background: var(--primary); color: var(--white); padding: 40px 30px; text-align: center; position: relative; z-index: 10; }
     footer .logo { margin-bottom: 15px; }
     footer .logo img { height: 32px; }
     footer p { font-size: 12px; opacity: 0.6; margin: 5px 0; }
@@ -294,12 +336,6 @@
       <p style="text-align: right; margin-top: 20px;">華啓未来株式会社<br>鮑 海明</p>
     </div>
   </main>
-  
-  
-    <div class="logo"><div class="hqft-neon-logo"><div class="neon-title">華啓</div><div class="neon-subtitle">FUTURE TRADING</div></div></div>
-    <p>© 2024 華啓未来株式会社 All Rights Reserved.</p>
-    <p>神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
-  </footer>
   
   <script>
     window.addEventListener('scroll', () => {
