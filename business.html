@@ -49,6 +49,52 @@
     nav a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.3s; position: relative; }
     nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.3s ease; }
     nav a:hover, nav a.active { color: var(--accent); }
+    }
+    
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+    
+    .nav-overlay.active { display: block; }
     nav a:hover::after, nav a.active::after { width: 100%; }
     
     .page-header {
@@ -109,6 +155,13 @@
     footer p { font-size: 12px; opacity: 0.6; margin: 5px 0; }
     
     @media (max-width: 768px) {
+      .header-inner { padding: 12px 15px; }
+      .logo img { height: 32px; max-width: 100px; width: auto; }
+      .hamburger { display: flex; }
+      nav { position: fixed; top: 0; right: -100%; width: 70%; max-width: 280px; height: 100vh; background: rgba(10, 22, 40, 0.98); padding: 80px 30px 30px; transition: right 0.3s ease; box-shadow: -5px 0 20px rgba(0,0,0,0.3); }
+      nav.active { right: 0; }
+      nav ul { flex-direction: column; gap: 25px; }
+      nav a { font-size: 16px; }
       .header-inner { padding: 12px 20px; }
       nav ul { gap: 20px; }
       nav a { font-size: 12px; }
@@ -122,6 +175,11 @@
   <header>
     <div class="header-inner">
       <div class="logo"><img src="logo.svg" alt="華啓未来株式会社"></div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <nav>
         <ul>
           <li><a href="index.html">ホーム</a></li>
@@ -131,7 +189,10 @@
         </ul>
       </nav>
     </div>
-  </header>
+    <div class="nav-overlay" onclick="toggleMenu()"></div>
+  <div class="header-inner">
+    </div>
+  <div class="header-inner">
   
   <section class="page-header">
     <h1>事業案内</h1>
@@ -190,6 +251,20 @@
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    
+    function toggleMenu() {
+      document.querySelector('.hamburger').classList.toggle('active');
+      document.querySelector('nav').classList.toggle('active');
+      document.querySelector('.nav-overlay').classList.toggle('active');
+    }
+    
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.hamburger').classList.remove('active');
+        document.querySelector('nav').classList.remove('active');
+        document.querySelector('.nav-overlay').classList.remove('active');
+      });
     });
   </script>
 </body>
