@@ -311,9 +311,15 @@
     @media (prefers-reduced-motion: reduce) {
         * { animation: none !important; transition: none !important; }
     }
-</style>
+
+    .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: var(--primary); padding: 8px 16px; z-index: 10000; }
+    .skip-link:focus { top: 0; }
+
+  </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
+
   <header>
     <div class="header-inner">
       <div class="logo"><a href="index.html"><div class="hqft-neon-logo"><div class="neon-title">華啓</div><div class="neon-subtitle">FUTURE TRADING</div></div></a></div>
@@ -331,7 +337,7 @@
     <div class="nav-overlay" onclick="toggleMenu()"></div>
   </header>
 
-  <section class="hero">
+  <section class="hero" id="main">
     <div class="hero-content">
       <div class="hero-logo"><div class="hqft-neon-logo" style="padding: 20px 40px;"><div class="neon-title" style="font-size: 48px;">華啓</div><div class="neon-subtitle" style="font-size: 12px;">FUTURE TRADING</div></div></div>
       <h1>華啓未来株式会社</h1>
