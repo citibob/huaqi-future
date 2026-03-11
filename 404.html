@@ -37,7 +37,11 @@
     .home-link { margin-top: 40px; }
     .home-link a { color: var(--white); opacity: 0.7; text-decoration: none; }
     .home-link a:hover { opacity: 1; }
-  </style>
+  
+    @media (prefers-reduced-motion: reduce) {
+        * { animation: none !important; transition: none !important; }
+    }
+</style>
 </head>
 <body>
   <div class="error-code">404</div>

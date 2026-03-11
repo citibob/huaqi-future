@@ -340,7 +340,11 @@
       opacity: 0.85;
     }
 
-  </style>
+  
+    @media (prefers-reduced-motion: reduce) {
+        * { animation: none !important; transition: none !important; }
+    }
+</style>
 </head>
 <body>
   <header>
