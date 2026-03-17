@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+"""
+单卡监控爬虫 - 增强版
+功能：
+1. 多关键词搜索
+2. 均价计算
+3. 低价预警（<均价50%）
+4. 分类统计（PSA10/AR/SAR/BGS10）
+5. Excel报告输出
+"""
+import asyncio
+import json
+import re
+from datetime import datetime
+from playwright.async_api import async_playwright
+import pandas as pd
+
+# 单卡关键词
+SINGLE_CARD_KEYWORDS = [
+    "0307/07", "0307", "0709/09", "0709", "0115/15", "0115",
+    "0615/15", "0615", "0915/15", "0915"
+]
+
+# 宝石包关键词
+GEM_PACK_KEYWORDS = [
+    "宝石包 vol.1", "宝石包 vol.2", "宝石包 vol.3", "宝石包 vol.4",
+    "ジェムパック vol.1", "ジェムパック vol.2", "ジェムパック vol.3", "ジェムパック vol.4"
+]
+
+async def search_mercari(keyword, max_items=30):
+    """搜索Mercari并返回商品列表"""
+    results = []
+    
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=True)
+        page = await browser.new_page()
+        
+        await page.set_extra_http_headers({
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        })
+        
+        keyword_encoded = keyword.replace(" ", "+")
+        url = f"https://jp.mercari.com/search?keyword={keyword_encoded}"
+        
+        try:
+            await page.goto(url, timeout=15000)
+            await page.wait_for_timeout(5000)
+            
+            items = await page.query_selector_all('[data-testid="item-cell"]')
+            
+            for item in items[:max_items]:
+                try:
+                    text = await item.inner_text()
+                    lines = [l.strip() for l in text.split('\n') if l.strip()]
+                    
+                    price_jpy = 0
+                    title = ''
+                    for j, line in enumerate(lines):
+                        if line == '¥' and j+1 < len(lines):
+                            try:
+                                price_jpy = int(lines[j+1].replace(',', ''))
+                            except:
+                                pass
+                        elif line != '¥' and line and (line[0].isalpha() or line[0] == '【'):
+                            title = line
+                    
+                    link = await item.query_selector('a[href^="/item/"]')
+                    href = await link.get_attribute('href') if link else ''
+                    item_url = f"https://jp.mercari.com{href}" if href else ''
+                    
+                    html = await item.inner_html()
+                    status = "売り切れ" if "sold" in html.lower() else "販売中"
+                    
+                    # 分类
+                    item_type = "other"
+                    if "PSA10" in title or "psa10" in title:
+                        item_type = "PSA10"
+                    elif "BGS10" in title or "bgs10" in title:
+                        item_type = "BGS10"
+                    elif "SAR" in title:
+                        item_type = "SAR"
+                    elif "AR" in title:
+                        item_type = "AR"
+                    
+                    if title and price_jpy > 0:
+                        results.append({
+                            "title": title,
+                            "price_jpy": price_jpy,
+                            "status": status,
+                            "url": item_url,
+                            "keyword": keyword,
+                            "type": item_type
+                        })
+                        
+                except Exception as e:
+                    continue
+            
+        except Exception as e:
+            print(f"搜索出错: {keyword} - {e}")
+        
+        await browser.close()
+    
+    return results
+
+async def main():
+    print("="*50)
+    print("单卡监控系统 - 增强版")
+    print("="*50)
+    
+    # 搜索所有关键词
+    all_results = []
+    
+    print("\n[1/3] 搜索宝石包...")
+    for kw in GEM_PACK_KEYWORDS:
+        print(f"  搜索: {kw}")
+        items = await search_mercari(kw)
+        all_results.extend(items)
+        print(f"    获取: {len(items)} 个")
+    
+    print(f"\n宝石包总计: {len(all_results)} 个商品")
+    
+    if not all_results:
+        print("未获取到商品数据")
+        return
+    
+    # 统计分析
+    df = pd.DataFrame(all_results)
+    
+    print("\n[2/3] 统计分析...")
+    
+    # 按类型统计
+    print("\n按类型统计:")
+    type_stats = df.groupby('type').agg({
+        'price_jpy': ['count', 'mean', 'min', 'max']
+    }).round(0)
+    print(type_stats)
+    
+    # 计算均价
+    avg_price = df['price_jpy'].mean()
+    print(f"\n平均价格: ¥{avg_price:,.0f}")
+    
+    # 低价预警
+    df['is_cheap'] = df['price_jpy'] < (avg_price * 0.5)
+    cheap_items = df[df['is_cheap']]
+    print(f"低价预警 (<均价50%): {len(cheap_items)} 个")
+    
+    # 在售/售罄
+    print(f"\n贩卖中: {len(df[df['status']=='販売中'])}")
+    print(f"售罄: {len(df[df['status']=='売り切れ'])}")
+    
+    # 保存数据
+    print("\n[3/3] 保存报告...")
+    
+    # 保存JSON
+    output_json = f"/Users/hm/Desktop/蚊子報告/单卡监控_{datetime.now().strftime('%Y-%m-%d')}.json"
+    df.to_json(output_json, orient='records', force_ascii=False, indent=2)
+    print(f"JSON: {output_json}")
+    
+    # 保存Excel
+    output_xlsx = f"/Users/hm/Desktop/蚊子報告/单卡报告_{datetime.now().strftime('%Y-%m-%d')}.xlsx"
+    
+    with pd.ExcelWriter(output_xlsx, engine='openpyxl') as writer:
+        # 总览
+        summary = pd.DataFrame({
+            '指标': ['生成时间', '汇率', '商品总数', '平均价格', '低价预警', '贩卖中', '售罄'],
+            '值': [
+                datetime.now().strftime('%Y-%m-%d %H:%M'),
+                '0.04322 (Wise)',
+                len(df),
+                f"¥{avg_price:,.0f}",
+                len(cheap_items),
+                len(df[df['status']=='販売中']),
+                len(df[df['status']=='売り切れ'])
+            ]
+        })
+        summary.to_excel(writer, sheet_name='总览', index=False)
+        
+        # 低价预警
+        if len(cheap_items) > 0:
+            cheap_items.to_excel(writer, sheet_name='低价预警', index=False)
+        
+        # 所有商品
+        df.to_excel(writer, sheet_name='商品列表', index=False)
+    
+    print(f"Excel: {output_xlsx}")
+    print("\n✅ 完成!")
+
+if __name__ == "__main__":
+    asyncio.run(main())

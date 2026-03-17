@@ -1,0 +1,54 @@
+{
+  "version": "2026-03-13",
+  "description": "单卡监控配置 - 7天限时版",
+  "search_config": {
+    "max_age_days": 7,
+    "max_items_per_keyword": 20,
+    "timeout_seconds": 120
+  },
+  "filters": {
+    "must_contain": ["ポケモン", "Pokémon", "Pokeca", "宝石", "ジェム", "CBB", "中国", "中国語", "海外限定", "PSA", "BGS", "ARS", "AR", "SAR"],
+    "blacklist": ["ex(", "ex　", "Gx", "VMAX", "V-UNION", "V-STAR", "VSTAR", "メガ", "無し", "セット", "まとめ売り", "引退品", "引退", "G X", "TAG TEAM", "ジャンク", "訳あり"],
+    "non_card": ["ウォレット", "バッグ", "リュック", "ワンピース", "セーター", "スマホ", "ケース", "カバー", "家電", "炊飯器", "冷蔵庫", "おもちゃ", "ゲーム", "switch", "cd", "dvd", "bluray", "リップ", "香水", "アクセサリー", "リング", "ピアス", "サングラス", "sunglasses", "zara", "ユニクロ"]
+  },
+  "card_keywords": [
+    {"id": "sv3a_0307", "name": "イーブイ", "keywords": ["イーブイ AR", "宝石包 イーブイ", "SV3a イーブイ"]},
+    {"id": "sv3a_0709", "name": "エーフィ", "keywords": ["エーフィ AR", "宝石包 エーフィ", "SV3a エーフィ"]},
+    {"id": "sv3a_0115", "name": "ブラッキー", "keywords": ["ブラッキー AR", "宝石包 ブラッキー", "SV3a ブラッキー"]},
+    {"id": "sv3a_0615", "name": "リーフィア", "keywords": ["リーフィア AR", "宝石包 リーフィア", "SV3a リーフィア"]},
+    {"id": "sv3a_0915", "name": "グレイシア", "keywords": ["グレイシア AR", "宝石包 グレイシア", "SV3a グレイシア"]},
+    {"id": "sv3a_0616", "name": "ニンフィア", "keywords": ["ニンフィア AR", "宝石包 ニンフィア", "SV3a ニンフィア"]},
+    {"id": "sv4a_0410", "name": "ゲンガー", "keywords": ["ゲンガー AR", "宝石包 ゲンガー", "SV4a ゲンガー"]},
+    {"id": "sv4a_0406", "name": "リザードン", "keywords": ["リザードン AR", "宝石包 リザードン", "SV4a リザードン"]},
+    {"id": "sv4a_0407", "name": "カメックス", "keywords": ["カメックス AR", "宝石包 カメックス", "SV4a カメックス"]},
+    {"id": "sv4a_0403", "name": "フシギダネ", "keywords": ["フシギダネ AR", "宝石包 フシギダネ", "SV4a フシギダネ"]},
+    {"id": "sv5a_0809", "name": "ルギア", "keywords": ["ルギア AR", "宝石包 ルギア", "SV5a ルギア"]},
+    {"id": "sv5a_0814", "name": "レックウザ", "keywords": ["レックウザ AR", "宝石包 レックウザ", "SV5a レックウザ"]},
+    {"id": "sv5a_0813", "name": "サーナイト", "keywords": ["サーナイト AR", "宝石包 サーナイト", "SV5a サーナイト"]},
+    {"id": "sv6a_0901_mtw", "name": "ミュウツー", "keywords": ["ミュウツー AR", "宝石包 ミュウツー", "SV6a ミュウツー"]},
+    {"id": "sv6a_0901_mew", "name": "ミュウ", "keywords": ["ミュウ AR", "宝石包 ミュウ", "SV6a ミュウ"]},
+    {"id": "sv6a_0902", "name": "ピカチュウ", "keywords": ["ピカチュウ AR", "宝石包 ピカチュウ", "SV6a ピカチュウ"]},
+    {"id": "sv12a_1226", "name": "オーガポン", "keywords": ["オーガポン SAR", "宝石包 オーガポン", "SV12a オーガポン"]},
+    {"id": "sv3a_0114", "name": "多龙梅西亚", "keywords": ["0114", "14", "ドラメिध AR", "多龙 AR", "宝石包 ドラメिध"]},
+    {"id": "sv3a_0320", "name": "耿鬼ex", "keywords": ["0320", "20", "ゲンガー ex AR", "耿鬼ex AR", "宝石包 ゲンガー"]},
+    {"id": "sv3a_0086", "name": "火伊布", "keywords": ["086", "66", "ブースター AR", "火伊布 AR", "宝石包 ブースター"]},
+    {"id": "sv3a_0081", "name": "水伊布", "keywords": ["081", "66", "シャワーズ AR", "水伊布 AR", "宝石包 シャワーズ"]},
+    {"id": "sv3a_0082", "name": "雷伊布", "keywords": ["082", "66", "サンダーの AR", "雷伊布 AR", "宝石包 サンダー"]},
+    {"id": "sv3a_0084", "name": "月亮伊布", "keywords": ["ブラッキー 084", "ブラッキー AR 084", "月亮伊布 AR 宝石包"]},
+    {"id": "sv3a_0085", "name": "仙子伊布", "keywords": ["ニンフィア 085", "ニンフィア AR 085", "仙子伊布 AR 宝石包"]}
+  ],
+  "output": {
+    "dir": "~/Desktop/销售总监報告",
+    "keep_days": 7,
+    "filename_pattern": "监控_单卡_{date}.xlsx"
+  },
+  "classification": {
+    "graded_keywords": ["psa10", "bgs10", "cgc10"],
+    "raw_keywords": ["ar", "sar"],
+    "exclude_from_raw": ["psa", "bgs", "cgc", "ars", "9.", "95", "9.5"]
+  },
+  "pricing": {
+    "low_price_threshold": 0.5,
+    "warning_label": "⚠️ 低价"
+  }
+}

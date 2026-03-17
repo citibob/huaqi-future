@@ -1,0 +1,23 @@
+{
+  "version": "2026-03-12-v2",
+  "description": "CARD_GROUPS配置 - 简化版",
+  "groups": [
+    {"name": "喷火龙", "id": "charizard", "subtitle": "リザードン AR PSA10"},
+    {"name": "耿鬼", "id": "gengar", "subtitle": "ゲンガー AR PSA10"},
+    {"name": "皮卡丘", "id": "pikachu", "subtitle": "ピカチュウ AR PSA10"},
+    {"name": "超梦", "id": "mewtwo", "subtitle": "ミュウツー AR PSA10"},
+    {"name": "梦幻", "id": "mew", "subtitle": "ミュウ AR PSA10"},
+    {"name": "水箭龟", "id": "blastoise", "subtitle": "カメックス AR PSA10"},
+    {"name": "妙蛙花", "id": "venusaur", "subtitle": "フシギダネ AR PSA10"},
+    {"name": "洛奇亚", "id": "lugia", "subtitle": "ルギア AR PSA10"},
+    {"name": "烈空坐", "id": "rayquaza", "subtitle": "レックウザ AR PSA10"},
+    {"name": "沙奈朵", "id": "gardevoir", "subtitle": "サーナイト AR PSA10"},
+    {"name": "伊布", "id": "eevee", "subtitle": "イーブイ AR PSA10"},
+    {"name": "太阳伊布", "id": "espeon", "subtitle": "エーフィ AR PSA10"},
+    {"name": "月亮伊布", "id": "umbreon", "subtitle": "ブラッキー AR PSA10"},
+    {"name": "叶伊布", "id": "leafeon", "subtitle": "リーフィア AR PSA10"},
+    {"name": "冰伊布", "id": "glaceon", "subtitle": "グレイシア AR PSA10"},
+    {"name": "仙子伊布", "id": "sylveon", "subtitle": "ニンフィア AR PSA10"},
+    {"name": "厄鬼厄", "id": "ogerpon", "subtitle": "オーガポン SAR PSA10"}
+  ]
+}

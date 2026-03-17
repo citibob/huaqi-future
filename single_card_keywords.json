@@ -1,0 +1,113 @@
+{
+  "description": "单卡搜索关键词库 — 从归档重建",
+  "last_updated": "2026-03-13",
+  "note": "原始文件路径: ~/Desktop/pokemon-system/single_card_keywords.json",
+  "search_by_card_number": [
+    "0307/07",
+    "0307",
+    "0709/09",
+    "0709",
+    "0115/15",
+    "0115",
+    "0615/15",
+    "0615",
+    "0915/15",
+    "0915"
+  ],
+  "status_filters": {
+    "sold": "売り切れ",
+    "on_sale": "販売中"
+  },
+  "data_fields": [
+    "title",
+    "price_jpy",
+    "status",
+    "created",
+    "商品链接"
+  ],
+  "result_classification": {
+    "graded": {
+      "description": "评级组：标题含PSA10的单独列出",
+      "match_keywords": [
+        "PSA10",
+        "PSA 10"
+      ]
+    },
+    "ungraded": {
+      "description": "未评级组：标题不含PSA/BGS/ARS/9/9.5的AR/SAR裸卡",
+      "exclude_keywords": [
+        "PSA",
+        "BGS",
+        "ARS",
+        "9",
+        "9.5"
+      ]
+    }
+  },
+  "whitelist": [
+    "ポケモン",
+    "ポケカ",
+    "PSA",
+    "BGS",
+    "ARS",
+    "宝石包",
+    "ジェムパック",
+    "Pokemon",
+    "Pokemon Card",
+    "AR ポケモン",
+    "SAR ポケモン",
+    "CBB",
+    "中国",
+    "中国語",
+    "海外限定"
+  ],
+  "blacklist": [
+    "ex",
+    "メガ",
+    "無し",
+    "セット",
+    "まとめ売り",
+    "引退品",
+    "GX",
+    "VMAX",
+    "Vstar",
+    "TAG TEAM",
+    "ジャンク",
+    "訳あり",
+    "エアコン",
+    "リモコン",
+    "時計",
+    "腕時針",
+    "化粧品",
+    "口红",
+    "アイシャドウ",
+    "ファンデーション",
+    "スキンケア",
+    "香水",
+    "ワンピース",
+    "セーター",
+    "スニーカー",
+    "バッグ",
+    "リュック"
+  ],
+  "seller_alert": {
+    "description": "卖家预警：评价数<10且价格<市场均价50%的listing标红",
+    "min_reviews": 10,
+    "price_threshold_pct": 50
+  },
+  "normalization": "全角/半角归一化处理",
+  "special_keywords": [
+    {
+      "name": "皮卡丘 PSA10 中国版 AR",
+      "keyword": "皮卡丘 PSA10 中国版 AR",
+      "card_number": "172/151",
+      "added": "2026-03-15"
+    },
+    {
+      "name": "皮卡丘 PSA10 中国语 151C 171/151 AR",
+      "keyword": "皮卡丘 PSA10 中国語 151C AR",
+      "card_number": "171/151",
+      "added": "2026-03-15"
+    }
+  ]
+}
