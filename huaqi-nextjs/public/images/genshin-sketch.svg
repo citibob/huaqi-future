@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="400" height="280">
+  <defs>
+    <style>
+      .sketch { stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1a2e"/>
+      <stop offset="100%" style="stop-color:#0a1220"/>
+    </linearGradient>
+    <linearGradient id="wingGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5d87a"/>
+      <stop offset="50%" style="stop-color:#e8b830"/>
+      <stop offset="100%" style="stop-color:#c8920a"/>
+    </linearGradient>
+    <linearGradient id="wingGold2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5d87a"/>
+      <stop offset="50%" style="stop-color:#e8b830"/>
+      <stop offset="100%" style="stop-color:#c8920a"/>
+    </linearGradient>
+    <filter id="pencil">
+      <feTurbulence type="turbulence" baseFrequency="0.055" numOctaves="2" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.9"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#e8c840;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#e8c840;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="280" fill="url(#bgGrad)"/>
+
+  <!-- Subtle star field -->
+  <g opacity="0.4">
+    <circle cx="40" cy="30" r="1" fill="white"/>
+    <circle cx="80" cy="55" r="0.8" fill="white"/>
+    <circle cx="320" cy="25" r="1" fill="white"/>
+    <circle cx="360" cy="60" r="0.8" fill="white"/>
+    <circle cx="30" cy="200" r="0.8" fill="white"/>
+    <circle cx="370" cy="180" r="1" fill="white"/>
+    <circle cx="55" cy="240" r="0.7" fill="white"/>
+    <circle cx="345" cy="245" r="0.7" fill="white"/>
+    <circle cx="120" cy="20" r="0.6" fill="white"/>
+    <circle cx="280" cy="18" r="0.6" fill="white"/>
+    <circle cx="15" cy="130" r="0.6" fill="white"/>
+    <circle cx="385" cy="130" r="0.6" fill="white"/>
+  </g>
+
+  <!-- Center ambient glow -->
+  <ellipse cx="200" cy="138" rx="90" ry="85" fill="url(#centerGlow)"/>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- GENSHIN LOGO — Anemo/Geo wing symbol -->
+  <!-- Hand-drawn style                   -->
+  <!-- ══════════════════════════════════ -->
+
+  <!-- The Genshin symbol is a stylized wing/leaf shape with a gem -->
+  <!-- Drawing the iconic "Genshin Impact" elemental eye/wing emblem -->
+
+  <g filter="url(#pencil)">
+
+    <!-- ── Outer decorative ring ── -->
+    <circle cx="200" cy="138" r="82"
+            fill="none" stroke="#c8920a" stroke-width="1.2"
+            stroke-dasharray="4,6" opacity="0.45" class="sketch"/>
+    <circle cx="200" cy="138" r="78"
+            fill="none" stroke="#e8b830" stroke-width="0.8"
+            opacity="0.25" class="sketch"/>
+
+    <!-- ── 4 corner ornament dots ── -->
+    <circle cx="200" cy="57" r="3.5" fill="#e8c840" opacity="0.7" filter="url(#glow)"/>
+    <circle cx="200" cy="219" r="3.5" fill="#e8c840" opacity="0.7" filter="url(#glow)"/>
+    <circle cx="119" cy="138" r="3.5" fill="#e8c840" opacity="0.7" filter="url(#glow)"/>
+    <circle cx="281" cy="138" r="3.5" fill="#e8c840" opacity="0.7" filter="url(#glow)"/>
+
+    <!-- ── LEFT WING ── -->
+    <!-- Main wing sweep — large outer curve -->
+    <path d="M200,138
+             C185,118 155,95 125,88
+             C108,84 95,86 88,92
+             C80,100 82,112 92,120
+             C105,130 125,132 148,130
+             C165,128 182,130 200,138 Z"
+          fill="#d4a820" opacity="0.18" class="sketch"/>
+
+    <!-- Wing outline strokes — hand drawn feel -->
+    <path d="M200,138 C183,118 152,93 122,86 C105,82 90,86 84,96 C78,108 84,120 96,126 C112,134 135,132 158,128 C175,125 190,130 200,138"
+          fill="none" stroke="url(#wingGold)" stroke-width="3" class="sketch" opacity="0.9"/>
+    <!-- Wing inner detail line -->
+    <path d="M200,138 C185,122 162,105 138,100 C122,96 108,100 102,110"
+          fill="none" stroke="#f5d87a" stroke-width="1.5" class="sketch" opacity="0.6"/>
+    <!-- Wing feather lines -->
+    <path d="M165,118 C150,112 132,108 118,110"
+          fill="none" stroke="#e8b830" stroke-width="1.2" class="sketch" opacity="0.55"/>
+    <path d="M150,126 C138,122 124,120 114,124"
+          fill="none" stroke="#e8b830" stroke-width="1" class="sketch" opacity="0.45"/>
+    <path d="M178,112 C165,104 148,98 132,96"
+          fill="none" stroke="#e8b830" stroke-width="1" class="sketch" opacity="0.4"/>
+
+    <!-- ── RIGHT WING ── (mirror) -->
+    <path d="M200,138
+             C215,118 245,95 275,88
+             C292,84 305,86 312,92
+             C320,100 318,112 308,120
+             C295,130 275,132 252,130
+             C235,128 218,130 200,138 Z"
+          fill="#d4a820" opacity="0.18" class="sketch"/>
+
+    <path d="M200,138 C217,118 248,93 278,86 C295,82 310,86 316,96 C322,108 316,120 304,126 C288,134 265,132 242,128 C225,125 210,130 200,138"
+          fill="none" stroke="url(#wingGold2)" stroke-width="3" class="sketch" opacity="0.9"/>
+    <path d="M200,138 C215,122 238,105 262,100 C278,96 292,100 298,110"
+          fill="none" stroke="#f5d87a" stroke-width="1.5" class="sketch" opacity="0.6"/>
+    <path d="M235,118 C250,112 268,108 282,110"
+          fill="none" stroke="#e8b830" stroke-width="1.2" class="sketch" opacity="0.55"/>
+    <path d="M250,126 C262,122 276,120 286,124"
+          fill="none" stroke="#e8b830" stroke-width="1" class="sketch" opacity="0.45"/>
+    <path d="M222,112 C235,104 252,98 268,96"
+          fill="none" stroke="#e8b830" stroke-width="1" class="sketch" opacity="0.4"/>
+
+    <!-- ── UPPER WING tips ── -->
+    <!-- Left upper petal -->
+    <path d="M200,138 C192,118 178,95 172,72 C168,58 170,48 178,44 C186,40 196,46 200,62 C204,78 200,105 200,138"
+          fill="#d4a820" opacity="0.2" class="sketch"/>
+    <path d="M200,138 C193,115 180,90 174,68 C170,52 172,42 180,40 C188,38 196,46 200,64"
+          fill="none" stroke="#f5d87a" stroke-width="2.5" class="sketch" opacity="0.85"/>
+    <path d="M200,138 C195,118 190,95 188,72 C186,58 188,50 192,48"
+          fill="none" stroke="#e8b830" stroke-width="1.2" class="sketch" opacity="0.5"/>
+
+    <!-- Right upper petal -->
+    <path d="M200,138 C208,118 222,95 228,72 C232,58 230,48 222,44 C214,40 204,46 200,62 C196,78 200,105 200,138"
+          fill="#d4a820" opacity="0.2" class="sketch"/>
+    <path d="M200,138 C207,115 220,90 226,68 C230,52 228,42 220,40 C212,38 204,46 200,64"
+          fill="none" stroke="#f5d87a" stroke-width="2.5" class="sketch" opacity="0.85"/>
+    <path d="M200,138 C205,118 210,95 212,72 C214,58 212,50 208,48"
+          fill="none" stroke="#e8b830" stroke-width="1.2" class="sketch" opacity="0.5"/>
+
+    <!-- ── LOWER drop ── -->
+    <path d="M200,138 C195,155 190,172 192,188 C194,202 200,210 200,210 C200,210 206,202 208,188 C210,172 205,155 200,138"
+          fill="#d4a820" opacity="0.2" class="sketch"/>
+    <path d="M200,138 C194,158 188,178 191,194 C194,206 200,212 200,212 C200,212 206,206 209,194 C212,178 206,158 200,138"
+          fill="none" stroke="#f5d87a" stroke-width="2" class="sketch" opacity="0.7"/>
+
+    <!-- ── CENTER GEM / EYE ── -->
+    <!-- Outer glow -->
+    <circle cx="200" cy="138" r="22" fill="#e8c840" opacity="0.12" filter="url(#softglow)"/>
+
+    <!-- Gem diamond shape -->
+    <polygon points="200,114 218,138 200,158 182,138"
+             fill="#1a2a4a" stroke="#f5d87a" stroke-width="2.5" class="sketch" opacity="0.95"/>
+
+    <!-- Gem inner facets -->
+    <line x1="200" y1="114" x2="200" y2="158" stroke="#e8c840" stroke-width="1" opacity="0.4" class="sketch"/>
+    <line x1="182" y1="138" x2="218" y2="138" stroke="#e8c840" stroke-width="1" opacity="0.4" class="sketch"/>
+
+    <!-- Gem highlight -->
+    <polygon points="200,114 218,138 200,128"
+             fill="#f5d87a" opacity="0.25" class="sketch"/>
+    <polygon points="200,114 182,138 200,128"
+             fill="#ffffff" opacity="0.1" class="sketch"/>
+
+    <!-- Center dot -->
+    <circle cx="200" cy="138" r="4" fill="#f5d87a" opacity="0.9" filter="url(#glow)"/>
+    <circle cx="200" cy="138" r="2" fill="#ffffff" opacity="0.8"/>
+
+  </g>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- Small element orbs — 4 elements   -->
+  <!-- ══════════════════════════════════ -->
+  <!-- Anemo (teal) -->
+  <circle cx="108" cy="72" r="7" fill="#4fc3a8" opacity="0.7" filter="url(#glow)" class="sketch"/>
+  <circle cx="108" cy="72" r="4" fill="#7de8d0" opacity="0.6"/>
+  <path d="M105,69 Q108,66 111,69 Q108,72 105,69" fill="none" stroke="#7de8d0" stroke-width="1" opacity="0.8" class="sketch"/>
+
+  <!-- Geo (gold) -->
+  <circle cx="292" cy="72" r="7" fill="#e8b830" opacity="0.7" filter="url(#glow)" class="sketch"/>
+  <polygon points="292,66 296,72 292,78 288,72" fill="#f5d87a" opacity="0.7" class="sketch"/>
+
+  <!-- Electro (purple) -->
+  <circle cx="108" cy="204" r="7" fill="#9b6dff" opacity="0.7" filter="url(#glow)" class="sketch"/>
+  <path d="M106,200 L104,207 L108,204 L106,211" fill="none" stroke="#c4a8ff" stroke-width="1.5" class="sketch"/>
+
+  <!-- Hydro (blue) -->
+  <circle cx="292" cy="204" r="7" fill="#4090e8" opacity="0.7" filter="url(#glow)" class="sketch"/>
+  <path d="M292,199 C292,199 288,204 290,207 C291,210 295,210 295,207 C296,204 292,199 292,199" fill="#7ab8f5" opacity="0.7" class="sketch"/>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- GENSHIN text                       -->
+  <!-- ══════════════════════════════════ -->
+
+  <!-- Text glow -->
+  <text x="200" y="252" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="22" font-weight="bold"
+        fill="#e8c840" opacity="0.3"
+        letter-spacing="8"
+        filter="url(#softglow)">原神</text>
+
+  <!-- Main CJK title -->
+  <text x="200" y="250" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="22" font-weight="bold"
+        fill="#f5d87a"
+        letter-spacing="8"
+        filter="url(#pencil)">原神</text>
+
+  <!-- Latin subtitle -->
+  <text x="200" y="268" text-anchor="middle"
+        font-family="Georgia, serif"
+        font-size="9"
+        fill="#a0b4c8"
+        letter-spacing="5">GENSHIN  IMPACT</text>
+
+  <!-- Decorative line under text -->
+  <path d="M140,255 Q200,260 260,255" fill="none" stroke="#c8920a" stroke-width="1.2" opacity="0.5" class="sketch"/>
+
+</svg>

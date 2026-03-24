@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Architectural Minimalism Palette */
+    --color-primary: #000000;
+    --color-secondary: #755b00;
+    --color-surface: #f8f9fe;
+    --color-container-50: #f8f9fe;
+    --color-container-100: #f3f3f8;
+    --color-container-200: #edeef2;
+    --color-container-300: #e7e8ec;
+    --color-muted: #6b7280;
+    --color-muted-light: #9ca3af;
+    --color-white: #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-[#0a0f1a] text-white antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black tracking-tight;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-container-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-container-300 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted/30;
+  }
+}
+
+@layer components {
+  /* Display typography */
+  .text-display-xl {
+    @apply text-[4rem] leading-[0.9] tracking-[-0.03em] font-black;
+  }
+
+  .text-display-lg {
+    @apply text-[3rem] leading-[0.95] tracking-[-0.02em] font-black;
+  }
+
+  .text-display-md {
+    @apply text-[2rem] leading-[1] tracking-[-0.01em] font-black;
+  }
+
+  /* Card with tonal shadow */
+  .shadow-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl;
+  }
+
+  /* Bento grid gap */
+  .bento-gap {
+    gap: 1.5rem;
+  }
+}
+
+@layer utilities {
+  .tracking-tighter {
+    letter-spacing: -0.03em;
+  }
+
+  .leading-\[0\.9\] {
+    line-height: 0.9;
+  }
+
+  .leading-\[0\.95\] {
+    line-height: 0.95;
+  }
+}

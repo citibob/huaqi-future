@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "defaultMode": "bypassPermissions"
+  },
+  "language": "chinese",
+  "respectGitignore": true
+}

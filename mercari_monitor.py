@@ -47,6 +47,8 @@ def format_created(created) -> str:
             return datetime.fromisoformat(raw).strftime("%Y-%m-%d %H:%M")
         except ValueError:
             return created
+    if isinstance(created, int):  # Unix timestamp
+        return datetime.fromtimestamp(created).strftime("%Y-%m-%d %H:%M")
     return ""
 
 

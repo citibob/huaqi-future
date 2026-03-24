@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "首页",
+    "gemPacks": "宝石包",
+    "priceTrend": "价格推移",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "badge": "日本正品・正品保证",
+    "title": "Pokemon\n宝石包专业",
+    "subtitle": "日本直邮。封膜未开封品。\n含封膜・PSA10対応・进货支援",
+    "viewGemPacks": "查看宝石包",
+    "contactUs": "联系我们"
+  },
+  "hotSection": {
+    "label": "热门",
+    "title": "本周焦点",
+    "subtitle": "本周交易最多的宝石包",
+    "viewAll": "查看全部"
+  },
+  "priceSection": {
+    "label": "价格推移",
+    "title": "最新价格",
+    "lowest": "最低价",
+    "inStock": "在售",
+    "weekly": "周销"
+  },
+  "cta": {
+    "title": "进货支援服务",
+    "subtitle": "面向法人批量进货服务。宝石包全系列対応。\n报价・进货・通关・配送一体化支持",
+    "viewDetails": "查看详情"
+  },
+  "card": {
+    "sealed": "含封膜",
+    "hot": "热门",
+    "copyUrl": "复制链接",
+    "copied": "复制成功",
+    "buyOnMercari": "前往Mercari",
+    "itemsForSale": "件在售",
+    "weeklySold": "周销"
+  },
+  "packs": {
+    "title": "宝石包系列",
+    "subtitle": "宝石包全系列一览。日本正品・封膜未开封品のみ。",
+    "filter": "筛选",
+    "all": "全部",
+    "withSealed": "含封膜",
+    "popular": "热门",
+    "priceNote": "※ 显示价格为参考价，最新价格请查看各商品页面。",
+    "shippingNote": "※ 均为日本发货。配送日数为参考。"
+  },
+  "detail": {
+    "back": "返回宝石包列表",
+    "gemPackSeries": "宝石包系列",
+    "lowestPrice": "最低价",
+    "marketMedian": "市场中间价",
+    "forSale": "在售",
+    "description": "商品说明",
+    "salesData": "销售数据",
+    "weeklySales": "周销量",
+    "remainingStock": "剩余库存",
+    "copyUrl": "复制链接",
+    "copied": "复制成功！",
+    "viewOnMercari": "在Mercari查看",
+    "viewOnYahoo": "在Yahoo!查看"
+  }
+}

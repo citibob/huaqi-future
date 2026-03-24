@@ -260,7 +260,7 @@ def write_sheet(ws, rows, headers, keys, title, subtitle):
             elif key == "price_cny":
                 val = fmt_cny(val)
             elif key == "url" and val:
-                val = "链接"
+                val = "🔗"
             ws.cell(row=r, column=cidx, value=val)
             if key == "url" and row.get("url"):
                 ws.cell(row=r, column=cidx).hyperlink = row["url"]
