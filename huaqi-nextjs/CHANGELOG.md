@@ -1,3 +1,9 @@
+## 2026-03-25
+
+### Enhancement
+- **`app/opengraph-image.tsx`** - New. Open Graph image generation for homepage (`/`). 1200×630px social sharing image with company logo badge, 華啓未来 / HUAQI FUTURE INC., and tagline. Dark gradient background matching site aesthetic, gold accent colors. Generates `/opengraph-image.png` via Next.js OG Image API. Build verified OK.
+- **`app/packs/opengraph-image.tsx`** - New. Dedicated OG image for `/packs` route. Same style as homepage OG image but with "ジェムパック シリーズ / GEM PACK SERIES" title. Build verified OK.
+- **`app/sitemap.ts`** - New. Dynamic sitemap covering all 12 site routes (home, business, packs×5 volumes, company, contact, market, privacy, law) with correct priority/changeFrequency. Serves at `/sitemap.xml`. Build verified OK.
 
 ## 2026-03-23
 

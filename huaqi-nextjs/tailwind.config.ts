@@ -9,29 +9,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Architectural Minimalism Palette
-        primary: '#000000',       // 深邃黑 - 标题/主文字
-        secondary: '#755b00',     // 拉丝金 - 强调色
+        primary: '#f8f3e7',
+        secondary: '#d6b36a',
+        accent: '#7d8fff',
         surface: {
-          DEFAULT: '#f8f9fe',
-          50: '#f8f9fe',
-          100: '#f3f3f8',
+          DEFAULT: '#050608',
+          50: '#050608',
+          100: '#0d1015',
         },
         container: {
-          50: '#f8f9fe',
-          100: '#f3f3f8',
-          200: '#edeef2',
-          300: '#e7e8ec',
+          50: '#050608',
+          100: '#0d1015',
+          200: '#151a22',
+          300: '#202733',
         },
         white: '#ffffff',
-        muted: '#6b7280',
-        'muted-light': '#9ca3af',
-        // Pokemon market page retains dark theme
+        muted: '#b8b3a7',
+        'muted-light': '#8e98aa',
         market: {
-          bg: '#0a0f1a',
-          surface: '#131b2e',
-          card: '#182035',
-          gold: '#c9a84c',
+          bg: '#050608',
+          surface: '#0d1015',
+          card: '#151a22',
+          gold: '#d6b36a',
         },
         pokemon: {
           red: '#E3350D',

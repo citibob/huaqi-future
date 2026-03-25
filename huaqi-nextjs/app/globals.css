@@ -4,16 +4,16 @@
 
 @layer base {
   :root {
-    /* Architectural Minimalism Palette */
-    --color-primary: #000000;
-    --color-secondary: #755b00;
-    --color-surface: #f8f9fe;
-    --color-container-50: #f8f9fe;
-    --color-container-100: #f3f3f8;
-    --color-container-200: #edeef2;
-    --color-container-300: #e7e8ec;
-    --color-muted: #6b7280;
-    --color-muted-light: #9ca3af;
+    /* Obsidian Luxe Palette */
+    --color-primary: #f8f3e7;
+    --color-secondary: #d6b36a;
+    --color-surface: #050608;
+    --color-container-50: #050608;
+    --color-container-100: #0d1015;
+    --color-container-200: #151a22;
+    --color-container-300: #202733;
+    --color-muted: #b8b3a7;
+    --color-muted-light: #8e98aa;
     --color-white: #ffffff;
   }
 
@@ -24,7 +24,11 @@
   }
 
   body {
-    @apply bg-[#0a0f1a] text-white antialiased;
+    background:
+      radial-gradient(circle at top left, rgba(125, 143, 255, 0.12), transparent 18%),
+      radial-gradient(circle at top right, rgba(214, 179, 106, 0.14), transparent 24%),
+      linear-gradient(180deg, #040506 0%, #090b0f 52%, #040506 100%);
+    @apply text-white antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -63,12 +67,14 @@
 
   /* Card with tonal shadow */
   .shadow-card {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.28), 0 1px 0 rgba(255,255,255,0.04) inset;
   }
 
   /* Glassmorphism */
   .glass {
-    @apply bg-white/70 backdrop-blur-xl;
+    @apply backdrop-blur-xl;
+    background: rgba(9, 11, 15, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   /* Bento grid gap */
@@ -88,5 +94,42 @@
 
   .leading-\[0\.95\] {
     line-height: 0.95;
+  }
+
+  .lux-panel {
+    background: linear-gradient(180deg, rgba(20, 24, 31, 0.92), rgba(10, 13, 18, 0.96));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+  }
+
+  .lux-text {
+    color: rgba(248, 243, 231, 0.78);
+  }
+
+  .lux-outline {
+    position: relative;
+  }
+
+  .lux-outline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(214, 179, 106, 0.18);
+    pointer-events: none;
+  }
+
+  .gold-shimmer {
+    background:
+      linear-gradient(120deg, rgba(214, 179, 106, 0) 0%, rgba(214, 179, 106, 0.1) 45%, rgba(255, 232, 176, 0.28) 50%, rgba(214, 179, 106, 0.08) 55%, rgba(214, 179, 106, 0) 100%),
+      linear-gradient(180deg, rgba(20, 24, 31, 0.92), rgba(10, 13, 18, 0.96));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+  }
+
+  .gold-text {
+    background: linear-gradient(180deg, #f3ddb0 0%, #d6b36a 45%, #9d7a35 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }

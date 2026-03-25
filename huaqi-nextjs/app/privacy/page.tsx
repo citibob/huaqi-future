@@ -14,14 +14,14 @@ export default function PrivacyPage() {
     <div className="min-h-screen pt-20 pb-16">
       {/* Header */}
       <div className="relative overflow-hidden py-20 px-4">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#1a365d]/8 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
         <div className="max-w-4xl mx-auto text-center relative">
           <div className="inline-flex items-center gap-2 text-xs font-medium text-[#c9a84c] bg-[#c9a84c]/8 border border-[#c9a84c]/15 px-4 py-2 rounded-full mb-6">
             <ShieldCheck className="w-4 h-4" />
             個人情報保護方針
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">プライバシーポリシー</h1>
-          <p className="text-white/45 max-w-2xl mx-auto">
+          <p className="text-muted max-w-2xl mx-auto">
             個人情報の保護に関する基本方針
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
       {/* Content */}
       <section className="px-4 py-12">
         <div className="max-w-3xl mx-auto">
-          <div className="prose-sm text-white/55 leading-relaxed space-y-10">
+          <div className="prose-sm lux-text leading-relaxed space-y-10">
 
             <p>
               華啓未来株式会社（以下「当社」といいます。）は、お客様の個人情報の保護を重要な責務と認識し、
@@ -141,7 +141,7 @@ export default function PrivacyPage() {
               <p className="mb-3">
                 個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。
               </p>
-              <div className="rounded-xl bg-[#131b2e] border border-[#1e2a45] p-6 text-sm">
+              <div className="rounded-xl bg-[#0d1015] border border-white/8 p-6 text-sm shadow-card">
                 <p className="font-semibold text-white mb-2">華啓未来株式会社</p>
                 <p>〒231-0057 神奈川県横浜市中区曙町1-3 藤和伊勢佐木ハイタウン615号室</p>
                 <p className="mt-1">メールアドレス: asiacardptcg@gmail.com</p>
@@ -150,7 +150,7 @@ export default function PrivacyPage() {
             </div>
 
             {/* Footer */}
-            <div className="pt-8 border-t border-[#1e2a45] text-sm text-white/40">
+            <div className="pt-8 border-t border-white/8 text-sm text-muted-light">
               <p>制定日: 2024年1月1日</p>
               <p>最終改定日: 2026年3月1日</p>
               <p className="mt-2">華啓未来株式会社</p>

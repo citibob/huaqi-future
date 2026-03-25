@@ -69,14 +69,14 @@ export default function CompanyPage() {
     <div className="min-h-screen pt-20 pb-16">
       {/* Header */}
       <div className="relative overflow-hidden py-20 px-4">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#1a365d]/8 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
         <div className="max-w-4xl mx-auto text-center relative">
           <div className="inline-flex items-center gap-2 text-xs font-medium text-[#c9a84c] bg-[#c9a84c]/8 border border-[#c9a84c]/15 px-4 py-2 rounded-full mb-6">
             <Building2 className="w-4 h-4" />
             会社概要
           </div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">華啓未来株式会社</h1>
-          <p className="text-lg text-white/45">Huaqi Future Co., Ltd.</p>
+          <p className="text-lg text-muted">Huaqi Future Co., Ltd.</p>
         </div>
       </div>
 
@@ -84,7 +84,7 @@ export default function CompanyPage() {
       <section className="px-4 py-12">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold mb-8">会社情報</h2>
-          <div className="rounded-xl border border-[#1e2a45] overflow-hidden">
+          <div className="rounded-xl border border-white/8 overflow-hidden bg-[#090b0f]/65">
             {COMPANY_INFO.map((item, i) => (
               <div
                 key={item.label}
@@ -92,10 +92,10 @@ export default function CompanyPage() {
                   i !== COMPANY_INFO.length - 1 ? 'border-b border-[#1e2a45]' : ''
                 }`}
               >
-                <div className="sm:w-48 shrink-0 bg-[#131b2e] px-6 py-4 font-medium text-sm text-white/70">
+                <div className="sm:w-48 shrink-0 bg-[#10141b] px-6 py-4 font-medium text-sm text-secondary">
                   {item.label}
                 </div>
-                <div className="px-6 py-4 text-sm text-white/55 whitespace-pre-line">
+                <div className="px-6 py-4 text-sm lux-text whitespace-pre-line">
                   {item.value}
                 </div>
               </div>
@@ -108,8 +108,8 @@ export default function CompanyPage() {
       <section className="px-4 py-12">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold mb-8">代表挨拶</h2>
-          <div className="rounded-xl bg-[#131b2e] border border-[#1e2a45] p-8 md:p-12">
-            <div className="space-y-5 text-white/60 leading-relaxed text-sm">
+          <div className="rounded-xl bg-[#0d1015] border border-white/8 p-8 md:p-12 shadow-card">
+            <div className="space-y-5 lux-text leading-relaxed text-sm">
               <p>
                 華啓未来株式会社のウェブサイトをご覧いただき、誠にありがとうございます。
               </p>
@@ -139,7 +139,7 @@ export default function CompanyPage() {
                 着実に事業を拡大してまいる所存です。
                 皆様のご支援・ご愛顧を賜りますよう、何卒よろしくお願い申し上げます。
               </p>
-              <div className="pt-5 border-t border-[#1e2a45]">
+              <div className="pt-5 border-t border-white/8">
                 <p className="font-semibold text-white">華啓未来株式会社</p>
                 <p className="text-sm text-white/50">代表取締役　鮑 海明</p>
               </div>
@@ -152,7 +152,7 @@ export default function CompanyPage() {
       <section className="px-4 py-12">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold mb-8">業務沿革</h2>
-          <div className="rounded-xl border border-[#1e2a45] overflow-hidden">
+          <div className="rounded-xl border border-white/8 overflow-hidden bg-[#090b0f]/65">
             {HISTORY.map((item, i) => (
               <div
                 key={item.date}
@@ -160,10 +160,10 @@ export default function CompanyPage() {
                   i !== HISTORY.length - 1 ? 'border-b border-[#1e2a45]' : ''
                 }`}
               >
-                <div className="sm:w-40 shrink-0 bg-[#131b2e] px-6 py-3.5 font-medium text-sm text-[#c9a84c]">
+                <div className="sm:w-40 shrink-0 bg-[#10141b] px-6 py-3.5 font-medium text-sm text-secondary">
                   {item.date}
                 </div>
-                <div className="px-6 py-3.5 text-sm text-white/55">
+                <div className="px-6 py-3.5 text-sm lux-text">
                   {item.event}
                 </div>
               </div>
@@ -180,13 +180,13 @@ export default function CompanyPage() {
             {VALUES.map((v) => (
               <div
                 key={v.title}
-                className="rounded-xl bg-[#131b2e] border border-[#1e2a45] p-6"
+                className="rounded-xl bg-[#0d1015] border border-white/8 p-6 shadow-card"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#1a365d]/30 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-4">
                   <v.icon className="w-5 h-5 text-[#c9a84c]" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{v.title}</h3>
-                <p className="text-sm text-white/45 leading-relaxed">{v.desc}</p>
+                <p className="text-sm lux-text leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>

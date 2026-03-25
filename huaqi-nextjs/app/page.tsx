@@ -13,6 +13,12 @@ const STATS = [
   { label: '顧客満足度', value: '98', suffix: '%' },
 ]
 
+const SIGNATURES = [
+  'JAPAN ENTITY',
+  'CROSS-BORDER FLOW',
+  'AUTHORIZED DISTRIBUTION',
+]
+
 export const metadata: Metadata = {
   title: '華啓未来株式会社 | 中国と日本をつなぐ越境貿易企業',
   description:
@@ -29,7 +35,10 @@ export default function HomePage() {
       {/* ========== Hero ========== */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background with tonal layering */}
-        <div className="absolute inset-0 bg-gradient-to-br from-surface-50 via-white to-container-100" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(125,143,255,0.14),transparent_18%),radial-gradient(circle_at_top_right,rgba(214,179,106,0.16),transparent_24%),linear-gradient(180deg,#050608_0%,#0b0e13_52%,#050608_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
+        <div className="absolute right-[14%] top-28 hidden xl:block w-52 h-52 rounded-full bg-secondary/10 blur-3xl" />
+        <div className="absolute left-[18%] bottom-20 hidden xl:block w-64 h-64 rounded-full bg-accent/10 blur-3xl" />
         
         {/* Status Pillar - Vertical Decoration */}
         <div className="absolute left-[5%] top-0 w-px h-40 bg-gradient-to-b from-secondary to-transparent" />
@@ -46,46 +55,83 @@ export default function HomePage() {
             </span>
           </div>
 
-          {/* Main Heading - Asymmetric Typography */}
-          <div className="max-w-3xl mb-12">
-            <h1 className="font-black text-display-xl text-primary leading-[0.9] tracking-tighter mb-6">
-              華啓未来
-            </h1>
-            <p className="text-sm uppercase tracking-[0.3em] text-muted-light font-light">
-              HUAQI FUTURE Inc.
-            </p>
-          </div>
+          <div className="grid items-end gap-12 lg:grid-cols-[minmax(0,1.15fr)_320px]">
+            <div>
+              {/* Main Heading - Asymmetric Typography */}
+              <div className="max-w-4xl mb-12">
+                <p className="mb-4 text-xs uppercase tracking-[0.35em] text-muted-light">
+                  Yokohama / Japan
+                </p>
+                <h1 className="font-black text-display-xl text-primary leading-[0.9] tracking-tighter mb-4">
+                  華啓未来
+                </h1>
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="h-px w-16 bg-secondary/50" />
+                  <p className="text-sm uppercase tracking-[0.3em] text-muted-light font-light">
+                    HUAQI FUTURE Inc.
+                  </p>
+                </div>
+              </div>
 
-          {/* Divider */}
-          <div className="w-24 h-px bg-secondary/30 mb-8" />
+              <p className="text-lg md:text-[1.35rem] lux-text max-w-2xl leading-relaxed font-light mb-10">
+                中国正規品ポケモンカード「ジェムパック」の日本国内正規販売と、
+                日中をまたぐ商流設計を一体で担う日本法人。
+              </p>
 
-          {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted max-w-xl leading-relaxed font-light mb-16">
-            中国正規品ポケモンカード「ジェムパック」の<br />
-            日本国内における正規販売代理店
-          </p>
+              <div className="mb-12 flex flex-wrap gap-3">
+                {SIGNATURES.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-sm border border-white/10 bg-white/[0.03] px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-muted-light"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
 
-          {/* CTA */}
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/packs"
-              className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-sm font-bold hover:bg-primary/90 transition-colors"
-            >
-              ジェムパックを見る
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 bg-container-100 text-primary px-8 py-4 rounded-sm font-medium hover:bg-container-200 transition-colors"
-            >
-              お問い合わせ
-            </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/packs"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-secondary to-[#f0d69a] text-[#120d04] px-8 py-4 rounded-sm font-bold hover:opacity-90 transition-colors"
+                >
+                  ジェムパックを見る
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-3 lux-panel text-primary px-8 py-4 rounded-sm font-medium hover:bg-white/5 transition-colors"
+                >
+                  お問い合わせ
+                </Link>
+              </div>
+            </div>
+
+            <div className="gold-shimmer lux-outline hidden rounded-sm p-6 lg:block">
+              <div className="mb-8 flex items-center justify-between text-[11px] uppercase tracking-[0.28em] text-muted-light">
+                <span>Brand Note</span>
+                <span className="gold-text font-bold">01</span>
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <p className="mb-2 text-xs uppercase tracking-[0.22em] text-secondary">Focus</p>
+                  <p className="text-sm leading-7 lux-text">
+                    正規流通、法人取引、継続供給。価格だけでなく、信頼できる商流を価値として提供。
+                  </p>
+                </div>
+                <div>
+                  <p className="mb-2 text-xs uppercase tracking-[0.22em] text-secondary">Positioning</p>
+                  <p className="text-sm leading-7 lux-text">
+                    ホビー領域を起点に、日本品質の運用と中国供給網を接続する越境パートナー。
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Floating Image Element */}
-        <div className="absolute right-[8%] top-1/3 w-[320px] h-[400px] hidden lg:block">
-          <div className="relative w-full h-full bg-container-100 rounded-sm overflow-hidden shadow-card">
+        <div className="absolute right-[8%] top-1/3 hidden h-[400px] w-[320px] lg:block">
+          <div className="relative h-full w-full overflow-hidden rounded-sm gold-shimmer shadow-card">
             <Image
               src="/images/gem-pack.svg"
               alt="Pokemon Card Gem Pack"
@@ -99,7 +145,7 @@ export default function HomePage() {
       </section>
 
       {/* ========== Stats - Bento Grid ========== */}
-      <section className="relative py-20 bg-surface-50">
+      <section className="relative py-20 bg-[#06080b]">
         {/* Status Pillar */}
         <div className="absolute left-[5%] top-0 w-px h-full bg-container-200" />
         
@@ -117,9 +163,9 @@ export default function HomePage() {
             {STATS.map((stat, i) => (
               <div
                 key={stat.label}
-                className={`p-6 ${i === 0 ? 'bg-white' : i === 3 ? 'bg-white' : 'bg-container-100'} rounded-sm`}
+                className={`rounded-sm p-6 ${i === 0 ? 'gold-shimmer lux-outline' : i === 3 ? 'lux-panel' : 'bg-container-100/90 border border-white/5'}`}
               >
-                <div className="text-4xl font-black text-primary mb-1">
+                <div className="mb-1 text-4xl font-black text-primary">
                   {stat.value}{stat.suffix}
                 </div>
                 <div className="text-sm text-muted font-medium">{stat.label}</div>
@@ -130,7 +176,7 @@ export default function HomePage() {
       </section>
 
       {/* ========== Gem Pack Showcase ========== */}
-      <section className="relative py-20 bg-white">
+      <section className="relative py-20 bg-[#050608]">
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <div className="flex items-end justify-between mb-12">
@@ -158,7 +204,7 @@ export default function HomePage() {
                 key={pack.id}
                 href={`/packs/${pack.id}`}
                 className={`group relative overflow-hidden rounded-sm ${
-                  i === 0 ? 'md:col-span-2 md:row-span-2 bg-container-100' : 'bg-surface-50'
+                  i === 0 ? 'md:col-span-2 md:row-span-2 gold-shimmer lux-outline' : 'bg-[#0d1015] border border-white/6'
                 }`}
               >
                 {/* Card Content */}
@@ -217,44 +263,45 @@ export default function HomePage() {
       </section>
 
       {/* ========== Strengths - Tonal Cards ========== */}
-      <section className="relative py-20 bg-gradient-to-b from-white to-surface-50">
+      <section className="relative py-20 bg-[linear-gradient(180deg,#050608_0%,#0b0e13_100%)]">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Card 1 */}
-            <div className="bg-white p-8 rounded-sm">
-              <div className="w-12 h-12 bg-container-100 rounded-sm flex items-center justify-center mb-6">
+            <div className="gold-shimmer lux-outline rounded-sm p-8">
+              <div className="w-12 h-12 bg-white/5 rounded-sm flex items-center justify-center mb-6">
                 <Shield className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-black text-lg text-primary mb-2 tracking-tight">
                 正規品保証
               </h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="text-sm lux-text leading-relaxed">
                 中国正規ライセンス店との直接取引により、全商品の真贋を保証。
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-container-100 p-8 rounded-sm">
-              <div className="w-12 h-12 bg-white rounded-sm flex items-center justify-center mb-6">
+            <div className="bg-container-100/90 border border-white/6 p-8 rounded-sm">
+              <div className="w-12 h-12 bg-white/5 rounded-sm flex items-center justify-center mb-6">
                 <Languages className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-black text-lg text-primary mb-2 tracking-tight">
                 日中バイリンガル
               </h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="text-sm lux-text leading-relaxed">
                 日本語・中国語によるシームレスなコミュニケーションを実現。
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-container-200 p-8 rounded-sm">
-              <div className="w-12 h-12 bg-white rounded-sm flex items-center justify-center mb-6">
+            <div className="bg-container-200/90 border border-white/6 p-8 rounded-sm">
+              <div className="w-12 h-12 bg-white/5 rounded-sm flex items-center justify-center mb-6">
                 <Truck className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-black text-lg text-primary mb-2 tracking-tight">
                 確実な配送体制
               </h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="text-sm lux-text leading-relaxed">
                 追跡番号付き国内配送。越境物流にも完全対応。
               </p>
             </div>
@@ -263,7 +310,7 @@ export default function HomePage() {
       </section>
 
       {/* ========== SEO Content ========== */}
-      <section className="relative py-20 bg-white">
+      <section className="relative py-20 bg-[#06080b]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex items-center gap-3 mb-10">
             <div className="w-6 h-px bg-secondary" />
@@ -272,19 +319,25 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
             <div>
               <h2 className="text-display-lg text-primary leading-[0.95] tracking-tighter mb-5">
                 日本法人として
                 <br />
                 信頼できる商流をつくる
               </h2>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="text-sm lux-text leading-relaxed">
                 華啓未来株式会社は、中国と日本をつなぐ越境貿易企業として、継続可能で透明性の高い取引体制を重視しています。
               </p>
+              <div className="mt-8 gold-shimmer lux-outline rounded-sm p-6">
+                <p className="mb-2 text-xs uppercase tracking-[0.24em] text-secondary">Official Statement</p>
+                <p className="text-sm leading-7 lux-text">
+                  当社ウェブサイトは、会社情報、取扱商材、連絡窓口を明確に公開するための公式コーポレートサイトです。
+                </p>
+              </div>
             </div>
 
-            <div className="space-y-5 text-sm text-muted leading-8">
+            <div className="space-y-5 text-sm lux-text leading-8">
               <p>
                 当社は横浜を拠点とし、中国正規品ポケモンカード「ジェムパック」の輸入販売をはじめ、
                 ホビーグッズ流通、企業間の越境取引支援、パートナーマッチング、物流設計まで一貫して対応しています。
@@ -315,20 +368,22 @@ export default function HomePage() {
       </section>
 
       {/* ========== CTA ========== */}
-      <section className="relative py-20 bg-primary">
+      <section className="relative py-20 bg-[linear-gradient(135deg,#0b0e13_0%,#151a22_100%)]">
         {/* Status Pillar */}
         <div className="absolute left-[5%] top-0 w-px h-full bg-secondary/30" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/45 to-transparent" />
         
         <div className="relative max-w-4xl mx-auto px-6 text-center">
+          <p className="mb-4 text-xs uppercase tracking-[0.28em] text-muted-light">Contact Window</p>
           <h2 className="text-display-md text-white leading-[0.95] tracking-tighter mb-6">
             まずはお問い合わせ<br />ください
           </h2>
-          <p className="text-white/60 mb-10 max-w-md mx-auto">
+          <p className="text-white/70 mb-10 max-w-md mx-auto">
             仕入れ・コラボレーション・越大貿易の詳細について、お気軽にお問い合わせください。
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 bg-secondary text-white px-10 py-4 rounded-sm font-bold hover:bg-secondary/90 transition-colors"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-secondary to-[#f0d69a] text-[#120d04] px-10 py-4 rounded-sm font-bold hover:opacity-90 transition-colors"
           >
             お問い合わせ
             <ArrowRight className="w-5 h-5" />

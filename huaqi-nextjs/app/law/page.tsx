@@ -64,7 +64,7 @@ export default function LawPage() {
     <div className="min-h-screen pt-20 pb-16">
       {/* Header */}
       <div className="relative overflow-hidden py-20 px-4">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#1a365d]/8 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
         <div className="max-w-4xl mx-auto text-center relative">
           <div className="inline-flex items-center gap-2 text-xs font-medium text-[#c9a84c] bg-[#c9a84c]/8 border border-[#c9a84c]/15 px-4 py-2 rounded-full mb-6">
             <Scale className="w-4 h-4" />
@@ -73,7 +73,7 @@ export default function LawPage() {
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             特定商取引法に基づく表記
           </h1>
-          <p className="text-white/45 max-w-2xl mx-auto">
+          <p className="text-muted max-w-2xl mx-auto">
             特定商取引に関する法律第11条に基づく表示
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function LawPage() {
       {/* Table */}
       <section className="px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <div className="rounded-xl border border-[#1e2a45] overflow-hidden">
+          <div className="rounded-xl border border-white/8 overflow-hidden bg-[#090b0f]/65">
             {LAW_ITEMS.map((item, i) => (
               <div
                 key={item.label}
@@ -90,10 +90,10 @@ export default function LawPage() {
                   i !== LAW_ITEMS.length - 1 ? 'border-b border-[#1e2a45]' : ''
                 }`}
               >
-                <div className="sm:w-56 shrink-0 bg-[#131b2e] px-6 py-4 font-medium text-sm text-white/70">
+                <div className="sm:w-56 shrink-0 bg-[#10141b] px-6 py-4 font-medium text-sm text-secondary">
                   {item.label}
                 </div>
-                <div className="px-6 py-4 text-sm text-white/55 whitespace-pre-line leading-relaxed">
+                <div className="px-6 py-4 text-sm lux-text whitespace-pre-line leading-relaxed">
                   {item.value}
                 </div>
               </div>
