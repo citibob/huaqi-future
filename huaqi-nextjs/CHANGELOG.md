@@ -1,3 +1,8 @@
+## 2026-03-26
+
+### Enhancement
+- **`app/sitemap.ts`** - Added all 20 `/pokemon/[id]` card detail pages to the sitemap (priority 0.7, weekly changeFrequency). Previously only the `/pokemon` collection page was indexed. Build verified OK.
+
 ## 2026-03-25
 
 ### Enhancement
