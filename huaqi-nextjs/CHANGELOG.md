@@ -1,3 +1,10 @@
+## 2026-03-28
+
+### Enhancement
+- **`app/api/contact/route.ts`** - Integrated Resend API for real email delivery. The contact form now sends actual emails to asiacardptcg@gmail.com when `RESEND_API_KEY` is set in environment variables. Falls back to console-log-only if key is absent. Removed the `// TODO: Integrate email sending here` comment block. Build verified OK.
+- **`app/legal/`** - Deleted empty leftover directory (page was removed 2026-03-23, directory was not cleaned up).
+- **`package.json` / `package-lock.json`** - Added `resend` npm package (v4.x).
+
 ## 2026-03-26
 
 ### Enhancement

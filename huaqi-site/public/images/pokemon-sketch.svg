@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" width="400" height="280">
+  <defs>
+    <style>
+      .sketch { stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2340"/>
+      <stop offset="100%" style="stop-color:#0d1628"/>
+    </linearGradient>
+    <filter id="roughen">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="pencil">
+      <feTurbulence type="turbulence" baseFrequency="0.065" numOctaves="2" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="280" fill="url(#bgGrad)"/>
+
+  <!-- Subtle texture overlay -->
+  <rect width="400" height="280" fill="#ffffff" opacity="0.02"/>
+
+  <!-- ═══════════════════════════ -->
+  <!-- POKEBALL — hand drawn      -->
+  <!-- ═══════════════════════════ -->
+
+  <!-- Outer circle — slightly wobbly hand-drawn feel -->
+  <g filter="url(#pencil)" opacity="0.95">
+    <!-- Ball shadow/depth -->
+    <circle cx="202" cy="142" r="98" fill="#000000" opacity="0.25"/>
+
+    <!-- Bottom white half -->
+    <path d="M106,142 Q106,238 202,240 Q298,238 298,142 Z"
+          fill="#e8e8e8" class="sketch" stroke="#c0c0c0" stroke-width="0"/>
+
+    <!-- Top red half -->
+    <path d="M106,142 Q106,46 202,44 Q298,46 298,142 Z"
+          fill="#e63030" class="sketch"/>
+
+    <!-- Outer ring - hand drawn stroke -->
+    <circle cx="202" cy="142" r="96"
+            fill="none" stroke="#1a1a1a" stroke-width="4.5" class="sketch"
+            stroke-dasharray="1,0"/>
+
+    <!-- Slightly imperfect second outline for hand-drawn feel -->
+    <circle cx="201" cy="141" r="96"
+            fill="none" stroke="#1a1a1a" stroke-width="1.5" opacity="0.3" class="sketch"/>
+
+    <!-- Middle band -->
+    <rect x="106" y="133" width="192" height="18" fill="#1a1a1a" class="sketch"/>
+
+    <!-- Middle band top/bottom edges with slight irregularity -->
+    <path d="M106,133 Q200,131 298,133" fill="none" stroke="#1a1a1a" stroke-width="2.5" class="sketch"/>
+    <path d="M106,151 Q200,153 298,151" fill="none" stroke="#1a1a1a" stroke-width="2.5" class="sketch"/>
+
+    <!-- Center button outer -->
+    <circle cx="202" cy="142" r="26" fill="#1a1a1a" class="sketch"/>
+    <!-- Center button white ring -->
+    <circle cx="202" cy="142" r="20" fill="#f0f0f0" class="sketch" stroke="#1a1a1a" stroke-width="3"/>
+    <!-- Center button inner dot -->
+    <circle cx="202" cy="142" r="10" fill="#1a1a1a" class="sketch"/>
+    <!-- Center button shine -->
+    <circle cx="202" cy="142" r="6" fill="#e8e8e8" class="sketch"/>
+    <circle cx="199" cy="139" r="2.5" fill="#ffffff" opacity="0.9"/>
+
+    <!-- Hand-drawn shading on red half (cross-hatch style) -->
+    <path d="M150,80 Q170,70 190,75" fill="none" stroke="#c02020" stroke-width="1.5" opacity="0.5" class="sketch"/>
+    <path d="M140,95 Q165,82 185,88" fill="none" stroke="#c02020" stroke-width="1.5" opacity="0.4" class="sketch"/>
+    <path d="M135,112 Q160,98 180,103" fill="none" stroke="#c02020" stroke-width="1.5" opacity="0.3" class="sketch"/>
+
+    <!-- Highlight on red half -->
+    <path d="M145,75 Q175,58 210,65 Q185,60 160,72 Z" fill="#ff6b6b" opacity="0.35" class="sketch"/>
+
+    <!-- Shading on white half -->
+    <path d="M150,205 Q170,215 190,210" fill="none" stroke="#b8b8b8" stroke-width="1" opacity="0.5" class="sketch"/>
+    <path d="M140,188 Q165,200 185,196" fill="none" stroke="#b8b8b8" stroke-width="1" opacity="0.4" class="sketch"/>
+
+    <!-- Sketch lines — imperfection marks typical of hand drawing -->
+    <path d="M107,138 Q107,140 107,145" fill="none" stroke="#1a1a1a" stroke-width="2" opacity="0.4" class="sketch"/>
+    <path d="M297,138 Q297,140 297,145" fill="none" stroke="#1a1a1a" stroke-width="2" opacity="0.4" class="sketch"/>
+  </g>
+
+  <!-- ═══════════════════════════ -->
+  <!-- Stars / energy sparks      -->
+  <!-- ═══════════════════════════ -->
+
+  <!-- Hand-drawn star top-left -->
+  <g opacity="0.85" filter="url(#pencil)">
+    <path d="M72,62 L74,54 L76,62 L84,60 L78,66 L80,74 L74,69 L68,74 L70,66 L64,60 Z"
+          fill="#ffd700" stroke="#b8860b" stroke-width="1.5" class="sketch"/>
+    <path d="M74,58 L74,55" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.6"/>
+  </g>
+
+  <!-- Small star top-right -->
+  <g opacity="0.7" filter="url(#pencil)">
+    <path d="M318,52 L320,46 L322,52 L328,50 L323,55 L325,62 L320,58 L315,62 L317,55 L312,50 Z"
+          fill="#ffd700" stroke="#b8860b" stroke-width="1.2" class="sketch"/>
+  </g>
+
+  <!-- Tiny star right -->
+  <g opacity="0.6">
+    <path d="M345,110 L346.5,106 L348,110 L352,109 L349,112 L350,116 L346.5,114 L343,116 L344,112 L341,109 Z"
+          fill="#ffd700" stroke="#b8860b" stroke-width="1" class="sketch"/>
+  </g>
+
+  <!-- Tiny star left -->
+  <g opacity="0.5">
+    <path d="M55,175 L56.5,171 L58,175 L62,174 L59,177 L60,181 L56.5,179 L53,181 L54,177 L51,174 Z"
+          fill="#ffd700" stroke="#b8860b" stroke-width="1" class="sketch"/>
+  </g>
+
+  <!-- Sparkle lines around ball -->
+  <g stroke="#ffd700" stroke-width="2" class="sketch" opacity="0.6" filter="url(#pencil)">
+    <!-- Top -->
+    <line x1="202" y1="30" x2="202" y2="16"/>
+    <line x1="196" y1="32" x2="192" y2="20"/>
+    <line x1="208" y1="32" x2="212" y2="20"/>
+    <!-- Top right -->
+    <line x1="268" y1="68" x2="278" y2="58"/>
+    <line x1="274" y1="76" x2="286" y2="70"/>
+    <!-- Top left -->
+    <line x1="136" y1="68" x2="126" y2="58"/>
+    <line x1="130" y1="76" x2="118" y2="70"/>
+    <!-- Right -->
+    <line x1="312" y1="142" x2="328" y2="142"/>
+    <line x1="310" y1="136" x2="325" y2="130"/>
+    <!-- Left -->
+    <line x1="92" y1="142" x2="76" y2="142"/>
+    <line x1="94" y1="136" x2="79" y2="130"/>
+  </g>
+
+  <!-- ═══════════════════════════ -->
+  <!-- Sketch texture / hatching  -->
+  <!-- ═══════════════════════════ -->
+
+  <!-- Corner sketch marks -->
+  <g stroke="#ffffff" stroke-width="0.8" opacity="0.06" class="sketch">
+    <line x1="20" y1="20" x2="50" y2="50"/>
+    <line x1="25" y1="20" x2="55" y2="50"/>
+    <line x1="30" y1="20" x2="60" y2="50"/>
+    <line x1="350" y1="230" x2="380" y2="260"/>
+    <line x1="355" y1="230" x2="385" y2="260"/>
+    <line x1="360" y1="230" x2="390" y2="260"/>
+  </g>
+
+  <!-- ═══════════════════════════ -->
+  <!-- POKEMON text — hand lettered style -->
+  <!-- ═══════════════════════════ -->
+
+  <!-- Text shadow -->
+  <text x="203" y="252" text-anchor="middle"
+        font-family="Arial Black, Impact, sans-serif"
+        font-size="20" font-weight="900"
+        fill="#000000" opacity="0.4"
+        letter-spacing="6">POKÉMON</text>
+
+  <!-- Main text with hand-lettered feel -->
+  <text x="202" y="250" text-anchor="middle"
+        font-family="Arial Black, Impact, sans-serif"
+        font-size="20" font-weight="900"
+        fill="#ffd700"
+        letter-spacing="6"
+        filter="url(#pencil)">POKÉMON</text>
+
+  <!-- Text underline — hand drawn -->
+  <path d="M118,257 Q200,262 286,257"
+        fill="none" stroke="#ffd700" stroke-width="2" opacity="0.6" class="sketch"/>
+
+  <!-- Small subtitle -->
+  <text x="202" y="270" text-anchor="middle"
+        font-family="Georgia, serif"
+        font-size="9"
+        fill="#a0b4d0"
+        letter-spacing="3">TRADING CARD</text>
+
+</svg>

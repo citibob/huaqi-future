@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { Resend } from 'resend'
 
 const ALLOWED_CATEGORIES = [
   '商品に関するお問い合わせ',
@@ -8,7 +9,8 @@ const ALLOWED_CATEGORIES = [
   'その他',
 ]
 
-const CONTACT_EMAIL = 'asiacardptcg@gmail.com'
+const TO_EMAIL = 'asiacardptcg@gmail.com'
+const FROM_EMAIL = '華啓未来ウェブサイト <onboarding@resend.dev>'
 
 interface ContactPayload {
   name: string
@@ -83,7 +85,6 @@ export async function POST(req: NextRequest) {
     company: typeof body.company === 'string' ? body.company.trim() : undefined,
   }
 
-  // Log submission (for debugging/deployment verification)
   console.log('[contact] 新規お問い合わせ:', {
     name: payload.name,
     email: payload.email,
@@ -91,11 +92,33 @@ export async function POST(req: NextRequest) {
     timestamp: new Date().toISOString(),
   })
 
-  // TODO: Integrate email sending here
-  // Recommended options:
-  // 1. Cloudflare Email Workers + SMTP relay (free, no external service)
-  // 2. Resend API (https://resend.com) - free tier 100 emails/day
-  // 3. SendGrid / Mailgun with API key in .dev.vars
+  // Send email via Resend (requires RESEND_API_KEY env var)
+  const apiKey = process.env.RESEND_API_KEY
+  if (apiKey) {
+    try {
+      const resend = new Resend(apiKey)
+      const { error: resendError } = await resend.emails.send({
+        from: FROM_EMAIL,
+        to: TO_EMAIL,
+        replyTo: payload.email,
+        subject: `【ウェブサイト】${payload.category} - ${payload.name}様`,
+        text: buildEmailBody(payload),
+      })
+
+      if (resendError) {
+        console.error('[contact] Resend error:', resendError)
+        // Still return success to user — their message is logged above
+        console.log('[contact] Email delivery failed but submission logged')
+      } else {
+        console.log('[contact] Email sent successfully via Resend')
+      }
+    } catch (err) {
+      console.error('[contact] Email exception:', err)
+      // Fall through — submission is still logged
+    }
+  } else {
+    console.warn('[contact] RESEND_API_KEY not set — skipping email send (submissions are console-logged only)')
+  }
 
   return NextResponse.json(
     {
