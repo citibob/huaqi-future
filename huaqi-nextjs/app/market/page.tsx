@@ -4,12 +4,17 @@ import Link from 'next/link'
 import { POKEMON_CARDS } from '@/lib/pokemon-data'
 import { GEM_PACKS } from '@/lib/gem-pack-data'
 import { cn, formatCNY, formatJPY, formatPriceChange, mercariSoldUrl } from '@/lib/utils'
+import LangText from '@/components/LangText'
 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'マーケット情報 | 華啓未来株式会社',
-  description: 'ポケモンカード市場のリアルタイム価格情報、価格変動、取引データ。華啓未来株式会社のマーケットインテリジェンス。',
+  title: 'マーケット情報 / Market',
+  description:
+    'ポケモンカード市場の価格変動、取引件数、注目カードをまとめたマーケット情報ページです。Market overview covering card prices, movement, and highlighted listings.',
+  alternates: {
+    canonical: '/market',
+  },
 }
 
 const MARKET_STATUS = [
@@ -35,27 +40,29 @@ export default function MarketPage() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/15 bg-sky-400/8 px-4 py-2 text-xs font-medium text-sky-300 mb-5">
                 <BarChart2 className="h-4 w-4" />
-                マーケットインテリジェンス
+                <LangText ja="マーケットインテリジェンス" en="Market Intelligence" />
               </div>
               <h1 className="text-3xl font-bold leading-tight md:text-4xl mb-4">
-                マーケット情報
+                <LangText ja="マーケット情報" en="Market Overview" />
               </h1>
               <p className="max-w-xl text-sm leading-relaxed text-white/50">
-                複数プラットフォームのポケモンカード市場データをリアルタイムで集約。
-                価格変動、取引動向、注目カードの情報を一元的にご確認いただけます。
+                <LangText
+                  ja="複数プラットフォームのポケモンカード市場データをリアルタイムで集約。価格変動、取引動向、注目カードの情報を一元的にご確認いただけます。"
+                  en="Track Pokemon card market data across multiple platforms in real time, including price movement, sales activity, and featured cards."
+                />
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/packs"
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#c9a84c] px-6 py-3 text-sm font-semibold text-[#0a0f1a] transition hover:bg-[#d4b85c]"
                 >
-                  商品ページへ
+                  <LangText ja="商品ページへ" en="View Products" />
                 </Link>
                 <Link
                   href="/business"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium transition hover:bg-white/10"
                 >
-                  事業内容
+                  <LangText ja="事業内容" en="Business" />
                 </Link>
               </div>
             </div>
@@ -71,8 +78,12 @@ export default function MarketPage() {
                     </div>
                   </div>
                   <div className="mt-4 text-3xl font-bold">{item.count.toLocaleString()}</div>
-                  <div className="mt-1 text-sm text-white/40">出品中の商品数</div>
-                  <div className="mt-3 text-xs text-white/35">{item.update}に更新</div>
+                  <div className="mt-1 text-sm text-white/40">
+                    <LangText ja="出品中の商品数" en="Active Listings" />
+                  </div>
+                  <div className="mt-3 text-xs text-white/35">
+                    <LangText ja={`${item.update}に更新`} en={`Updated ${item.update} ago`} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -281,4 +292,3 @@ function ArbitragePanel({ items }: { items: typeof POKEMON_CARDS }) {
     </div>
   )
 }
-

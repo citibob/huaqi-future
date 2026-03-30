@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { ArrowRight, Gem, Shield, Languages, Truck } from 'lucide-react'
 import { GEM_PACKS } from '@/lib/gem-pack-data'
 import { formatJPY } from '@/lib/utils'
+import LangText from '@/components/LangText'
 
 /* ───────── stats ───────── */
 const STATS = [
@@ -20,9 +21,9 @@ const SIGNATURES = [
 ]
 
 export const metadata: Metadata = {
-  title: '華啓未来株式会社 | 中国と日本をつなぐ越境貿易企業',
+  title: 'ホーム / Home',
   description:
-    '華啓未来株式会社は、中国正規品ポケモンカードの輸入販売、ホビーグッズ流通、日中間の越境貿易支援を行う日本法人です。信頼できる商流と継続的な企業取引を重視し、横浜を拠点に事業を展開しています。',
+    '華啓未来株式会社は、中国正規品ポケモンカードの輸入販売、ホビーグッズ流通、日中間の越境貿易支援を行う日本法人です。Huaqi Future is a Japan-based company for trading cards, hobby goods, and cross-border trade support.',
   alternates: {
     canonical: '/',
   },
@@ -63,7 +64,7 @@ export default function HomePage() {
                   Yokohama / Japan
                 </p>
                 <h1 className="font-black text-display-xl text-primary leading-[0.9] tracking-tighter mb-4">
-                  華啓未来
+                  <LangText ja="華啓未来" en="HUAQI FUTURE" />
                 </h1>
                 <div className="mb-6 flex items-center gap-4">
                   <div className="h-px w-16 bg-secondary/50" />
@@ -74,8 +75,10 @@ export default function HomePage() {
               </div>
 
               <p className="text-lg md:text-[1.35rem] lux-text max-w-2xl leading-relaxed font-light mb-10">
-                中国正規品ポケモンカード「ジェムパック」の日本国内正規販売と、
-                日中をまたぐ商流設計を一体で担う日本法人。
+                <LangText
+                  ja="中国正規品ポケモンカード「ジェムパック」の日本国内正規販売と、日中をまたぐ商流設計を一体で担う日本法人。"
+                  en="A Japan-based company specializing in the authorized domestic distribution of China-licensed Pokemon Gem Pack products and end-to-end Japan-China trade flow design."
+                />
               </p>
 
               <div className="mb-12 flex flex-wrap gap-3">
@@ -94,14 +97,14 @@ export default function HomePage() {
                   href="/packs"
                   className="inline-flex items-center gap-3 bg-gradient-to-r from-secondary to-[#f0d69a] text-[#120d04] px-8 py-4 rounded-sm font-bold hover:opacity-90 transition-colors"
                 >
-                  ジェムパックを見る
+                  <LangText ja="ジェムパックを見る" en="View Gem Pack" />
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-3 lux-panel text-primary px-8 py-4 rounded-sm font-medium hover:bg-white/5 transition-colors"
                 >
-                  お問い合わせ
+                  <LangText ja="お問い合わせ" en="Contact" />
                 </Link>
               </div>
             </div>
@@ -133,8 +136,8 @@ export default function HomePage() {
         <div className="absolute right-[8%] top-1/3 hidden h-[400px] w-[320px] lg:block">
           <div className="relative h-full w-full overflow-hidden rounded-sm gold-shimmer shadow-card">
             <Image
-              src="/images/gem-pack.svg"
-              alt="Pokemon Card Gem Pack"
+              src="/images/gem-pack-vol4.png"
+              alt="Pokemon Card Gem Pack Vol.4"
               fill
               className="object-cover"
             />

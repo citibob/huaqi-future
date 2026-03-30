@@ -1,4 +1,4 @@
-// File: /Users/hm/Desktop/pokemon-system/huaqi-nextjs/app/page.tsx
+// File: /Volumes/MacData/pokemon-system/huaqi-nextjs/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

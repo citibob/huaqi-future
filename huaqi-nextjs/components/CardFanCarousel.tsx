@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import LangText from './LangText'
 
 interface CardItem {
   src: string
@@ -171,14 +172,14 @@ export default function CardFanCarousel({
           <button
             onClick={() => navigate('prev')}
             className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#131b2e]/80 border border-[#1e2a45] hover:border-[#c9a84c]/50 flex items-center justify-center text-white/60 hover:text-white transition-all"
-            aria-label="前のカード"
+            aria-label="Previous card"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => navigate('next')}
             className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#131b2e]/80 border border-[#1e2a45] hover:border-[#c9a84c]/50 flex items-center justify-center text-white/60 hover:text-white transition-all"
-            aria-label="次のカード"
+            aria-label="Next card"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -193,7 +194,7 @@ export default function CardFanCarousel({
             className="flex items-center gap-1.5 text-xs text-white/30 hover:text-white/50 transition-colors"
           >
             {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
-            {isPlaying ? '一時停止' : '自動再生'}
+            <LangText ja={isPlaying ? '一時停止' : '自動再生'} en={isPlaying ? 'Pause' : 'Autoplay'} />
           </button>
           <span className="text-xs text-white/30">{active + 1} / {total}</span>
         </div>

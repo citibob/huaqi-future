@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { Building2, Target, Heart, Eye } from 'lucide-react'
+import LangText from '@/components/LangText'
 
 export const metadata: Metadata = {
-  title: '会社概要 | 華啓未来株式会社',
-  description: '華啓未来株式会社の会社概要。中国と日本をつなぐ越境貿易企業。トレーディングカード・ホビーグッズの輸入販売、越境貿易コンサルティング。',
+  title: '会社概要 / Company',
+  description: '華啓未来株式会社の会社概要。中国と日本をつなぐ越境貿易企業。Company profile of Huaqi Future Co., Ltd., based in Yokohama, Japan.',
   alternates: {
     canonical: '/company',
   },
@@ -73,9 +74,11 @@ export default function CompanyPage() {
         <div className="max-w-4xl mx-auto text-center relative">
           <div className="inline-flex items-center gap-2 text-xs font-medium text-[#c9a84c] bg-[#c9a84c]/8 border border-[#c9a84c]/15 px-4 py-2 rounded-full mb-6">
             <Building2 className="w-4 h-4" />
-            会社概要
+            <LangText ja="会社概要" en="Company" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">華啓未来株式会社</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <LangText ja="華啓未来株式会社" en="Huaqi Future Co., Ltd." />
+          </h1>
           <p className="text-lg text-muted">Huaqi Future Co., Ltd.</p>
         </div>
       </div>
@@ -83,7 +86,9 @@ export default function CompanyPage() {
       {/* Company Info Table */}
       <section className="px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-bold mb-8">会社情報</h2>
+          <h2 className="text-xl font-bold mb-8">
+            <LangText ja="会社情報" en="Company Information" />
+          </h2>
           <div className="rounded-xl border border-white/8 overflow-hidden bg-[#090b0f]/65">
             {COMPANY_INFO.map((item, i) => (
               <div
@@ -107,7 +112,9 @@ export default function CompanyPage() {
       {/* CEO Message */}
       <section className="px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-bold mb-8">代表挨拶</h2>
+          <h2 className="text-xl font-bold mb-8">
+            <LangText ja="代表挨拶" en="Message from the CEO" />
+          </h2>
           <div className="rounded-xl bg-[#0d1015] border border-white/8 p-8 md:p-12 shadow-card">
             <div className="space-y-5 lux-text leading-relaxed text-sm">
               <p>

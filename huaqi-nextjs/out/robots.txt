@@ -1,4 +1,5 @@
-User-agent: *
+User-Agent: *
 Allow: /
 
+Host: https://www.huaqi.jp
 Sitemap: https://www.huaqi.jp/sitemap.xml

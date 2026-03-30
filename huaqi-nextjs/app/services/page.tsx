@@ -12,10 +12,15 @@ import {
   Truck,
   ShieldCheck,
 } from 'lucide-react'
+import LangText from '@/components/LangText'
 
 export const metadata: Metadata = {
-  title: '事業紹介 | 華啓未来株式会社',
-  description: '華啓未来株式会社の事業紹介。トレーディングカード事業、ホビー・キャラクターグッズ事業、越境貿易コンサルティング事業の3つの柱で日中間の貿易を支援。',
+  title: '事業紹介',
+  description:
+    '華啓未来株式会社の事業紹介ページです。トレーディングカード事業、ホビーグッズ事業、越境貿易コンサルティング事業を案内しています。',
+  alternates: {
+    canonical: '/services',
+  },
 }
 
 export default function ServicesPage() {
@@ -27,12 +32,11 @@ export default function ServicesPage() {
         <div className="max-w-4xl mx-auto text-center relative">
           <div className="inline-flex items-center gap-2 text-xs font-medium text-[#c9a84c] bg-[#c9a84c]/8 border border-[#c9a84c]/15 px-4 py-2 rounded-full mb-6">
             <Package className="w-4 h-4" />
-            事業紹介
+            <LangText ja="事業紹介" en="Services" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">事業紹介</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4"><LangText ja="事業紹介" en="Services" /></h1>
           <p className="text-lg text-white/45 max-w-2xl mx-auto leading-relaxed">
-            当社は3つの事業を柱に、日中間の貿易を通じて
-            両国の経済・文化の発展に貢献しております。
+            <LangText ja="当社は3つの事業を柱に、日中間の貿易を通じて両国の経済・文化の発展に貢献しております。" en="Our three core business lines support trade and cultural exchange between Japan and China." />
           </p>
         </div>
       </div>
@@ -45,13 +49,13 @@ export default function ServicesPage() {
               <CreditCard className="w-5 h-5 text-[#c9a84c]" />
             </div>
             <div>
-              <h2 className="text-xl font-bold">トレーディングカード事業</h2>
+              <h2 className="text-xl font-bold"><LangText ja="トレーディングカード事業" en="Trading Card Business" /></h2>
               <p className="text-sm text-white/40">Trading Card Business</p>
             </div>
           </div>
 
           <div className="rounded-xl bg-[#131b2e] border border-[#1e2a45] p-8 mb-6">
-            <h3 className="font-semibold text-white/80 mb-3">事業概要</h3>
+            <h3 className="font-semibold text-white/80 mb-3"><LangText ja="事業概要" en="Overview" /></h3>
             <p className="text-sm text-white/55 leading-relaxed mb-6">
               中国正規品ポケモンカードを中心としたトレーディングカードの輸入販売事業です。
               中国の正規ライセンス店との直接取引契約に基づき、高品質なカード商品を日本市場にお届けしております。
@@ -60,7 +64,7 @@ export default function ServicesPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="text-sm font-semibold text-[#c9a84c] mb-3">サービス内容</h4>
+                <h4 className="text-sm font-semibold text-[#c9a84c] mb-3"><LangText ja="サービス内容" en="Services" /></h4>
                 <ul className="space-y-2 text-sm text-white/50">
                   <li className="flex items-start gap-2">
                     <ShieldCheck className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />
@@ -81,7 +85,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-[#c9a84c] mb-3">取扱商品</h4>
+                <h4 className="text-sm font-semibold text-[#c9a84c] mb-3"><LangText ja="取扱商品" en="Products" /></h4>
                 <ul className="space-y-2 text-sm text-white/50">
                   <li className="flex items-start gap-2">
                     <Package className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />
@@ -104,7 +108,7 @@ export default function ServicesPage() {
             </div>
 
             <div className="mt-6 pt-6 border-t border-[#1e2a45]">
-              <h4 className="text-sm font-semibold text-[#c9a84c] mb-3">対象顧客</h4>
+              <h4 className="text-sm font-semibold text-[#c9a84c] mb-3"><LangText ja="対象顧客" en="Target Customers" /></h4>
               <div className="flex flex-wrap gap-2">
                 {['コレクター', '投資家', 'カードショップ', '法人バイヤー'].map((tag) => (
                   <span key={tag} className="text-xs bg-[#1a365d]/20 text-white/50 px-3 py-1.5 rounded-md border border-[#1e2a45]">

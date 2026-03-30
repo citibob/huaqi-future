@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
+import LangText from './LangText'
 
 export default function Footer() {
   return (
@@ -18,24 +19,29 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm lux-text leading-relaxed max-w-md">
-              中国と日本をつなぐ越境貿易企業。トレーディングカード・ホビーグッズの輸入販売、貿易コンサルティングを通じて、両国の架け橋となることを目指す。
+              <LangText
+                ja="中国と日本をつなぐ越境貿易企業。トレーディングカード・ホビーグッズの輸入販売、貿易コンサルティングを通じて、両国の架け橋となることを目指す。"
+                en="A cross-border trading company connecting Japan and China through trading cards, hobby goods, and consulting services."
+              />
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-xs font-black uppercase tracking-widest text-secondary mb-4">クイックリンク</h4>
+            <h4 className="mb-4">
+              <LangText ja="クイックリンク" en="Quick Links" />
+            </h4>
             <ul className="space-y-2">
               {[
-                { href: '/', label: 'ホーム' },
-                { href: '/market', label: 'マーケット' },
-                { href: '/packs', label: 'トレーディングカード' },
-                { href: '/company', label: '会社概要' },
-                { href: '/contact', label: 'お問い合わせ' },
+                { href: '/', ja: 'ホーム', en: 'Home' },
+                { href: '/market', ja: 'マーケット', en: 'Market' },
+                { href: '/packs', ja: 'トレーディングカード', en: 'Trading Cards' },
+                { href: '/company', ja: '会社概要', en: 'Company' },
+                { href: '/contact', ja: 'お問い合わせ', en: 'Contact' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-muted hover:text-primary transition-colors">
-                    {link.label}
+                    <LangText ja={link.ja} en={link.en} />
                   </Link>
                 </li>
               ))}
@@ -44,7 +50,9 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-xs font-black uppercase tracking-widest text-secondary mb-4">お問い合わせ</h4>
+            <h4 className="mb-4">
+              <LangText ja="お問い合わせ" en="Contact" />
+            </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
@@ -52,7 +60,9 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
-                <span className="text-sm lux-text">神奈川県横浜市</span>
+                <span className="text-sm lux-text">
+                  <LangText ja="神奈川県横浜市" en="Yokohama, Kanagawa" />
+                </span>
               </li>
             </ul>
           </div>
@@ -64,8 +74,12 @@ export default function Footer() {
             © 2024-2026 華啓未来株式会社. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/privacy" className="text-xs text-muted hover:text-primary transition-colors">プライバシーポリシー</Link>
-            <Link href="/law" className="text-xs text-muted hover:text-primary transition-colors">特定商取引法</Link>
+            <Link href="/privacy" className="text-xs text-muted hover:text-primary transition-colors">
+              <LangText ja="プライバシーポリシー" en="Privacy Policy" />
+            </Link>
+            <Link href="/law" className="text-xs text-muted hover:text-primary transition-colors">
+              <LangText ja="特定商取引法" en="Legal Notice" />
+            </Link>
           </div>
         </div>
       </div>

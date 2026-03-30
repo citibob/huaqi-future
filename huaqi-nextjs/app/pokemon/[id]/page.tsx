@@ -10,6 +10,8 @@ import {
 } from '@/lib/utils'
 import PokemonCardUI from '@/components/PokemonCard'
 import RecordViewClient from './RecordViewClient'
+import type { Metadata } from 'next'
+import LangText from '@/components/LangText'
 
 // Next.js static params for all cards
 export function generateStaticParams() {
@@ -17,6 +19,27 @@ export function generateStaticParams() {
 }
 
 interface Props { params: { id: string } }
+
+export function generateMetadata({ params }: Props): Metadata {
+  const card = getCardById(params.id)
+  if (!card) return { title: 'カードが見つかりません' }
+
+  return {
+    title: `${card.nameCN} ${card.rarity} ${card.cardNumber}`,
+    description:
+      `${card.nameJP}（${card.nameEN}）の相場ページです。現在価格${formatJPY(card.priceJPY)}、7日中央値${formatJPY(card.medianPriceJPY)}、週間販売数${card.soldCount7d}件。`,
+    alternates: {
+      canonical: `/pokemon/${card.id}`,
+    },
+    openGraph: {
+      title: `${card.nameCN} ${card.rarity} ${card.cardNumber}`,
+      description:
+        `${card.nameJP}（${card.nameEN}）の相場ページです。現在価格${formatJPY(card.priceJPY)}、7日中央値${formatJPY(card.medianPriceJPY)}。`,
+      url: `https://www.huaqi.jp/pokemon/${card.id}`,
+      images: [card.imageUrl],
+    },
+  }
+}
 
 export default function CardDetailPage({ params }: Props) {
   const card = getCardById(params.id)
@@ -40,7 +63,7 @@ export default function CardDetailPage({ params }: Props) {
           href="/pokemon"
           className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-white mb-8 transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" /> 返回卡牌市场
+          <ArrowLeft className="w-4 h-4" /> <LangText ja="カード市場に戻る" en="Back to Card Market" />
         </Link>
 
         <div className="grid lg:grid-cols-2 gap-10 mb-16">
@@ -74,7 +97,7 @@ export default function CardDetailPage({ params }: Props) {
 
             {/* Price history mini chart */}
             <div className="mt-4 p-4 rounded-2xl bg-pokemon-card border border-pokemon-border">
-              <h3 className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">14日价格走势</h3>
+              <h3 className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3"><LangText ja="14日価格推移" en="14-Day Price Trend" /></h3>
               <div className="flex items-end gap-0.5 h-16">
                 {priceHistory.map((point, i) => {
                   const prices = priceHistory.map(p => p.priceJPY)
@@ -108,7 +131,7 @@ export default function CardDetailPage({ params }: Props) {
                   </span>
                 ))}
                 {card.isNewListing && (
-                  <span className="text-xs px-2.5 py-1 rounded-lg border border-blue-400/30 bg-blue-400/10 text-blue-300">新上架</span>
+                  <span className="text-xs px-2.5 py-1 rounded-lg border border-blue-400/30 bg-blue-400/10 text-blue-300"><LangText ja="新着" en="New" /></span>
                 )}
               </div>
 
@@ -136,24 +159,24 @@ export default function CardDetailPage({ params }: Props) {
               <div className="grid grid-cols-3 gap-3 text-center">
                 <div className="rounded-xl bg-pokemon-card p-3">
                   <div className="text-sm font-bold">{formatJPY(card.medianPriceJPY)}</div>
-                  <div className="text-xs text-white/40">7日均价</div>
+                  <div className="text-xs text-white/40"><LangText ja="7日均価" en="7d Median" /></div>
                 </div>
                 <div className="rounded-xl bg-pokemon-card p-3">
                   <div className="text-sm font-bold">{formatJPY(card.lowestPriceJPY)}</div>
-                  <div className="text-xs text-white/40">最低价</div>
+                  <div className="text-xs text-white/40"><LangText ja="最安値" en="Lowest" /></div>
                 </div>
                 <div className="rounded-xl bg-pokemon-card p-3">
                   <div className={cn('text-sm font-bold', card.isBelowMedian ? 'text-green-400' : 'text-white')}>
-                    {card.isBelowMedian ? `-${Math.round((1 - card.priceJPY / card.medianPriceJPY) * 100)}%` : '正常'}
+                    {card.isBelowMedian ? `-${Math.round((1 - card.priceJPY / card.medianPriceJPY) * 100)}%` : 'OK'}
                   </div>
-                  <div className="text-xs text-white/40">vs 均价</div>
+                  <div className="text-xs text-white/40"><LangText ja="均価比" en="vs Median" /></div>
                 </div>
               </div>
 
               {card.isBelowMedian && (
                 <div className="flex items-center gap-2 text-sm text-green-300 bg-green-400/10 border border-green-400/20 rounded-xl px-4 py-3">
                   <Star className="w-4 h-4" />
-                  低于市场均价，存在套利机会
+                  <LangText ja="市場均価を下回っており、仕入れ好機です" en="Below market median. Potential buying opportunity." />
                 </div>
               )}
             </div>
@@ -163,7 +186,7 @@ export default function CardDetailPage({ params }: Props) {
               <div className="p-4 rounded-2xl bg-pokemon-card border border-pokemon-border">
                 <div className="flex items-center gap-2 mb-2">
                   <Shield className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm font-semibold">评级卡 (PSA10 / BGS10)</span>
+                  <span className="text-sm font-semibold"><LangText ja="鑑定済みカード (PSA10 / BGS10)" en="Graded Card (PSA10 / BGS10)" /></span>
                 </div>
                 <div className="text-2xl font-black text-yellow-400">{formatJPY(card.gradedPriceJPY)}</div>
                 <div className="text-white/40 text-xs">≈ {formatCNY(card.gradedPriceJPY * 0.04334)} CNY</div>
@@ -174,7 +197,7 @@ export default function CardDetailPage({ params }: Props) {
             <div className="p-4 rounded-2xl bg-pokemon-card border border-pokemon-border">
               <div className="flex items-center gap-2 mb-3">
                 <Globe className="w-4 h-4 text-blue-400" />
-                <span className="text-sm font-semibold">在售市场</span>
+                <span className="text-sm font-semibold"><LangText ja="掲載市場" en="Available Markets" /></span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {card.availableOn.map(market => (
@@ -184,8 +207,8 @@ export default function CardDetailPage({ params }: Props) {
                 ))}
               </div>
               <div className="flex gap-4 mt-3 text-sm text-white/40">
-                <span>在售 <strong className="text-white">{card.onSaleCount}</strong> 件</span>
-                <span>周销量 <strong className="text-white">{card.soldCount7d}</strong></span>
+                <span><LangText ja={<>掲載 <strong className="text-white">{card.onSaleCount}</strong> 件</>} en={<>Listed <strong className="text-white">{card.onSaleCount}</strong></>} /></span>
+                <span><LangText ja={<>7日売上 <strong className="text-white">{card.soldCount7d}</strong></>} en={<>7d Sales <strong className="text-white">{card.soldCount7d}</strong></>} /></span>
               </div>
             </div>
 
@@ -197,7 +220,7 @@ export default function CardDetailPage({ params }: Props) {
               className="flex items-center justify-center gap-2 w-full bg-pokemon-yellow text-black font-bold py-3.5 rounded-xl hover:bg-yellow-400 transition-all shadow-lg hover:shadow-yellow-500/30"
             >
               <Package className="w-5 h-5" />
-              Mercari JP で検索する
+              <LangText ja="Mercari JP で検索する" en="Search on Mercari JP" />
             </a>
           </div>
         </div>
@@ -205,7 +228,7 @@ export default function CardDetailPage({ params }: Props) {
         {/* Similar cards */}
         {similar.length > 0 && (
           <div>
-            <h2 className="text-xl font-black mb-6">相关卡牌</h2>
+            <h2 className="text-xl font-black mb-6"><LangText ja="関連カード" en="Related Cards" /></h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               {similar.map(c => <PokemonCardUI key={c.id} card={c} compact />)}
             </div>
@@ -215,4 +238,3 @@ export default function CardDetailPage({ params }: Props) {
     </div>
   )
 }
-

@@ -5,6 +5,7 @@ import { Search, Crown, ExternalLink, Trophy } from 'lucide-react'
 import PokemonCardUI from '@/components/PokemonCard'
 import { POKEMON_CARDS } from '@/lib/pokemon-data'
 import { formatJPY } from '@/lib/utils'
+import LangText from '@/components/LangText'
 
 const PLATFORM_OPTIONS = [
   { value: 'mercari' as const, label: 'Mercari JP', icon: '🟡', url: (q: string) => `https://jp.mercari.com/search?keyword=${encodeURIComponent(q)}&status=sold_out&sort=price&order=desc` },
@@ -52,13 +53,16 @@ export default function PokemonPage() {
         <div className="text-center py-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#c9a84c]/10 border border-[#c9a84c]/20 text-[#c9a84c] text-xs font-medium tracking-wider mb-4">
             <Crown className="w-3.5 h-3.5" />
-            MERCARI 成交価格ランキング
+            <LangText ja="MERCARI 成交価格ランキング" en="Mercari Sold Price Ranking" />
           </div>
           <h1 className="text-4xl md:text-5xl font-black mb-3 bg-gradient-to-r from-[#c9a84c] via-[#f4d03f] to-[#c9a84c] bg-clip-text text-transparent">
-            高額カード TOP 20
+            <LangText ja="高額カード TOP 20" en="Top 20 High-Value Cards" />
           </h1>
           <p className="text-white/35 text-sm max-w-lg mx-auto">
-            Mercari JP 直近の成交実績に基づく、高額取引カードランキング
+            <LangText
+              ja="Mercari JP 直近の成交実績に基づく、高額取引カードランキング"
+              en="Ranking based on recent Mercari JP sold listings."
+            />
           </p>
         </div>
 
@@ -69,7 +73,7 @@ export default function PokemonPage() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/25" />
               <input
                 type="text"
-                placeholder="カード名 / 编号を入力して検索..."
+                placeholder="Card name / Number"
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 className="w-full pl-11 pr-4 py-3 bg-[#131b2e] border border-[#1e2a45] rounded-xl text-sm text-white placeholder-white/25 focus:outline-none focus:border-[#c9a84c]/40 transition-colors"
@@ -152,7 +156,7 @@ export default function PokemonPage() {
         {(query ? ranked : rest).length === 0 ? (
           <div className="text-center py-20 text-white/30">
             <div className="text-5xl mb-4">🔍</div>
-            <p>該当するカードが見つかりません</p>
+            <p><LangText ja="該当するカードが見つかりません" en="No matching cards found." /></p>
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -177,9 +181,9 @@ export default function PokemonPage() {
           <div className="inline-flex items-center gap-6 text-xs text-white/20">
             <span>データソース: Mercari JP</span>
             <span>·</span>
-            <span>更新: 毎日</span>
+            <span><LangText ja="更新: 毎日" en="Updated: Daily" /></span>
             <span>·</span>
-            <span>全 {POKEMON_CARDS.length} 種</span>
+            <span><LangText ja={`全 ${POKEMON_CARDS.length} 種`} en={`${POKEMON_CARDS.length} cards`} /></span>
           </div>
         </div>
       </div>

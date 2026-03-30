@@ -11,10 +11,15 @@ import {
   Briefcase,
   ShieldCheck,
 } from 'lucide-react'
+import LangText from '@/components/LangText'
 
 export const metadata: Metadata = {
-  title: '越境貿易コンサルティング | 華啓未来株式会社',
-  description: '日中間の越境貿易コンサルティング事業。市場調査、パートナーマッチング、物流コンサルティング、法規制アドバイス。華啓未来株式会社。',
+  title: '越境貿易コンサルティング',
+  description:
+    '日中間の越境貿易コンサルティング事業を紹介しています。市場調査、パートナーマッチング、物流設計、法規制対応を支援します。',
+  alternates: {
+    canonical: '/culture',
+  },
 }
 
 const SERVICES = [
@@ -65,11 +70,14 @@ export default function CulturePage() {
         <div className="max-w-4xl mx-auto text-center relative">
           <div className="inline-flex items-center gap-2 text-xs font-medium text-[#c9a84c] bg-[#c9a84c]/8 border border-[#c9a84c]/15 px-4 py-2 rounded-full mb-6">
             <Globe className="w-4 h-4" />
-            貿易コンサルティング
+            <LangText ja="貿易コンサルティング" en="Trade Consulting" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">越境貿易コンサルティング</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4"><LangText ja="越境貿易コンサルティング" en="Cross-Border Trade Consulting" /></h1>
           <p className="text-lg text-white/45 max-w-2xl mx-auto leading-relaxed">
-            日中間の貿易における課題を解決し、ビジネスの成長を支援いたします。
+            <LangText
+              ja="日中間の貿易における課題を解決し、ビジネスの成長を支援いたします。"
+              en="We solve cross-border trade issues between Japan and China and support business growth."
+            />
           </p>
         </div>
       </div>
@@ -77,7 +85,7 @@ export default function CulturePage() {
       {/* Services */}
       <section className="px-4 py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl font-bold mb-8">サービス内容</h2>
+          <h2 className="text-xl font-bold mb-8"><LangText ja="サービス内容" en="Services" /></h2>
           <div className="grid md:grid-cols-2 gap-5">
             {SERVICES.map((s) => (
               <div
@@ -88,7 +96,17 @@ export default function CulturePage() {
                   <s.icon className="w-5 h-5 text-[#c9a84c]" />
                 </div>
                 <h3 className="text-lg font-semibold mb-3">{s.title}</h3>
-                <p className="text-sm text-white/45 leading-relaxed">{s.desc}</p>
+                <p className="text-sm text-white/45 leading-relaxed">
+                  <LangText
+                    ja={s.desc}
+                    en={{
+                      '越境EC支援': 'Comprehensive support for Japan-China e-commerce operations including platform selection, listing setup, and customer support.',
+                      'ビジネスコンサルティング': 'Professional consulting for market research, strategy planning, and regulatory support in Japan-China business expansion.',
+                      'パートナーシップ構築': 'Matching and partnership support using our network in both China and Japan.',
+                      '品質管理・検品': 'Inspection, authenticity review, and quality control systems for imported products.',
+                    }[s.title] || s.desc}
+                  />
+                </p>
               </div>
             ))}
           </div>
@@ -100,11 +118,13 @@ export default function CulturePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
             <Users className="w-5 h-5 text-[#c9a84c]" />
-            <h2 className="text-xl font-bold">パートナーネットワーク</h2>
+            <h2 className="text-xl font-bold"><LangText ja="パートナーネットワーク" en="Partner Network" /></h2>
           </div>
           <p className="text-white/45 mb-8 max-w-2xl text-sm leading-relaxed">
-            5カ国にわたるパートナー企業との強固なネットワークを構築。
-            各地域の特性を活かした最適な取引スキームをご提案いたします。
+            <LangText
+              ja="5カ国にわたるパートナー企業との強固なネットワークを構築。各地域の特性を活かした最適な取引スキームをご提案いたします。"
+              en="We maintain a strong partner network across five regions and design practical trade schemes based on each market."
+            />
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {PARTNER_REGIONS.map((p) => (
@@ -115,7 +135,18 @@ export default function CulturePage() {
                 <CheckCircle className="w-5 h-5 text-[#c9a84c] shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-semibold text-sm mb-1">{p.region}</h4>
-                  <p className="text-xs text-white/40">{p.desc}</p>
+                  <p className="text-xs text-white/40">
+                    <LangText
+                      ja={p.desc}
+                      en={{
+                        日本: 'Distribution network centered on Tokyo, Osaka, and Yokohama.',
+                        中国: 'Direct trading relations with major suppliers in Shanghai, Shenzhen, and Guangzhou.',
+                        台湾: 'Expansion support into East Asia through Taipei.',
+                        香港: 'Logistics collaboration through the international trade hub of Hong Kong.',
+                        韓国: 'Market development centered on Seoul and pop culture channels.',
+                      }[p.region] || p.desc}
+                    />
+                  </p>
                 </div>
               </div>
             ))}
@@ -128,7 +159,7 @@ export default function CulturePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
             <Target className="w-5 h-5 text-[#c9a84c]" />
-            <h2 className="text-xl font-bold">5カ年ビジョン</h2>
+            <h2 className="text-xl font-bold"><LangText ja="5カ年ビジョン" en="Five-Year Vision" /></h2>
           </div>
           <div className="relative">
             <div className="absolute left-[23px] top-0 bottom-0 w-px bg-[#1e2a45] hidden md:block" />
@@ -159,9 +190,25 @@ export default function CulturePage() {
                         {step.year}
                       </span>
                       <TrendingUp className="w-4 h-4 text-[#c9a84c]" />
-                      <h4 className="font-semibold text-sm">{step.title}</h4>
+                      <h4 className="font-semibold text-sm">
+                        <LangText
+                          ja={step.title}
+                          en={{ 創業: 'Foundation', 事業拡大: 'Expansion', ネットワーク強化: 'Network Growth', 新規事業: 'New Business', グローバル展開: 'Global Expansion' }[step.title] || step.title}
+                        />
+                      </h4>
                     </div>
-                    <p className="text-sm text-white/45">{step.desc}</p>
+                    <p className="text-sm text-white/45">
+                      <LangText
+                        ja={step.desc}
+                        en={{
+                          創業: 'Company founded with trading cards as the core business.',
+                          事業拡大: 'Hobby goods and consulting businesses expanded.',
+                          ネットワーク強化: 'Partnership system established across five countries and 50+ companies.',
+                          新規事業: 'Expansion into digital content and IP-related business.',
+                          グローバル展開: 'Expansion into Southeast Asian markets.',
+                        }[step.title] || step.desc}
+                      />
+                    </p>
                   </div>
                 </div>
               ))}
@@ -175,17 +222,19 @@ export default function CulturePage() {
         <div className="max-w-3xl mx-auto">
           <div className="rounded-xl bg-[#131b2e] border border-[#1e2a45] p-12 text-center">
             <h2 className="text-xl font-bold mb-4">
-              パートナーシップのご相談
+              <LangText ja="パートナーシップのご相談" en="Partnership Consultation" />
             </h2>
             <p className="text-white/45 mb-8 max-w-lg mx-auto text-sm leading-relaxed">
-              日中間のビジネス展開、越境ECのご相談など、
-              まずはお気軽にお問い合わせください。
+              <LangText
+                ja="日中間のビジネス展開、越境ECのご相談など、まずはお気軽にお問い合わせください。"
+                en="For Japan-China business development or cross-border e-commerce consultation, contact us anytime."
+              />
             </p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 bg-[#c9a84c] text-[#0a0f1a] font-semibold px-8 py-3.5 rounded-lg hover:bg-[#d4b85c] transition-colors"
             >
-              お問い合わせ <ArrowRight className="w-4 h-4" />
+              <LangText ja="お問い合わせ" en="Contact" /> <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

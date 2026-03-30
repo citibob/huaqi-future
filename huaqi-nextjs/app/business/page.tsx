@@ -12,10 +12,15 @@ import {
   Truck,
   Users,
 } from 'lucide-react'
+import LangText from '@/components/LangText'
 
 export const metadata: Metadata = {
-  title: '事業内容 | 華啓未来株式会社',
-  description: '華啓未来株式会社の事業内容。トレーディングカード輸入販売、ホビー・キャラクターグッズ輸入販売、越境貿易コンサルティングの3事業を展開。',
+  title: '事業内容 / Business',
+  description:
+    '華啓未来株式会社の事業内容ページです。トレーディングカード輸入販売、ホビーグッズ輸入販売、越境貿易コンサルティングの3事業を案内しています。 Overview of our core businesses in Japan and cross-border trade.',
+  alternates: {
+    canonical: '/business',
+  },
 }
 
 const SERVICE_LINES = [
@@ -128,12 +133,16 @@ export default function BusinessPage() {
         <div className="max-w-4xl mx-auto text-center relative">
           <div className="inline-flex items-center gap-2 text-xs font-medium text-[#c9a84c] bg-[#c9a84c]/8 border border-[#c9a84c]/15 px-4 py-2 rounded-full mb-6">
             <Building2 className="w-4 h-4" />
-            事業内容
+            <LangText ja="事業内容" en="Business" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">事業内容</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <LangText ja="事業内容" en="Business Overview" />
+          </h1>
           <p className="text-white/45 max-w-2xl mx-auto leading-relaxed">
-            当社は3つの事業を柱に、日中間の貿易を通じて
-            両国の経済・文化の発展に貢献しております。
+            <LangText
+              ja="当社は3つの事業を柱に、日中間の貿易を通じて両国の経済・文化の発展に貢献しております。"
+              en="We operate through three core business lines, contributing to economic and cultural exchange between Japan and China."
+            />
           </p>
         </div>
       </div>

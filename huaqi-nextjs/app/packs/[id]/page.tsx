@@ -219,8 +219,17 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
   const pack = getGemPackById(params.id)
   if (!pack) return { title: '商品が見つかりません' }
   return {
-    title: `${pack.nameCN}（${pack.nameJP}）| 華啓未来株式会社`,
+    title: `${pack.nameCN}（${pack.nameJP}）`,
     description: pack.descriptionJP,
+    alternates: {
+      canonical: `/packs/${pack.id}`,
+    },
+    openGraph: {
+      title: `${pack.nameCN}（${pack.nameJP}）`,
+      description: pack.descriptionJP,
+      url: `https://www.huaqi.jp/packs/${pack.id}`,
+      images: ['/packs/opengraph-image'],
+    },
   }
 }
 

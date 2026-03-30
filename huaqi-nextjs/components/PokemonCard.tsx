@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { TrendingUp, TrendingDown, Minus, Star, Zap } from 'lucide-react'
 import { cn, formatJPY, formatCNY, formatPriceChange, TYPE_COLORS, TYPE_BADGE_COLORS, TYPE_NAMES_CN, RARITY_COLORS, mercariSoldUrl } from '@/lib/utils'
 import type { PokemonCard } from '@/lib/types'
+import LangText from './LangText'
 
 interface Props {
   card: PokemonCard
@@ -132,8 +133,12 @@ export default function PokemonCardUI({ card, reasons, compact = false, onClick 
         {/* Market availability */}
         {!compact && (
           <div className="flex items-center justify-between text-xs text-white/40 pt-1 border-t border-pokemon-border">
-            <span>{card.onSaleCount} 件在售</span>
-            <span>周销 {card.soldCount7d}</span>
+            <span>
+              <LangText ja={`${card.onSaleCount} 件在售`} en={`${card.onSaleCount} listed`} />
+            </span>
+            <span>
+              <LangText ja={`周销 ${card.soldCount7d}`} en={`7d sales ${card.soldCount7d}`} />
+            </span>
           </div>
         )}
 
@@ -162,4 +167,3 @@ export default function PokemonCardUI({ card, reasons, compact = false, onClick 
     </a>
   )
 }
-

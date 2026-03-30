@@ -15,24 +15,27 @@ import {
   ChevronDown,
   Briefcase,
 } from 'lucide-react'
+import LangText from './LangText'
+import { useLanguage } from './LanguageProvider'
 
 const businessItems = [
-  { href: '/business', label: '事業一覧', icon: Briefcase },
-  { href: '/packs', label: 'トレーディングカード', icon: Package },
-  { href: '/pokemon', label: 'ホビーグッズ', icon: Palette },
-  { href: '/culture', label: '越境貿易コンサルティング', icon: Globe },
+  { href: '/business', ja: '事業一覧', en: 'Services', icon: Briefcase },
+  { href: '/packs', ja: 'トレーディングカード', en: 'Trading Cards', icon: Package },
+  { href: '/pokemon', ja: 'カード相場', en: 'Card Market', icon: Palette },
+  { href: '/culture', ja: '越境貿易コンサルティング', en: 'Cross-Border Consulting', icon: Globe },
 ]
 
 const navItems = [
-  { href: '/', label: 'ホーム', icon: Home },
-  { href: '/market', label: 'マーケット', icon: TrendingUp },
-  { href: '/company', label: '会社概要', icon: Building2 },
-  { href: '/contact', label: 'お問い合わせ', icon: Mail },
+  { href: '/', ja: 'ホーム', en: 'Home', icon: Home },
+  { href: '/market', ja: 'マーケット', en: 'Market', icon: TrendingUp },
+  { href: '/company', ja: '会社概要', en: 'Company', icon: Building2 },
+  { href: '/contact', ja: 'お問い合わせ', en: 'Contact', icon: Mail },
 ]
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [bizOpen, setBizOpen] = useState(false)
+  const { language, setLanguage } = useLanguage()
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
@@ -54,7 +57,7 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             <Link href="/" className="text-sm text-muted hover:text-primary transition-colors font-medium">
-              ホーム
+              <LangText ja="ホーム" en="Home" />
             </Link>
 
             {/* Business dropdown */}
@@ -64,7 +67,7 @@ export default function Navbar() {
               onMouseLeave={() => setBizOpen(false)}
             >
               <button className="flex items-center gap-1 text-sm text-muted hover:text-primary transition-colors py-5 font-medium">
-                事業内容
+                <LangText ja="事業内容" en="Business" />
                 <ChevronDown className="w-3.5 h-3.5" />
               </button>
               {bizOpen && (
@@ -76,7 +79,7 @@ export default function Navbar() {
                       className="flex items-center gap-3 px-4 py-3 text-sm text-muted hover:bg-white/5 hover:text-primary rounded-sm transition-colors"
                     >
                       <item.icon className="w-4 h-4 text-secondary" />
-                      {item.label}
+                      <LangText ja={item.ja} en={item.en} />
                     </Link>
                   ))}
                 </div>
@@ -84,21 +87,41 @@ export default function Navbar() {
             </div>
 
             <Link href="/market" className="text-sm text-muted hover:text-primary transition-colors font-medium">
-              マーケット
+              <LangText ja="マーケット" en="Market" />
             </Link>
             <Link href="/company" className="text-sm text-muted hover:text-primary transition-colors font-medium">
-              会社概要
+              <LangText ja="会社概要" en="Company" />
             </Link>
           </div>
 
           {/* Actions */}
           <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center rounded-sm border border-white/10 bg-white/[0.03] p-1">
+              <button
+                type="button"
+                onClick={() => setLanguage('ja')}
+                className={`px-3 py-1.5 text-[11px] font-bold tracking-[0.2em] transition-colors ${
+                  language === 'ja' ? 'bg-secondary text-[#120d04]' : 'text-muted'
+                }`}
+              >
+                JP
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage('en')}
+                className={`px-3 py-1.5 text-[11px] font-bold tracking-[0.2em] transition-colors ${
+                  language === 'en' ? 'bg-secondary text-[#120d04]' : 'text-muted'
+                }`}
+              >
+                EN
+              </button>
+            </div>
             <Link
               href="/contact"
               className="hidden md:flex items-center gap-2 text-sm font-bold bg-gradient-to-r from-secondary to-[#f0d69a] text-[#120d04] px-5 py-2.5 rounded-sm hover:opacity-90 transition-colors"
             >
               <Mail className="w-4 h-4" />
-              お問い合わせ
+              <LangText ja="お問い合わせ" en="Contact" />
             </Link>
 
             <button
@@ -121,12 +144,35 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
               >
                 <item.icon className="w-5 h-5" />
-                {item.label}
+                <LangText ja={item.ja} en={item.en} />
               </Link>
             ))}
 
+            <div className="flex items-center gap-2 py-3">
+              <button
+                type="button"
+                onClick={() => setLanguage('ja')}
+                className={`rounded-sm border px-3 py-1 text-xs font-bold tracking-[0.2em] ${
+                  language === 'ja' ? 'border-secondary bg-secondary text-[#120d04]' : 'border-white/10 text-muted'
+                }`}
+              >
+                JP
+              </button>
+              <button
+                type="button"
+                onClick={() => setLanguage('en')}
+                className={`rounded-sm border px-3 py-1 text-xs font-bold tracking-[0.2em] ${
+                  language === 'en' ? 'border-secondary bg-secondary text-[#120d04]' : 'border-white/10 text-muted'
+                }`}
+              >
+                EN
+              </button>
+            </div>
+
             <div className="border-t border-white/10 mt-2 pt-2">
-              <p className="text-xs text-muted-light px-2 py-2 uppercase tracking-wider">事業内容</p>
+              <p className="text-xs text-muted-light px-2 py-2 uppercase tracking-wider">
+                <LangText ja="事業内容" en="Business" />
+              </p>
               {businessItems.map((item) => (
                 <Link
                   key={item.href}
@@ -135,7 +181,7 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                 >
                   <item.icon className="w-5 h-5 text-secondary" />
-                  {item.label}
+                  <LangText ja={item.ja} en={item.en} />
                 </Link>
               ))}
             </div>

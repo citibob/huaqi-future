@@ -3,12 +3,17 @@ import Link from 'next/link'
 import { Package, ShieldCheck, Truck, Star } from 'lucide-react'
 import { GEM_PACKS } from '@/lib/gem-pack-data'
 import { cn, formatJPY, formatCNY } from '@/lib/utils'
+import LangText from '@/components/LangText'
 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'ジェムパック（Gem Pack）シリーズ | 華啓未来株式会社',
-  description: 'ポケモンカードジェムパック（Gem Pack）全シリーズ。中国正規品・未開封品。Vol.1〜Vol.4の価格情報・在庫状況。',
+  title: 'ジェムパックシリーズ / Gem Pack',
+  description:
+    '中国版ポケモンカード「ジェムパック」全シリーズの紹介ページです。Gem Pack lineup with pricing, stock, and product highlights from Vol.1 to Vol.5.',
+  alternates: {
+    canonical: '/packs',
+  },
 }
 
 const FEATURES = [
@@ -29,14 +34,16 @@ export default function PacksPage() {
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-medium text-[#c9a84c] bg-[#c9a84c]/8 border border-[#c9a84c]/15 px-4 py-2 rounded-full mb-6">
                 <Package className="w-4 h-4" />
-                全{GEM_PACKS.length}シリーズ取扱中
+                <LangText ja={`全${GEM_PACKS.length}シリーズ取扱中`} en={`${GEM_PACKS.length} Series Available`} />
               </div>
               <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                ジェムパック（Gem Pack）シリーズ
+                <LangText ja="ジェムパックシリーズ" en="Gem Pack Series" />
               </h1>
               <p className="text-white/45 leading-relaxed mb-8">
-                中国で正規発売されているポケモンカード「ジェムパック」シリーズの全ラインナップ。
-                中国正規ライセンス店からの直接仕入れにより、真贋鑑定済みの商品のみをお届けいたします。
+                <LangText
+                  ja="中国で正規発売されているポケモンカード「ジェムパック」シリーズの全ラインナップ。中国正規ライセンス店からの直接仕入れにより、真贋鑑定済みの商品のみをお届けいたします。"
+                  en="Complete lineup of China-released Pokemon Gem Pack products. We source directly from authorized partners and handle only verified genuine items."
+                />
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {FEATURES.map((f) => (
