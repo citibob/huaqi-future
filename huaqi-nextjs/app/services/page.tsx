@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     '華啓未来株式会社の事業紹介ページです。トレーディングカード事業、ホビーグッズ事業、越境貿易コンサルティング事業を案内しています。',
   alternates: {
-    canonical: '/services',
+    canonical: 'https://www.huaqi.jp/services',
   },
 }
 

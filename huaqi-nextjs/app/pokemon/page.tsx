@@ -6,6 +6,16 @@ import PokemonCardUI from '@/components/PokemonCard'
 import { POKEMON_CARDS } from '@/lib/pokemon-data'
 import { formatJPY } from '@/lib/utils'
 import LangText from '@/components/LangText'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'ポケモンカード相場一覧 / Card Market',
+  description:
+    'ポケモンカードの販売価格、相場推移、取引件数を確認できます。Mercari JP の成交実績に基づいたリアルタイムランキング。',
+  alternates: {
+    canonical: 'https://www.huaqi.jp/pokemon',
+  },
+}
 
 const PLATFORM_OPTIONS = [
   { value: 'mercari' as const, label: 'Mercari JP', icon: '🟡', url: (q: string) => `https://jp.mercari.com/search?keyword=${encodeURIComponent(q)}&status=sold_out&sort=price&order=desc` },

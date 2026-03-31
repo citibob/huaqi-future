@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     'ポケモンカード市場の価格変動、取引件数、注目カードをまとめたマーケット情報ページです。Market overview covering card prices, movement, and highlighted listings.',
   alternates: {
-    canonical: '/market',
+    canonical: 'https://www.huaqi.jp/market',
   },
 }
 

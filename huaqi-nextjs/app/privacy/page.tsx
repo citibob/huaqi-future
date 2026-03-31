@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'プライバシーポリシー',
   description: '華啓未来株式会社のプライバシーポリシー。個人情報の取り扱い、収集目的、管理体制について。',
   alternates: {
-    canonical: '/privacy',
+    canonical: 'https://www.huaqi.jp/privacy',
   },
 }
 

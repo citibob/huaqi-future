@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description:
     '華啓未来株式会社は、中国正規品ポケモンカードの輸入販売、ホビーグッズ流通、日中間の越境貿易支援を行う日本法人です。Huaqi Future is a Japan-based company for trading cards, hobby goods, and cross-border trade support.',
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.huaqi.jp/',
   },
 }
 

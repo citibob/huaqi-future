@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     'ポケモンカードの販売価格、相場推移、取引件数を確認できる一覧ページです。Bilingual market view of prices, trends, and featured cards.',
   alternates: {
-    canonical: '/pokemon',
+    canonical: 'https://www.huaqi.jp/pokemon',
   },
   openGraph: {
     title: 'ポケモンカード相場一覧',

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     '貿易コンサルティング',
   ],
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.huaqi.jp/',
   },
   robots: {
     index: true,

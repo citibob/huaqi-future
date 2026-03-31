@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: '会社概要 / Company',
   description: '華啓未来株式会社の会社概要。中国と日本をつなぐ越境貿易企業。Company profile of Huaqi Future Co., Ltd., based in Yokohama, Japan.',
   alternates: {
-    canonical: '/company',
+    canonical: 'https://www.huaqi.jp/company',
   },
 }
 

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     '日中間の越境貿易コンサルティング事業を紹介しています。市場調査、パートナーマッチング、物流設計、法規制対応を支援します。',
   alternates: {
-    canonical: '/culture',
+    canonical: 'https://www.huaqi.jp/culture',
   },
 }
 

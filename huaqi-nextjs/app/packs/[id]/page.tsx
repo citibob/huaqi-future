@@ -233,6 +233,19 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
   }
 }
 
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const pack = getGemPackById(params.id)
+  if (!pack) return { title: 'Not Found' }
+
+  return {
+    title: `${pack.nameJP} | 宝石包`,
+    description: pack.descriptionJP,
+    alternates: {
+      canonical: `https://www.huaqi.jp/packs/${pack.id}`,
+    },
+  }
+}
+
 export default function PackDetailPage({ params }: { params: { id: string } }) {
   const pack = getGemPackById(params.id)
   if (!pack) notFound()

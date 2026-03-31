@@ -29,7 +29,7 @@ export function generateMetadata({ params }: Props): Metadata {
     description:
       `${card.nameJP}（${card.nameEN}）の相場ページです。現在価格${formatJPY(card.priceJPY)}、7日中央値${formatJPY(card.medianPriceJPY)}、週間販売数${card.soldCount7d}件。`,
     alternates: {
-      canonical: `/pokemon/${card.id}`,
+      canonical: `https://www.huaqi.jp/pokemon/${card.id}`,
     },
     openGraph: {
       title: `${card.nameCN} ${card.rarity} ${card.cardNumber}`,

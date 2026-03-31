@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     '中国版ポケモンカード「ジェムパック」全シリーズの紹介ページです。Gem Pack lineup with pricing, stock, and product highlights from Vol.1 to Vol.5.',
   alternates: {
-    canonical: '/packs',
+    canonical: 'https://www.huaqi.jp/packs',
   },
 }
 
