@@ -136,8 +136,8 @@ export default function HomePage() {
         <div className="absolute right-[8%] top-1/3 hidden h-[400px] w-[320px] lg:block">
           <div className="relative h-full w-full overflow-hidden rounded-sm gold-shimmer shadow-card">
             <Image
-              src="/images/gem-pack-vol4.png"
-              alt="Pokemon Card Gem Pack Vol.4"
+              src="/images/gem-pack.svg"
+              alt="Pokemon Card Gem Pack"
               fill
               className="object-cover"
             />

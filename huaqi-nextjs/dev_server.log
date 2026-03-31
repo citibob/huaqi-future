@@ -1,0 +1,11 @@
+
+> huaqi-pokemon@1.0.0 dev
+> next dev
+
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ⚠ Attempted to load @next/swc-darwin-arm64, but an error occurred: dlopen(/Volumes/MacData/pokemon-system/huaqi-nextjs/node_modules/next/node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node, 0x0001): tried: '/Volumes/MacData/pokemon-system/huaqi-nextjs/node_modules/next/node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node' (code signature in <24EA3876-D6A5-335A-AF89-573666DD47E8> '/Volumes/MacData/pokemon-system/huaqi-nextjs/node_modules/next/node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node' not valid for use in process: mapping process and mapped file (non-platform) have different Team IDs), '/System/Volumes/Preboot/Cryptexes/OS/Volumes/MacData/pokemon-system/huaqi-nextjs/node_modules/next/node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node' (no such file), '/Volumes/MacData/pokemon-system/huaqi-nextjs/node_modules/next/node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node' (code signature in <24EA3876-D6A5-335A-AF89-573666DD47E8> '/Volumes/MacData/pokemon-system/huaqi-nextjs/node_modules/next/node_modules/@next/swc-darwin-arm64/next-swc.darwin-arm64.node' not valid for use in process: mapping process and mapped file (non-platform) have different Team IDs)
+ ⨯ Failed to load SWC binary for darwin/arm64, see more info here: https://nextjs.org/docs/messages/failed-loading-swc
+[?25h

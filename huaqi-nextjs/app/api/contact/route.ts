@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { getDB } from '@/lib/db'
 
 const ALLOWED_CATEGORIES = [
   '商品に関するお問い合わせ',
@@ -92,7 +93,23 @@ export async function POST(req: NextRequest) {
     timestamp: new Date().toISOString(),
   })
 
-  // Send email via Resend (requires RESEND_API_KEY env var)
+  // 1. Save to D1 Database if available (B2B/B2C Upgrade)
+  try {
+    const db = getDB()
+    if (db) {
+      await db.prepare(
+        'INSERT INTO inquiries (name, email, category, company, message) VALUES (?, ?, ?, ?, ?)'
+      )
+      .bind(payload.name, payload.email, payload.category, payload.company || null, payload.message)
+      .run()
+      console.log('[contact] Inquired saved to D1 database')
+    }
+  } catch (dbErr) {
+    console.error('[contact] D1 database save failed:', dbErr)
+    // Continue anyway, don't block email delivery
+  }
+
+  // 2. Send email via Resend (requires RESEND_API_KEY env var)
   const apiKey = process.env.RESEND_API_KEY
   if (apiKey) {
     try {
