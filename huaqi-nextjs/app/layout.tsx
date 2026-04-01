@@ -5,6 +5,46 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { LanguageProvider } from '@/components/LanguageProvider'
 
+const ORGANIZATION_JSONLD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.huaqi.jp/#organization',
+      name: '華啓未来株式会社',
+      alternateName: 'Huaqi Future Co., Ltd.',
+      url: 'https://www.huaqi.jp',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.huaqi.jp/logo.jpg',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'asiacardptcg@gmail.com',
+        contactType: 'customer service',
+        availableLanguage: ['Japanese', 'Chinese'],
+        areaServed: ['Japan', 'China', 'Taiwan', 'Hong Kong', 'South Korea'],
+      },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '曙町1-3 藤和伊勢佐木ハイ615号室',
+        addressLocality: '中区',
+        addressRegion: '神奈川県',
+        postalCode: '231-0057',
+        addressCountry: 'JP',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.huaqi.jp/#website',
+      url: 'https://www.huaqi.jp',
+      name: '華啓未来株式会社',
+      publisher: { '@id': 'https://www.huaqi.jp/#organization' },
+      inLanguage: 'ja-JP',
+    },
+  ],
+}
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
@@ -72,6 +112,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja" className={`${inter.variable} ${notoSansJP.variable} ${publicSans.variable}`}>
       <body className="bg-surface-50 text-primary antialiased font-jp">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSONLD) }}
+        />
         <LanguageProvider>
           {/* Status Pillar - Left Sidebar Decoration */}
           <div className="fixed left-0 top-0 w-px h-screen bg-container-200 z-50" />
