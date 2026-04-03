@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Pause, Play, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import LangText from './LangText'
 
@@ -22,8 +22,9 @@ export default function CardFanCarousel({
   cards: CardItem[]
   isHot?: boolean
 }) {
-  const [active, setActive] = useState(0) // start immediately at first card
+  const [active, setActive] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
+  const [lightbox, setLightbox] = useState(false)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const total = cards.length
 
@@ -60,6 +61,27 @@ export default function CardFanCarousel({
 
   const displaySrc = cards[active]?.src ?? boxImage
   const displayLabel = cards[active]?.label ?? boxLabel
+
+  // Lightbox: pause autoplay when open, close on Escape
+  const openLightbox = () => {
+    setLightbox(true)
+    setIsPlaying(false)
+  }
+
+  useEffect(() => {
+    if (!lightbox) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightbox(false)
+      if (e.key === 'ArrowRight') setActive((i) => (i + 1) % total)
+      if (e.key === 'ArrowLeft') setActive((i) => (i - 1 + total) % total)
+    }
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [lightbox, total])
 
   // Smooth fan layout with cubic-bezier-like easing via inline transition
   const getCardStyle = (idx: number): React.CSSProperties => {
@@ -100,8 +122,10 @@ export default function CardFanCarousel({
     <div className="flex flex-col items-center">
       {/* Main Display — synced with active card */}
       <div className="relative w-full max-w-[320px] mx-auto mb-2">
-        <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-[#1e2a45] bg-[#131b2e] shadow-2xl">
-          {/* Crossfade: render all images, only active one is visible */}
+        <div
+          className="relative aspect-[3/4] rounded-xl overflow-hidden border border-[#1e2a45] bg-[#131b2e] shadow-2xl cursor-zoom-in group"
+          onClick={openLightbox}
+        >
           {cards.map((card, idx) => (
             <div
               key={idx}
@@ -122,8 +146,11 @@ export default function CardFanCarousel({
               />
             </div>
           ))}
-          {/* badge removed */}
-          {/* Label overlay */}
+          <div className="absolute inset-0 z-[3] bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+            <span className="text-white text-xs bg-black/50 px-3 py-1.5 rounded-full backdrop-blur-sm">
+              <LangText ja="クリックして拡大" en="Click to enlarge" />
+            </span>
+          </div>
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3 z-10">
             <p className="text-sm text-white/80 text-center truncate" style={{ transition: 'opacity 0.3s' }}>{displayLabel}</p>
           </div>
@@ -217,6 +244,90 @@ export default function CardFanCarousel({
           ))}
         </div>
       )}
+
+      {/* Fullscreen Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center"
+          style={{ animation: 'lightboxFadeIn 0.3s ease-out' }}
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/90 backdrop-blur-md"
+            onClick={() => setLightbox(false)}
+          />
+
+          {/* Close button */}
+          <button
+            onClick={() => setLightbox(false)}
+            className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          {/* Card image */}
+          <div
+            className="relative z-10 w-[85vmin] max-w-[600px] aspect-[3/4]"
+            style={{ animation: 'lightboxScaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}
+          >
+            {cards.map((card, idx) => (
+              <div
+                key={idx}
+                className="absolute inset-0"
+                style={{
+                  opacity: idx === active ? 1 : 0,
+                  transition: 'opacity 0.4s ease-in-out',
+                }}
+              >
+                <Image
+                  src={card.src}
+                  alt={card.label}
+                  fill
+                  className="object-contain drop-shadow-[0_0_60px_rgba(201,168,76,0.15)]"
+                  sizes="600px"
+                  quality={95}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Label */}
+          <div className="absolute bottom-8 left-0 right-0 text-center z-10">
+            <p className="text-white/70 text-sm">{displayLabel}</p>
+            <p className="text-white/30 text-xs mt-1">{active + 1} / {total}</p>
+          </div>
+
+          {/* Navigation arrows */}
+          {total > 1 && (
+            <>
+              <button
+                onClick={(e) => { e.stopPropagation(); setActive((i) => (i - 1 + total) % total) }}
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); setActive((i) => (i + 1) % total) }}
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </>
+          )}
+        </div>
+      )}
+
+      {/* Lightbox animations */}
+      <style jsx global>{`
+        @keyframes lightboxFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes lightboxScaleIn {
+          from { opacity: 0; transform: scale(0.7); }
+          to { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
     </div>
   )
 }

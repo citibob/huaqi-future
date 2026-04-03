@@ -161,8 +161,8 @@ export default function PacksOgImage() {
             lineHeight: 1.6,
           }}
         >
-          <span>中国正規品 ポケモンカード</span>
-          <span>華啓未来株式会社が日本国内より正規販売</span>
+          <span>中国正規発売 ポケモンカード</span>
+          <span>華啓未来株式会社が日本国内にて販売</span>
         </div>
       </div>
     ),

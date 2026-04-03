@@ -6,14 +6,6 @@ import { GEM_PACKS } from '@/lib/gem-pack-data'
 import { formatJPY } from '@/lib/utils'
 import LangText from '@/components/LangText'
 
-/* ───────── stats ───────── */
-const STATS = [
-  { label: '設立', value: '2024', suffix: '年' },
-  { label: '取引国', value: '5', suffix: 'ヶ国' },
-  { label: 'パートナー', value: '50', suffix: '+' },
-  { label: '顧客満足度', value: '98', suffix: '%' },
-]
-
 const SIGNATURES = [
   'JAPAN ENTITY',
   'CROSS-BORDER FLOW',
@@ -23,7 +15,7 @@ const SIGNATURES = [
 export const metadata: Metadata = {
   title: 'ホーム / Home',
   description:
-    '華啓未来株式会社は、中国正規品ポケモンカードの輸入販売、ホビーグッズ流通、日中間の越境貿易支援を行う日本法人です。Huaqi Future is a Japan-based company for trading cards, hobby goods, and cross-border trade support.',
+    '華啓未来株式会社は、中国で正規発売されているポケモンカードの輸入販売、ホビーグッズ流通、日中間の越境貿易支援を行う日本法人です。Huaqi Future is a Japan-based company for trading cards, hobby goods, and cross-border trade support.',
   alternates: {
     canonical: 'https://www.huaqi.jp/',
   },
@@ -52,7 +44,7 @@ export default function HomePage() {
               <Gem className="w-4 h-4 text-white" />
             </div>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-secondary">
-              Authorized Pokemon Card Dealer
+              Pokemon Card Import & Sales
             </span>
           </div>
 
@@ -76,8 +68,8 @@ export default function HomePage() {
 
               <p className="text-lg md:text-[1.35rem] lux-text max-w-2xl leading-relaxed font-light mb-10">
                 <LangText
-                  ja="中国正規品ポケモンカード「ジェムパック」の日本国内正規販売と、日中をまたぐ商流設計を一体で担う日本法人。"
-                  en="A Japan-based company specializing in the authorized domestic distribution of China-licensed Pokemon Gem Pack products and end-to-end Japan-China trade flow design."
+                  ja="中国正規品ポケモンカード「ジェムパック」の輸入販売と、日中をまたぐ商流設計を一体で担う日本法人。"
+                  en="A Japan-based company handling the import and sale of China-released Pokemon Gem Pack products, with end-to-end Japan-China trade flow design."
                 />
               </p>
 
@@ -118,13 +110,13 @@ export default function HomePage() {
                 <div>
                   <p className="mb-2 text-xs uppercase tracking-[0.22em] text-secondary">Focus</p>
                   <p className="text-sm leading-7 lux-text">
-                    正規流通、法人取引、継続供給。価格だけでなく、信頼できる商流を価値として提供。
+                    <LangText ja="安定流通、法人取引、継続供給。価格だけでなく、信頼できる商流を価値として提供。" en="Stable distribution, B2B trade, continuous supply — delivering not just price, but reliable trade flow as core value." />
                   </p>
                 </div>
                 <div>
                   <p className="mb-2 text-xs uppercase tracking-[0.22em] text-secondary">Positioning</p>
                   <p className="text-sm leading-7 lux-text">
-                    ホビー領域を起点に、日本品質の運用と中国供給網を接続する越境パートナー。
+                    <LangText ja="ホビー領域を起点に、日本品質の運用と中国供給網を接続する越境パートナー。" en="A cross-border partner bridging Japan's quality operations with China's supply network, starting from the hobby sector." />
                   </p>
                 </div>
               </div>
@@ -132,50 +124,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Floating Image Element */}
-        <div className="absolute right-[8%] top-1/3 hidden h-[400px] w-[320px] lg:block">
-          <div className="relative h-full w-full overflow-hidden rounded-sm gold-shimmer shadow-card">
-            <Image
-              src="/images/gem-pack.svg"
-              alt="Pokemon Card Gem Pack"
-              fill
-              className="object-cover"
-            />
-            {/* Gold accent line */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-secondary" />
-          </div>
-        </div>
-      </section>
-
-      {/* ========== Stats - Bento Grid ========== */}
-      <section className="relative py-20 bg-[#06080b]">
-        {/* Status Pillar */}
-        <div className="absolute left-[5%] top-0 w-px h-full bg-container-200" />
-        
-        <div className="relative max-w-7xl mx-auto px-6">
-          {/* Section Label */}
-          <div className="flex items-center gap-3 mb-12">
-            <div className="w-6 h-px bg-secondary" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted">
-              Company Overview
-            </span>
-          </div>
-
-          {/* Bento Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {STATS.map((stat, i) => (
-              <div
-                key={stat.label}
-                className={`rounded-sm p-6 ${i === 0 ? 'gold-shimmer lux-outline' : i === 3 ? 'lux-panel' : 'bg-container-100/90 border border-white/5'}`}
-              >
-                <div className="mb-1 text-4xl font-black text-primary">
-                  {stat.value}{stat.suffix}
-                </div>
-                <div className="text-sm text-muted font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ========== Gem Pack Showcase ========== */}
@@ -188,14 +136,14 @@ export default function HomePage() {
                 Featured Products
               </span>
               <h2 className="text-display-lg text-primary leading-[0.95] tracking-tighter">
-                ジェムパック<br />コレクション
+                <LangText ja={<>ジェムパック<br />コレクション</>} en={<>Gem Pack<br />Collection</>} />
               </h2>
             </div>
             <Link
               href="/packs"
               className="hidden md:flex items-center gap-2 text-sm font-medium text-muted hover:text-primary transition-colors"
             >
-              すべて見る
+              <LangText ja="すべて見る" en="View All" />
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -220,12 +168,6 @@ export default function HomePage() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    {/* Status Badge */}
-                    {pack.isSealed && (
-                      <div className="absolute top-3 right-3 bg-secondary/90 text-white text-xs font-bold px-2 py-1 rounded-sm">
-                        シュリンク付き
-                      </div>
-                    )}
                   </div>
 
                   {/* Text */}
@@ -239,11 +181,22 @@ export default function HomePage() {
                       </span>
                     </div>
                     <h3 className={`font-black text-primary ${i === 0 ? 'text-2xl' : 'text-base'}`}>
-                      {pack.nameCN}
+                      <LangText ja={pack.nameJP} en={pack.nameEN} />
                     </h3>
-                    <p className="text-2xl font-black text-secondary">
-                      {formatJPY(pack.priceJPY)}
-                    </p>
+                    <div className="flex items-center justify-between">
+                      {pack.priceJPY === 0 ? (
+                        <p className="text-lg font-black text-secondary"><LangText ja="発売予定" en="Coming Soon" /></p>
+                      ) : (
+                        <p className="text-2xl font-black text-secondary">
+                          {formatJPY(pack.priceJPY)}
+                        </p>
+                      )}
+                      {pack.isSealed && (
+                        <span className="text-[10px] font-bold text-secondary border border-secondary/40 px-2 py-0.5 rounded-sm">
+                          <LangText ja="シュリンク付き" en="Shrink-Wrapped" />
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -258,7 +211,7 @@ export default function HomePage() {
               href="/packs"
               className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-primary transition-colors"
             >
-              すべて見る
+              <LangText ja="すべて見る" en="View All" />
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -276,10 +229,10 @@ export default function HomePage() {
                 <Shield className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-black text-lg text-primary mb-2 tracking-tight">
-                正規品保証
+                <LangText ja="正品・原盒原膜" en="Genuine · Factory Sealed" />
               </h3>
               <p className="text-sm lux-text leading-relaxed">
-                中国正規ライセンス店との直接取引により、全商品の真贋を保証。
+                <LangText ja="中国の信頼できる仕入先から調達し、原盒原膜の状態でお届け。" en="Sourced from trusted Chinese suppliers, delivered in original factory-sealed condition." />
               </p>
             </div>
 
@@ -289,10 +242,10 @@ export default function HomePage() {
                 <Languages className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-black text-lg text-primary mb-2 tracking-tight">
-                日中バイリンガル
+                <LangText ja="日中バイリンガル" en="Bilingual Support" />
               </h3>
               <p className="text-sm lux-text leading-relaxed">
-                日本語・中国語によるシームレスなコミュニケーションを実現。
+                <LangText ja="日本語・中国語によるシームレスなコミュニケーションを実現。" en="Seamless communication in both Japanese and Chinese." />
               </p>
             </div>
 
@@ -302,10 +255,10 @@ export default function HomePage() {
                 <Truck className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="font-black text-lg text-primary mb-2 tracking-tight">
-                確実な配送体制
+                <LangText ja="確実な配送体制" en="Reliable Delivery" />
               </h3>
               <p className="text-sm lux-text leading-relaxed">
-                追跡番号付き国内配送。越境物流にも完全対応。
+                <LangText ja="追跡番号付き国内配送。越境物流にも完全対応。" en="Tracked domestic delivery. Full support for cross-border logistics." />
               </p>
             </div>
           </div>
@@ -325,45 +278,46 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
             <div>
               <h2 className="text-display-lg text-primary leading-[0.95] tracking-tighter mb-5">
-                日本法人として
-                <br />
-                信頼できる商流をつくる
+                <LangText
+                  ja={<>日本法人として<br />信頼できる商流をつくる</>}
+                  en={<>Building Trustworthy<br />Trade Flows as a Japan Entity</>}
+                />
               </h2>
               <p className="text-sm lux-text leading-relaxed">
-                華啓未来株式会社は、中国と日本をつなぐ越境貿易企業として、継続可能で透明性の高い取引体制を重視しています。
+                <LangText ja="華啓未来株式会社は、中国と日本をつなぐ越境貿易企業として、継続可能で透明性の高い取引体制を重視しています。" en="Huaqi Future Co., Ltd. prioritizes transparent, sustainable trade as a cross-border trading company connecting China and Japan." />
               </p>
               <div className="mt-8 gold-shimmer lux-outline rounded-sm p-6">
-                <p className="mb-2 text-xs uppercase tracking-[0.24em] text-secondary">Official Statement</p>
+                <p className="mb-2 text-xs uppercase tracking-[0.24em] text-secondary">About Us</p>
                 <p className="text-sm leading-7 lux-text">
-                  当社ウェブサイトは、会社情報、取扱商材、連絡窓口を明確に公開するための公式コーポレートサイトです。
+                  <LangText ja="当社ウェブサイトは、会社情報、取扱商材、連絡窓口を明確に公開するための公式コーポレートサイトです。" en="This official corporate website clearly presents company information, products, and contact details." />
                 </p>
               </div>
             </div>
 
             <div className="space-y-5 text-sm lux-text leading-8">
               <p>
-                当社は横浜を拠点とし、中国正規品ポケモンカード「ジェムパック」の輸入販売をはじめ、
-                ホビーグッズ流通、企業間の越境取引支援、パートナーマッチング、物流設計まで一貫して対応しています。
-                単に商品を販売するだけではなく、日本市場における信頼性、継続供給、問い合わせ対応、配送品質、
-                取引後のフォローまで含めて、法人としての責任ある運営を行うことを基本方針としています。
+                <LangText
+                  ja="当社は横浜を拠点とし、中国で正規発売されているポケモンカード「ジェムパック」の輸入販売をはじめ、ホビーグッズ流通、企業間の越境取引支援、パートナーマッチング、物流設計まで一貫して対応しています。単に商品を販売するだけではなく、日本市場における信頼性、継続供給、問い合わせ対応、配送品質、取引後のフォローまで含めて、法人としての責任ある運営を行うことを基本方針としています。"
+                  en="We are headquartered in Yokohama and handle the full scope of China-released Pokemon Card (Gem Pack) import and sales, hobby goods distribution, cross-border trade support, partner matching, and logistics design. We operate not just as a product seller but as a responsible corporation covering reliability, continuous supply, customer service, delivery quality, and post-transaction follow-up."
+                />
               </p>
               <p>
-                取扱分野は、トレーディングカード、ホビー・キャラクターグッズ、ならびに日中間の貿易コンサルティングです。
-                日本国内の小売販売だけでなく、卸売りや事業提携のご相談にも対応しており、商材の調達、商流整理、
-                市場確認、継続供給の可否、配送条件の調整など、実務に即した支援を提供しています。
-                中国側の供給網と日本側の販売・運用感覚の両方を理解していることが、当社の大きな特徴です。
+                <LangText
+                  ja="取扱分野は、トレーディングカード、ホビー・キャラクターグッズ、ならびに日中間の貿易コンサルティングです。日本国内の小売販売だけでなく、卸売りや事業提携のご相談にも対応しており、商材の調達、商流整理、市場確認、継続供給の可否、配送条件の調整など、実務に即した支援を提供しています。中国側の供給網と日本側の販売・運用感覚の両方を理解していることが、当社の大きな特徴です。"
+                  en="Our scope includes trading cards, hobby and character goods, and Japan-China trade consulting. We handle both B2C retail and wholesale/partnership inquiries, offering practical support for sourcing, trade flow clarification, market validation, supply continuity, and delivery terms. Our dual understanding of China's supply network and Japan's market practices is our key strength."
+                />
               </p>
               <p>
-                特にポケモンカード分野では、正規流通ルートの明確化、真贋に対する不安の軽減、継続仕入れの安定化が重要です。
-                当社では、正規性の確認できる商流を重視し、国内のお客様や事業者が安心して取引できる体制づくりを進めています。
-                また、日本語と中国語の両方に対応しているため、日中間の情報差やコミュニケーションの齟齬を減らし、
-                より正確で実務的な取引につなげることができます。
+                <LangText
+                  ja="特にポケモンカード分野では、流通ルートの透明化、真贋に対する不安の軽減、継続仕入れの安定化が重要です。当社では、信頼性の高い仕入先との安定した取引を重視し、国内のお客様や事業者が安心して取引できる体制づくりを進めています。また、日本語と中国語の両方に対応しているため、日中間の情報差やコミュニケーションの齟齬を減らし、より正確で実務的な取引につなげることができます。"
+                  en="In the Pokemon Card segment, transparent sourcing, reduced authenticity concerns, and stable restocking are critical. We focus on reliable supplier relationships to build a framework where domestic customers and businesses can trade with confidence. With bilingual capability in Japanese and Chinese, we reduce information gaps and enable more accurate, practical transactions."
+                />
               </p>
               <p>
-                当サイトは、当社の会社情報、取扱商材、事業内容、連絡窓口を明確にご案内するための公式ウェブサイトです。
-                日本国内のお客様、法人の仕入れ担当者、流通パートナー候補、中国側の取引先候補に向けて、
-                現在の事業内容と対応範囲をわかりやすく提示することを目的としています。
-                商品のご相談、法人取引、協業提案、越境販売に関するお問い合わせは、当サイト内の連絡先より受け付けています。
+                <LangText
+                  ja="当サイトは、当社の会社情報、取扱商材、事業内容、連絡窓口を明確にご案内するための公式ウェブサイトです。日本国内のお客様、法人の仕入れ担当者、流通パートナー候補、中国側の取引先候補に向けて、現在の事業内容と対応範囲をわかりやすく提示することを目的としています。商品のご相談、法人取引、協業提案、越境販売に関するお問い合わせは、当サイト内の連絡先より受け付けています。"
+                  en="This site is our official web presence to clearly communicate company information, products, business scope, and contact details — targeting domestic customers, corporate buyers, potential distribution partners, and prospective Chinese business counterparts. Inquiries regarding products, B2B trade, partnerships, and cross-border sales are accepted via the contact page."
+                />
               </p>
             </div>
           </div>
@@ -379,16 +333,19 @@ export default function HomePage() {
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <p className="mb-4 text-xs uppercase tracking-[0.28em] text-muted-light">Contact Window</p>
           <h2 className="text-display-md text-white leading-[0.95] tracking-tighter mb-6">
-            まずはお問い合わせ<br />ください
+            <LangText
+              ja={<>まずはお問い合わせ<br />ください</>}
+              en={<>Start with an<br />Inquiry</>}
+            />
           </h2>
           <p className="text-white/70 mb-10 max-w-md mx-auto">
-            仕入れ・コラボレーション・越大貿易の詳細について、お気軽にお問い合わせください。
+            <LangText ja="仕入れ・コラボレーション・越大貿易の詳細について、お気軽にお問い合わせください。" en="For sourcing, collaboration, or cross-border trade details, feel free to reach out." />
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-3 bg-gradient-to-r from-secondary to-[#f0d69a] text-[#120d04] px-10 py-4 rounded-sm font-bold hover:opacity-90 transition-colors"
           >
-            お問い合わせ
+            <LangText ja="お問い合わせ" en="Contact Us" />
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

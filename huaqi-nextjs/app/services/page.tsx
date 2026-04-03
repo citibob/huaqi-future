@@ -57,9 +57,8 @@ export default function ServicesPage() {
           <div className="rounded-xl bg-[#131b2e] border border-[#1e2a45] p-8 mb-6">
             <h3 className="font-semibold text-white/80 mb-3"><LangText ja="事業概要" en="Overview" /></h3>
             <p className="text-sm text-white/55 leading-relaxed mb-6">
-              中国正規品ポケモンカードを中心としたトレーディングカードの輸入販売事業です。
-              中国の正規ライセンス店との直接取引契約に基づき、高品質なカード商品を日本市場にお届けしております。
-              PSA・BGS等の国際鑑定機関による鑑定サービスも提供し、コレクターや投資家の皆様のご要望にお答えしております。
+              中国で正規発売されているポケモンカードを中心としたトレーディングカードの輸入販売事業です。
+              中国の信頼できる仕入先から原盒原膜の商品を調達し、高品質なカード商品を日本市場にお届けしております。
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -73,10 +72,6 @@ export default function ServicesPage() {
                   <li className="flex items-start gap-2">
                     <ShieldCheck className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />
                     ボックス・パック販売
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <ShieldCheck className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />
-                    PSA/BGS鑑定代行サービス
                   </li>
                   <li className="flex items-start gap-2">
                     <ShieldCheck className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />
@@ -94,10 +89,6 @@ export default function ServicesPage() {
                   <li className="flex items-start gap-2">
                     <Package className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />
                     シングルカード（レア・限定品含む）
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Package className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />
-                    PSA/BGS鑑定済みカード
                   </li>
                   <li className="flex items-start gap-2">
                     <Package className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />

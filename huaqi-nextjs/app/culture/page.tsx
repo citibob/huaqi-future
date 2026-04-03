@@ -26,39 +26,47 @@ const SERVICES = [
   {
     icon: Globe,
     title: '越境EC支援',
+    titleEn: 'Cross-Border E-Commerce',
     desc: '中国・日本間のEC出店支援、プラットフォーム選定、出品代行、カスタマーサポートなど、越境ECに必要なサービスを包括的に提供いたします。',
+    descEn: 'We provide comprehensive cross-border e-commerce support between China and Japan, including platform selection, listing, and customer service.',
   },
   {
     icon: Briefcase,
     title: 'ビジネスコンサルティング',
+    titleEn: 'Business Consulting',
     desc: '日中間のビジネス展開に関する市場調査、戦略立案、法規制対応のアドバイスなど、専門的なコンサルティングを行います。',
+    descEn: 'We provide expert consulting on Japan-China business development including market research, strategy planning, and regulatory compliance.',
   },
   {
     icon: Handshake,
     title: 'パートナーシップ構築',
+    titleEn: 'Partnership Building',
     desc: '中国・日本双方の企業ネットワークを活用し、最適なビジネスパートナーのマッチングとパートナーシップ構築を支援いたします。',
+    descEn: 'Using our networks in both China and Japan, we support optimal partner matching and partnership development.',
   },
   {
     icon: ShieldCheck,
     title: '品質管理・検品',
-    desc: '輸入商品の品質管理、真贋鑑定、検品サービスを提供。正規品のみを確実にお届けする体制を構築いたします。',
+    titleEn: 'Quality Control & Inspection',
+    desc: '輸入商品の品質管理、検品サービスを提供。商品の状態確認と品質チェックを徹底しております。',
+    descEn: 'We provide quality management and inspection services for imported goods, with thorough condition verification and quality checks.',
   },
 ]
 
 const PARTNER_REGIONS = [
-  { region: '日本', desc: '東京、大阪、横浜を中心とした流通ネットワーク' },
-  { region: '中国', desc: '上海、深圳、広州の主要メーカーとの直接取引' },
-  { region: '台湾', desc: '台北を拠点とした東アジア市場への展開' },
-  { region: '香港', desc: '国際貿易ハブとしてのロジスティクス連携' },
-  { region: '韓国', desc: 'ソウルを中心としたポップカルチャー市場開拓' },
+  { region: '日本', regionEn: 'Japan', desc: '東京、大阪、横浜を中心とした流通ネットワーク', descEn: 'Distribution network centered on Tokyo, Osaka, and Yokohama' },
+  { region: '中国', regionEn: 'China', desc: '上海、深圳、広州の主要仕入先との安定取引', descEn: 'Stable trading with key suppliers in Shanghai, Shenzhen, and Guangzhou' },
+  { region: '台湾', regionEn: 'Taiwan', desc: '台北を拠点とした東アジア市場への展開', descEn: 'East Asia market expansion based in Taipei' },
+  { region: '香港', regionEn: 'Hong Kong', desc: '国際貿易ハブとしてのロジスティクス連携', descEn: 'Logistics coordination as an international trade hub' },
+  { region: '韓国', regionEn: 'South Korea', desc: 'ソウルを中心としたポップカルチャー市場開拓', descEn: 'Pop culture market development centered on Seoul' },
 ]
 
 const VISION_STEPS = [
-  { year: '2024', title: '創業', desc: 'トレーディングカード事業を軸に会社設立' },
-  { year: '2025', title: '事業拡大', desc: 'ホビーグッズ・貿易コンサルティング事業を本格展開' },
-  { year: '2026', title: 'ネットワーク強化', desc: '5カ国50社以上のパートナー企業との連携体制確立' },
-  { year: '2027', title: '新規事業', desc: 'デジタルコンテンツ・IP関連事業への参入' },
-  { year: '2028', title: 'グローバル展開', desc: '東南アジア市場への事業拡大' },
+  { year: '2024', title: '創業', titleEn: 'Founded', desc: 'トレーディングカード事業を軸に会社設立', descEn: 'Company established with trading card business as core' },
+  { year: '2025', title: '事業拡大', titleEn: 'Expansion', desc: 'ホビーグッズ・貿易コンサルティング事業を本格展開', descEn: 'Full launch of hobby goods & trade consulting businesses' },
+  { year: '2026', title: 'ネットワーク強化', titleEn: 'Network Growth', desc: '5カ国50社以上のパートナー企業との連携体制確立', descEn: 'Partnership framework established with 50+ companies across 5 countries' },
+  { year: '2027', title: '新規事業', titleEn: 'New Business', desc: 'デジタルコンテンツ・IP関連事業への参入', descEn: 'Entry into digital content and IP-related business' },
+  { year: '2028', title: 'グローバル展開', titleEn: 'Global Expansion', desc: '東南アジア市場への事業拡大', descEn: 'Expansion into Southeast Asian markets' },
 ]
 
 export default function CulturePage() {
@@ -72,7 +80,9 @@ export default function CulturePage() {
             <Globe className="w-4 h-4" />
             <LangText ja="貿易コンサルティング" en="Trade Consulting" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4"><LangText ja="越境貿易コンサルティング" en="Cross-Border Trade Consulting" /></h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            <LangText ja="越境貿易コンサルティング" en="Cross-Border Trade Consulting" />
+          </h1>
           <p className="text-lg text-white/45 max-w-2xl mx-auto leading-relaxed">
             <LangText
               ja="日中間の貿易における課題を解決し、ビジネスの成長を支援いたします。"
@@ -85,7 +95,9 @@ export default function CulturePage() {
       {/* Services */}
       <section className="px-4 py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl font-bold mb-8"><LangText ja="サービス内容" en="Services" /></h2>
+          <h2 className="text-xl font-bold mb-8">
+            <LangText ja="サービス内容" en="Services" />
+          </h2>
           <div className="grid md:grid-cols-2 gap-5">
             {SERVICES.map((s) => (
               <div
@@ -95,17 +107,11 @@ export default function CulturePage() {
                 <div className="w-11 h-11 rounded-lg bg-[#1a365d]/30 flex items-center justify-center mb-5">
                   <s.icon className="w-5 h-5 text-[#c9a84c]" />
                 </div>
-                <h3 className="text-lg font-semibold mb-3">{s.title}</h3>
+                <h3 className="text-lg font-semibold mb-3">
+                  <LangText ja={s.title} en={s.titleEn} />
+                </h3>
                 <p className="text-sm text-white/45 leading-relaxed">
-                  <LangText
-                    ja={s.desc}
-                    en={{
-                      '越境EC支援': 'Comprehensive support for Japan-China e-commerce operations including platform selection, listing setup, and customer support.',
-                      'ビジネスコンサルティング': 'Professional consulting for market research, strategy planning, and regulatory support in Japan-China business expansion.',
-                      'パートナーシップ構築': 'Matching and partnership support using our network in both China and Japan.',
-                      '品質管理・検品': 'Inspection, authenticity review, and quality control systems for imported products.',
-                    }[s.title] || s.desc}
-                  />
+                  <LangText ja={s.desc} en={s.descEn} />
                 </p>
               </div>
             ))}
@@ -118,7 +124,9 @@ export default function CulturePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
             <Users className="w-5 h-5 text-[#c9a84c]" />
-            <h2 className="text-xl font-bold"><LangText ja="パートナーネットワーク" en="Partner Network" /></h2>
+            <h2 className="text-xl font-bold">
+              <LangText ja="パートナーネットワーク" en="Partner Network" />
+            </h2>
           </div>
           <p className="text-white/45 mb-8 max-w-2xl text-sm leading-relaxed">
             <LangText
@@ -134,18 +142,11 @@ export default function CulturePage() {
               >
                 <CheckCircle className="w-5 h-5 text-[#c9a84c] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-semibold text-sm mb-1">{p.region}</h4>
+                  <h4 className="font-semibold text-sm mb-1">
+                    <LangText ja={p.region} en={p.regionEn} />
+                  </h4>
                   <p className="text-xs text-white/40">
-                    <LangText
-                      ja={p.desc}
-                      en={{
-                        日本: 'Distribution network centered on Tokyo, Osaka, and Yokohama.',
-                        中国: 'Direct trading relations with major suppliers in Shanghai, Shenzhen, and Guangzhou.',
-                        台湾: 'Expansion support into East Asia through Taipei.',
-                        香港: 'Logistics collaboration through the international trade hub of Hong Kong.',
-                        韓国: 'Market development centered on Seoul and pop culture channels.',
-                      }[p.region] || p.desc}
-                    />
+                    <LangText ja={p.desc} en={p.descEn} />
                   </p>
                 </div>
               </div>
@@ -159,7 +160,9 @@ export default function CulturePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
             <Target className="w-5 h-5 text-[#c9a84c]" />
-            <h2 className="text-xl font-bold"><LangText ja="5カ年ビジョン" en="Five-Year Vision" /></h2>
+            <h2 className="text-xl font-bold">
+              <LangText ja="5カ年ビジョン" en="Five-Year Vision" />
+            </h2>
           </div>
           <div className="relative">
             <div className="absolute left-[23px] top-0 bottom-0 w-px bg-[#1e2a45] hidden md:block" />
@@ -191,23 +194,11 @@ export default function CulturePage() {
                       </span>
                       <TrendingUp className="w-4 h-4 text-[#c9a84c]" />
                       <h4 className="font-semibold text-sm">
-                        <LangText
-                          ja={step.title}
-                          en={{ 創業: 'Foundation', 事業拡大: 'Expansion', ネットワーク強化: 'Network Growth', 新規事業: 'New Business', グローバル展開: 'Global Expansion' }[step.title] || step.title}
-                        />
+                        <LangText ja={step.title} en={step.titleEn} />
                       </h4>
                     </div>
                     <p className="text-sm text-white/45">
-                      <LangText
-                        ja={step.desc}
-                        en={{
-                          創業: 'Company founded with trading cards as the core business.',
-                          事業拡大: 'Hobby goods and consulting businesses expanded.',
-                          ネットワーク強化: 'Partnership system established across five countries and 50+ companies.',
-                          新規事業: 'Expansion into digital content and IP-related business.',
-                          グローバル展開: 'Expansion into Southeast Asian markets.',
-                        }[step.title] || step.desc}
-                      />
+                      <LangText ja={step.desc} en={step.descEn} />
                     </p>
                   </div>
                 </div>

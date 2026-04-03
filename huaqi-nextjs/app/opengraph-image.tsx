@@ -161,7 +161,7 @@ export default function OpenGraphImage() {
             lineHeight: 1.6,
           }}
         >
-          <span>中国正規品ポケモンカード × 越境貿易</span>
+          <span>中国正規発売ポケモンカード × 越境貿易</span>
           <span>日中間の商流設計を一貫して担当</span>
         </div>
       </div>

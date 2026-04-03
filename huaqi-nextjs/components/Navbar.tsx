@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import {
   Menu,
   X,
@@ -35,7 +35,19 @@ const navItems = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [bizOpen, setBizOpen] = useState(false)
+  const [langOpen, setLangOpen] = useState(false)
   const { language, setLanguage } = useLanguage()
+  const langRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
@@ -96,25 +108,34 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center rounded-sm border border-white/10 bg-white/[0.03] p-1">
+            <div
+              ref={langRef}
+              className="relative hidden md:block"
+            >
               <button
                 type="button"
-                onClick={() => setLanguage('ja')}
-                className={`px-3 py-1.5 text-[11px] font-bold tracking-[0.2em] transition-colors ${
-                  language === 'ja' ? 'bg-secondary text-[#120d04]' : 'text-muted'
-                }`}
+                onClick={() => setLangOpen(v => !v)}
+                className="flex items-center gap-1.5 rounded-sm border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] font-bold tracking-[0.2em] text-muted hover:text-primary transition-colors"
               >
-                JP
+                {language === 'ja' ? '日本語' : 'EN'}
+                <ChevronDown className="w-3 h-3" />
               </button>
-              <button
-                type="button"
-                onClick={() => setLanguage('en')}
-                className={`px-3 py-1.5 text-[11px] font-bold tracking-[0.2em] transition-colors ${
-                  language === 'en' ? 'bg-secondary text-[#120d04]' : 'text-muted'
-                }`}
-              >
-                EN
-              </button>
+              {langOpen && (
+                <div className="absolute top-full right-0 mt-1 w-24 lux-panel rounded-sm p-1 z-[60]">
+                  {(['ja', 'en'] as const).map((lang) => (
+                    <button
+                      key={lang}
+                      type="button"
+                      onClick={() => { setLanguage(lang); setLangOpen(false) }}
+                      className={`w-full text-left px-3 py-2 text-[11px] font-bold tracking-[0.2em] rounded-sm transition-colors ${
+                        language === lang ? 'text-secondary bg-white/5' : 'text-muted hover:text-primary hover:bg-white/5'
+                      }`}
+                    >
+                      {lang === 'ja' ? '日本語' : 'EN'}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
             <Link
               href="/contact"
@@ -156,7 +177,7 @@ export default function Navbar() {
                   language === 'ja' ? 'border-secondary bg-secondary text-[#120d04]' : 'border-white/10 text-muted'
                 }`}
               >
-                JP
+                日本語
               </button>
               <button
                 type="button"

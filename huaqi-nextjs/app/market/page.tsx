@@ -92,8 +92,8 @@ export default function MarketPage() {
 
         {/* Trend Panels */}
         <section className="grid gap-5 lg:grid-cols-3 mb-10">
-          <TrendPanel title="値上がり注目" tone="text-red-400" icon={<TrendingUp className="h-4 w-4" />} items={gainers} />
-          <TrendPanel title="値下がり注目" tone="text-green-400" icon={<TrendingDown className="h-4 w-4" />} items={losers} />
+          <TrendPanel titleJa="値上がり注目" titleEn="Price Gainers" tone="text-red-400" icon={<TrendingUp className="h-4 w-4" />} items={gainers} />
+          <TrendPanel titleJa="値下がり注目" titleEn="Price Losers" tone="text-green-400" icon={<TrendingDown className="h-4 w-4" />} items={losers} />
           <ArbitragePanel items={deals} />
         </section>
 
@@ -101,25 +101,29 @@ export default function MarketPage() {
         <section className="overflow-hidden rounded-xl border border-[#1e2a45] bg-[#131b2e] mb-10">
           <div className="flex flex-col gap-3 border-b border-[#1e2a45] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div className="text-lg font-bold">全カード価格一覧</div>
-              <div className="mt-1 text-sm text-white/40">価格変動の大きい順に表示</div>
+              <div className="text-lg font-bold">
+                <LangText ja="全カード価格一覧" en="All Card Prices" />
+              </div>
+              <div className="mt-1 text-sm text-white/40">
+                <LangText ja="価格変動の大きい順に表示" en="Sorted by largest price movement" />
+              </div>
             </div>
             <div className="flex items-center gap-2 text-xs font-medium text-green-400">
               <RefreshCw className="h-3.5 w-3.5" />
-              リアルタイム更新
+              <LangText ja="リアルタイム更新" en="Real-time Updates" />
             </div>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-[#1e2a45] text-xs text-white/35">
-                  <th className="px-4 py-4 text-left">カード名</th>
-                  <th className="px-4 py-4 text-right">現在価格（JPY）</th>
-                  <th className="px-4 py-4 text-right">現在価格（CNY）</th>
-                  <th className="px-4 py-4 text-right">7日間中央値</th>
-                  <th className="px-4 py-4 text-right">24h変動</th>
-                  <th className="px-4 py-4 text-right">出品数</th>
-                  <th className="px-4 py-4 text-right">週間販売数</th>
+                  <th className="px-4 py-4 text-left"><LangText ja="カード名" en="Card" /></th>
+                  <th className="px-4 py-4 text-right"><LangText ja="現在価格（JPY）" en="Price (JPY)" /></th>
+                  <th className="px-4 py-4 text-right"><LangText ja="現在価格（CNY）" en="Price (CNY)" /></th>
+                  <th className="px-4 py-4 text-right"><LangText ja="7日間中央値" en="7-Day Median" /></th>
+                  <th className="px-4 py-4 text-right"><LangText ja="24h変動" en="24h Change" /></th>
+                  <th className="px-4 py-4 text-right"><LangText ja="出品数" en="Listings" /></th>
+                  <th className="px-4 py-4 text-right"><LangText ja="週間販売数" en="7d Sales" /></th>
                 </tr>
               </thead>
               <tbody>
@@ -133,10 +137,10 @@ export default function MarketPage() {
                         className="flex items-center gap-3 hover:opacity-80 transition-opacity"
                       >
                         <div className="relative h-9 w-9 rounded-lg overflow-hidden border border-[#1e2a45] shrink-0">
-                          <Image src={card.imageUrl} alt={card.nameCN} fill className="object-cover" sizes="36px" />
+                          <Image src={card.imageUrl} alt={card.nameEN} fill className="object-cover" sizes="36px" />
                         </div>
                         <div>
-                          <div className="font-medium hover:text-[#c9a84c] transition-colors">{card.nameCN}</div>
+                          <div className="font-medium hover:text-[#c9a84c] transition-colors"><LangText ja={card.nameJP} en={card.nameEN} /></div>
                           <div className="text-xs text-white/35">{card.series} · {card.rarity}</div>
                         </div>
                       </a>
@@ -164,8 +168,12 @@ export default function MarketPage() {
         {/* Gem Pack Prices */}
         <section className="overflow-hidden rounded-xl border border-[#1e2a45] bg-[#131b2e]">
           <div className="border-b border-[#1e2a45] px-6 py-5">
-            <div className="text-lg font-bold">ジェムパック（Gem Pack）価格情報</div>
-            <div className="mt-1 text-sm text-white/40">全シリーズの現在価格・中央値・出品数</div>
+            <div className="text-lg font-bold">
+              <LangText ja="ジェムパック（Gem Pack）価格情報" en="Gem Pack Price Information" />
+            </div>
+            <div className="mt-1 text-sm text-white/40">
+              <LangText ja="全シリーズの現在価格・中央値・出品数" en="Current price, median, and listing count for all series" />
+            </div>
           </div>
           <div className="grid gap-px bg-[#1e2a45] md:grid-cols-2 xl:grid-cols-4">
             {GEM_PACKS.map((pack) => {
@@ -175,8 +183,7 @@ export default function MarketPage() {
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="text-xs font-medium tracking-wider text-white/35">{pack.vol}</div>
-                      <div className="mt-2 text-xl font-bold">{pack.nameCN}</div>
-                      <div className="mt-1 text-sm text-white/40">{pack.nameJP}</div>
+                      <div className="mt-2 text-xl font-bold"><LangText ja={pack.nameJP} en={pack.nameEN} /></div>
                     </div>
                     <div className="rounded-full border border-[#c9a84c]/20 bg-[#c9a84c]/8 px-3 py-1 text-xs font-medium text-[#c9a84c]">
                       {pack.code}
@@ -186,20 +193,25 @@ export default function MarketPage() {
                   <div className="mt-1 text-sm text-white/40">≈ {formatCNY(pack.priceCNY)}</div>
                   <div className="mt-5 grid grid-cols-3 gap-3 text-xs">
                     <div>
-                      <div className="text-white/35">中央値</div>
+                      <div className="text-white/35"><LangText ja="中央値" en="Median" /></div>
                       <div className="mt-1 font-semibold">{formatJPY(pack.medianPriceJPY)}</div>
                     </div>
                     <div>
-                      <div className="text-white/35">最安値</div>
+                      <div className="text-white/35"><LangText ja="最安値" en="Lowest" /></div>
                       <div className="mt-1 font-semibold">{formatJPY(pack.lowestPriceJPY)}</div>
                     </div>
                     <div>
-                      <div className="text-white/35">出品数</div>
-                      <div className="mt-1 font-semibold">{pack.onSaleCount}件</div>
+                      <div className="text-white/35"><LangText ja="出品数" en="Listings" /></div>
+                      <div className="mt-1 font-semibold">
+                        <LangText ja={`${pack.onSaleCount}件`} en={`${pack.onSaleCount}`} />
+                      </div>
                     </div>
                   </div>
                   <div className={cn('mt-4 text-sm font-medium', discount > 0 ? 'text-green-400' : 'text-red-400')}>
-                    {discount > 0 ? `中央値より ${discount}% 安い` : `中央値より ${Math.abs(discount)}% 高い`}
+                    <LangText
+                      ja={discount > 0 ? `中央値より ${discount}% 安い` : `中央値より ${Math.abs(discount)}% 高い`}
+                      en={discount > 0 ? `${discount}% below median` : `${Math.abs(discount)}% above median`}
+                    />
                   </div>
                 </div>
               )
@@ -212,12 +224,14 @@ export default function MarketPage() {
 }
 
 function TrendPanel({
-  title,
+  titleJa,
+  titleEn,
   tone,
   icon,
   items,
 }: {
-  title: string
+  titleJa: string
+  titleEn: string
   tone: string
   icon: React.ReactNode
   items: typeof POKEMON_CARDS
@@ -226,7 +240,7 @@ function TrendPanel({
     <div className="rounded-xl border border-[#1e2a45] bg-[#131b2e] p-5">
       <div className={cn('mb-5 flex items-center gap-2 text-sm font-semibold', tone)}>
         {icon}
-        {title}
+        <LangText ja={titleJa} en={titleEn} />
       </div>
       <div className="space-y-3">
         {items.map((card) => (
@@ -239,10 +253,10 @@ function TrendPanel({
           >
             <div className="flex items-center gap-3">
               <div className="relative h-8 w-8 rounded-lg overflow-hidden border border-[#1e2a45] shrink-0">
-                <Image src={card.imageUrl} alt={card.nameCN} fill className="object-cover" sizes="32px" />
+                <Image src={card.imageUrl} alt={card.nameEN} fill className="object-cover" sizes="32px" />
               </div>
               <div>
-                <div className="text-sm font-medium">{card.nameCN}</div>
+                <div className="text-sm font-medium"><LangText ja={card.nameJP} en={card.nameEN} /></div>
                 <div className="text-xs text-white/35">{formatJPY(card.priceJPY)}</div>
               </div>
             </div>
@@ -262,7 +276,7 @@ function ArbitragePanel({ items }: { items: typeof POKEMON_CARDS }) {
     <div className="rounded-xl border border-[#1e2a45] bg-[#131b2e] p-5">
       <div className="mb-5 flex items-center gap-2 text-sm font-semibold text-[#c9a84c]">
         <AlertTriangle className="h-4 w-4" />
-        注目価格差
+        <LangText ja="注目価格差" en="Notable Deals" />
       </div>
       <div className="space-y-3">
         {items.map((card) => {
@@ -277,10 +291,10 @@ function ArbitragePanel({ items }: { items: typeof POKEMON_CARDS }) {
             >
               <div className="flex items-center gap-3">
                 <div className="relative h-8 w-8 rounded-lg overflow-hidden border border-[#1e2a45] shrink-0">
-                  <Image src={card.imageUrl} alt={card.nameCN} fill className="object-cover" sizes="32px" />
+                  <Image src={card.imageUrl} alt={card.nameEN} fill className="object-cover" sizes="32px" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium">{card.nameCN}</div>
+                  <div className="text-sm font-medium"><LangText ja={card.nameJP} en={card.nameEN} /></div>
                   <div className="text-xs text-white/35">{formatJPY(card.priceJPY)}</div>
                 </div>
               </div>

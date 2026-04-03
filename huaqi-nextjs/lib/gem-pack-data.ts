@@ -32,6 +32,7 @@ export interface GemPackData {
   yahooUrl: string
   descriptionJP: string
   descriptionCN: string
+  descriptionEN: string
   tags: string[]
   lastUpdated?: string
 }
@@ -61,6 +62,7 @@ const MOCK_DATA: GemPackData[] = [
     yahooUrl: 'https://auctions.yahoo.co.jp/search?query=ジェムパックvol5',
     descriptionJP: '地平線の冒険をテーマにした最新弾。蒂蕾喵・炙烫鳄・涌跃鸭が登場。キャプテンピカチュウとフリードの冒険を描いた艺术カード収録。2026年4月24日発売予定。',
     descriptionCN: '以地平线冒险为主题的最新弹。蒂蕾喵、炙烫鳄、涌跃鸭登场。收录船长皮卡丘与弗里德冒险主题艺术卡。2026年4月24日发售。',
+    descriptionEN: 'The latest set themed around the Horizons adventure. Features Meowscarada, Skeledirge & Quaquaval alongside Captain Pikachu and Friede. Stunning character art cards featuring Liko, Roy, and Dot with their partner Pokémon. Launching April 24, 2026.',
     tags: ['vol5', 'cbb5c', '予約受付中', '新発売'],
     lastUpdated: new Date().toISOString(),
   },
@@ -86,6 +88,7 @@ const MOCK_DATA: GemPackData[] = [
     yahooUrl: 'https://auctions.yahoo.co.jp/search?query=ジェムパックvol1',
     descriptionJP: 'パルデア地方の御三家ニャオハ・ホゲータ・クワッスが登場。全カードがキラカード仕様。キャプテンピカチュウ収録。2025年1月17日発売。',
     descriptionCN: '帕底亚御三家新叶喵、呆火鳄、润水鸭登场。全卡闪卡。收录船长皮卡丘。',
+    descriptionEN: 'Featuring the Paldea starter Pokémon — Sprigatito, Fuecoco, and Quaxly. Every card features premium holographic foil. Includes the iconic Captain Pikachu card. 5 rarity tiers with symbol, pattern, and logo variants. Released January 17, 2025.',
     tags: ['vol1', 'cbb1c', '未開封', 'BOX'],
     lastUpdated: new Date().toISOString(),
   },
@@ -111,6 +114,7 @@ const MOCK_DATA: GemPackData[] = [
     yahooUrl: 'https://auctions.yahoo.co.jp/search?query=ジェムパックvol2',
     descriptionJP: 'イーブイと全進化形態が集結。ニンフィア表紙。4枚つなぎイラストカード収録。ポケモンV・VMAXカード搭载。2025年5月16日発売。',
     descriptionCN: '伊布全进化形态集结。仙子伊布封面。收录4张拼接插画卡。含V/VMAX卡。',
+    descriptionEN: 'Eevee and all 8 of its evolutions unite in one spectacular set. Sylveon cover. Features a breathtaking 4-card connected panorama illustration. Includes Pokémon V and Pokémon VMAX cards. Released May 16, 2025.',
     tags: ['vol2', 'cbb2c', '未開封', '伊布'],
     lastUpdated: new Date().toISOString(),
   },
@@ -136,6 +140,7 @@ const MOCK_DATA: GemPackData[] = [
     yahooUrl: 'https://auctions.yahoo.co.jp/search?query=ジェムパックvol3',
     descriptionJP: '夜行性ポケモンをテーマにゲンガーが表紙。ポケモンexキラカード、9種のアートイラストキラカード収録。マスターボール柄カードも。2025年9月26日発売。',
     descriptionCN: '夜行寶可夢テーマ、耿鬼表紙。exホロ、万が国 예술 ilustores カード収録。大師球パターソカード含む。',
+    descriptionEN: 'Nocturnal Pokémon take center stage with Gengar as the cover star. Features Pokémon ex holo cards, 9 art illustration holo cards (Meowth, Gengar, Cubone & more), plus Master Ball pattern and gold foil cards. Released September 26, 2025.',
     tags: ['vol3', 'cbb3c', '未開封', '耿鬼'],
     lastUpdated: new Date().toISOString(),
   },
@@ -153,7 +158,7 @@ const MOCK_DATA: GemPackData[] = [
     lowestPriceJPY: 5480,
     priceChange24h: 3.2,
     soldCount7d: 5,
-    isSealed: false,
+    isSealed: true,
     isHot: false,
     isBelowMedian: true,
     imageUrl: '/images/vol4-wiki-poster.png',
@@ -161,6 +166,7 @@ const MOCK_DATA: GemPackData[] = [
     yahooUrl: 'https://auctions.yahoo.co.jp/search?query=ジェムパックvol4',
     descriptionJP: 'ポニータ＆ギャロップが表纸の最新弾。新春テーマ。属性シンボル・マスターボール柄・金箔押しカード収録。アートイラストカードも充実。2026年2月6日発売。',
     descriptionCN: '小火马与烈焰马封面的最新弹。新春主题。收录属性符号、大师球花纹、烫金卡。',
+    descriptionEN: 'A Lunar New Year celebration set featuring Ponyta & Rapidash on the cover. Rich with art illustration holo cards, attribute symbol cards, Master Ball pattern cards, and gold foil stamped cards. Released February 6, 2026.',
     tags: ['vol4', 'cbb4c', '新発売', '小火马'],
     lastUpdated: new Date().toISOString(),
   },

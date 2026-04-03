@@ -31,28 +31,32 @@ const SERVICE_LINES = [
     bgColor: 'bg-amber-400/8',
     borderColor: 'border-amber-400/15',
     title: 'トレーディングカード輸入販売事業',
+    titleEn: 'Trading Card Import & Sales',
     overview:
-      '中国で正規発売されているポケモンカードを中心に、トレーディングカードの輸入販売を行っております。中国正規ライセンス店との直接取引契約に基づき、真贋鑑定済みの商品のみを取り扱い、日本国内のコレクター・投資家・法人バイヤーの皆様にお届けしております。',
+      '中国で正規発売されているポケモンカードを中心に、トレーディングカードの輸入販売を行っております。中国の信頼できる仕入先から原盒原膜の商品を調達し、検品済みの商品を日本国内のコレクター・投資家・法人バイヤーの皆様にお届けしております。',
+    overviewEn:
+      'We import and sell Pokemon Cards officially released in China. Sourcing factory-sealed products from trusted Chinese suppliers, we deliver inspected items to collectors, investors, and corporate buyers in Japan.',
     audience: [
-      'カードコレクター・トレーディングカード愛好家',
-      'カード投資家',
-      'カードショップ・小売店',
-      '法人バイヤー・大量購入ご希望のお客様',
+      { ja: 'カードコレクター・トレーディングカード愛好家', en: 'Card collectors & TCG enthusiasts' },
+      { ja: 'カード投資家', en: 'Card investors' },
+      { ja: 'カードショップ・小売店', en: 'Card shops & retailers' },
+      { ja: '法人バイヤー・大量購入ご希望のお客様', en: 'Corporate buyers & bulk purchasers' },
     ],
     methods: [
-      '自社ECサイトでの販売',
-      '法人向け卸売（個別見積もり対応）',
-      'イベント出店による直接販売',
-      '委託販売',
+      { ja: '自社ECサイトでの販売', en: 'Direct e-commerce sales' },
+      { ja: '法人向け卸売（個別見積もり対応）', en: 'Wholesale (B2B, custom quotes)' },
+      { ja: 'イベント出店による直接販売', en: 'Event booth sales' },
+      { ja: '委託販売', en: 'Consignment sales' },
     ],
     deliverables: [
-      '真贋鑑定済み商品のお届け',
-      'PSA鑑定代行サービス',
-      '品質保証書の発行',
-      '追跡番号付き配送',
+      { ja: '検品済み・原盒原膜の商品をお届け', en: 'Inspected, factory-sealed products' },
+      { ja: '商品状態レポートの提供', en: 'Product condition report' },
+      { ja: '追跡番号付き配送', en: 'Tracked shipping' },
     ],
-    products: 'ブースターパック（ジェムパック Vol.1〜4）、シングルカード（全レアリティ）、PSA鑑定済みカード、ボックスセット、プロモーションカード、プレイマット',
+    products: 'ブースターパック（ジェムパック Vol.1〜5）、シングルカード（各レアリティ）、ボックスセット、プロモーションカード、プレイマット',
+    productsEn: 'Booster packs (Gem Pack Vol.1–5), singles (various rarities), box sets, promo cards, playmats',
     href: '/packs',
+    linkTextEn: 'Learn More',
   },
   {
     id: 'hobby-goods',
@@ -61,28 +65,33 @@ const SERVICE_LINES = [
     bgColor: 'bg-blue-400/8',
     borderColor: 'border-blue-400/15',
     title: 'ホビー・キャラクターグッズ輸入販売事業',
+    titleEn: 'Hobby & Character Goods Import & Sales',
     overview:
-      '原神（Genshin Impact）をはじめとする人気IP作品のキャラクターグッズを、中国の公式メーカーから直接仕入れ、日本市場へお届けしております。アジア地域限定アイテムを中心に、日本国内では入手困難な商品を幅広く取り揃えております。',
+      '原神（Genshin Impact）をはじめとする人気IP作品のキャラクターグッズを、中国の仕入先から調達し、日本市場へお届けしております。アジア地域限定アイテムを中心に、日本国内では入手困難な商品を幅広く取り揃えております。',
+    overviewEn:
+      'We source character goods for popular IPs including Genshin Impact from Chinese suppliers for the Japanese market, covering Asia-limited items rarely available domestically.',
     audience: [
-      'アニメ・ゲームファン、コレクター',
-      'ホビーショップ・キャラクターグッズ専門店',
-      'EC事業者',
-      'イベント企画会社',
+      { ja: 'アニメ・ゲームファン、コレクター', en: 'Anime & game fans, collectors' },
+      { ja: 'ホビーショップ・キャラクターグッズ専門店', en: 'Hobby shops & character goods stores' },
+      { ja: 'EC事業者', en: 'E-commerce operators' },
+      { ja: 'イベント企画会社', en: 'Event planning companies' },
     ],
     methods: [
-      '自社ECサイトでの販売',
-      '法人向け卸売',
-      '予約受付・取り寄せ販売',
-      'カスタムオーダー対応',
+      { ja: '自社ECサイトでの販売', en: 'Direct e-commerce sales' },
+      { ja: '法人向け卸売', en: 'Wholesale (B2B)' },
+      { ja: '予約受付・取り寄せ販売', en: 'Pre-order & made-to-order sales' },
+      { ja: 'カスタムオーダー対応', en: 'Custom orders' },
     ],
     deliverables: [
-      '正規品保証付き商品',
-      '商品状態確認レポート',
-      '丁寧な梱包による配送',
-      '追跡番号付き配送',
+      { ja: '正品・原盒原膜の商品', en: 'Genuine, factory-sealed products' },
+      { ja: '商品状態確認レポート', en: 'Product condition report' },
+      { ja: '丁寧な梱包による配送', en: 'Careful packing & shipping' },
+      { ja: '追跡番号付き配送', en: 'Tracked shipping' },
     ],
     products: 'フィギュア、アクリルスタンド、キーホルダー、アパレル、文具、生活雑貨、限定コラボアイテム',
+    productsEn: 'Figures, acrylic stands, keychains, apparel, stationery, household items, limited collaboration items',
     href: '/pokemon',
+    linkTextEn: 'Learn More',
   },
   {
     id: 'consulting',
@@ -91,37 +100,42 @@ const SERVICE_LINES = [
     bgColor: 'bg-indigo-400/8',
     borderColor: 'border-indigo-400/15',
     title: '越境貿易コンサルティング事業',
+    titleEn: 'Cross-Border Trade Consulting',
     overview:
       '日中間の越境貿易に関する包括的なコンサルティングサービスを提供しております。市場調査から法規制対応、パートナー企業の紹介、物流最適化まで、貿易に必要なあらゆる段階をサポートいたします。',
+    overviewEn:
+      'We provide comprehensive consulting for Japan-China cross-border trade, covering every stage from market research and regulatory compliance to partner introductions and logistics optimization.',
     audience: [
-      '日本進出を検討する中国企業',
-      '中国からの輸入を検討する日本企業',
-      '越境EC事業者',
-      '個人輸入をご希望のお客様',
+      { ja: '日本進出を検討する中国企業', en: 'Chinese companies considering Japan market entry' },
+      { ja: '中国からの輸入を検討する日本企業', en: 'Japanese companies considering imports from China' },
+      { ja: '越境EC事業者', en: 'Cross-border e-commerce operators' },
+      { ja: '個人輸入をご希望のお客様', en: 'Individuals seeking personal imports' },
     ],
     methods: [
-      'オンラインコンサルティング',
-      '現地視察同行',
-      '定期レポート提供',
-      'プロジェクト単位での受託',
+      { ja: 'オンラインコンサルティング', en: 'Online consulting' },
+      { ja: '現地視察同行', en: 'On-site visits' },
+      { ja: '定期レポート提供', en: 'Regular report delivery' },
+      { ja: 'プロジェクト単位での受託', en: 'Project-based contracts' },
     ],
     deliverables: [
-      '市場調査レポート',
-      'パートナー企業の紹介・マッチング',
-      '法規制チェックリスト',
-      '物流最適化プラン',
+      { ja: '市場調査レポート', en: 'Market research reports' },
+      { ja: 'パートナー企業の紹介・マッチング', en: 'Partner referrals & matchmaking' },
+      { ja: '法規制チェックリスト', en: 'Regulatory compliance checklist' },
+      { ja: '物流最適化プラン', en: 'Logistics optimization plan' },
     ],
     products: '',
+    productsEn: '',
     href: '/culture',
+    linkTextEn: 'Learn More',
   },
 ]
 
 const WORKFLOW = [
-  { step: '01', title: 'お問い合わせ', desc: 'ご要望・ご予算をヒアリング' },
-  { step: '02', title: 'ご提案', desc: '最適な商品・サービスのご提案' },
-  { step: '03', title: 'ご発注', desc: 'お見積り確認後、正式にご発注' },
-  { step: '04', title: '調達・検品', desc: '商品の調達と品質検査を実施' },
-  { step: '05', title: 'お届け', desc: '追跡番号付きで安全にお届け' },
+  { step: '01', title: 'お問い合わせ', titleEn: 'Inquiry', desc: 'ご要望・ご予算をヒアリング', descEn: 'We learn your needs & budget' },
+  { step: '02', title: 'ご提案', titleEn: 'Proposal', desc: '最適な商品・サービスのご提案', descEn: 'We propose the best products/services' },
+  { step: '03', title: 'ご発注', titleEn: 'Order', desc: 'お見積り確認後、正式にご発注', descEn: 'Confirm quote, place formal order' },
+  { step: '04', title: '調達・検品', titleEn: 'Procurement', desc: '商品の調達と品質検査を実施', descEn: 'Procure items and inspect quality' },
+  { step: '05', title: 'お届け', titleEn: 'Delivery', desc: '追跡番号付きで安全にお届け', descEn: 'Safe delivery with tracking number' },
 ]
 
 export default function BusinessPage() {
@@ -159,7 +173,7 @@ export default function BusinessPage() {
                     <line.icon className={`w-6 h-6 ${line.color}`} />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold">{line.title}</h2>
+                    <h2 className="text-xl font-bold"><LangText ja={line.title} en={line.titleEn} /></h2>
                   </div>
                 </div>
               </div>
@@ -169,9 +183,11 @@ export default function BusinessPage() {
                 <div>
                   <h3 className="text-sm font-semibold text-white/70 mb-3 flex items-center gap-2">
                     <Package className="w-4 h-4 text-[#c9a84c]" />
-                    事業概要
+                    <LangText ja="事業概要" en="Overview" />
                   </h3>
-                  <p className="text-sm text-white/55 leading-relaxed">{line.overview}</p>
+                  <p className="text-sm text-white/55 leading-relaxed">
+                    <LangText ja={line.overview} en={line.overviewEn} />
+                  </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8">
@@ -179,13 +195,13 @@ export default function BusinessPage() {
                   <div>
                     <h3 className="text-sm font-semibold text-white/70 mb-3 flex items-center gap-2">
                       <Users className="w-4 h-4 text-[#c9a84c]" />
-                      サービス対象
+                      <LangText ja="サービス対象" en="Target Audience" />
                     </h3>
                     <ul className="space-y-2">
                       {line.audience.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-white/50">
+                        <li key={item.ja} className="flex items-start gap-2 text-sm text-white/50">
                           <CheckCircle className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />
-                          {item}
+                          <LangText ja={item.ja} en={item.en} />
                         </li>
                       ))}
                     </ul>
@@ -195,13 +211,13 @@ export default function BusinessPage() {
                   <div>
                     <h3 className="text-sm font-semibold text-white/70 mb-3 flex items-center gap-2">
                       <Truck className="w-4 h-4 text-[#c9a84c]" />
-                      提供方式
+                      <LangText ja="提供方式" en="Service Methods" />
                     </h3>
                     <ul className="space-y-2">
                       {line.methods.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-white/50">
+                        <li key={item.ja} className="flex items-start gap-2 text-sm text-white/50">
                           <CheckCircle className="w-4 h-4 text-[#c9a84c]/60 shrink-0 mt-0.5" />
-                          {item}
+                          <LangText ja={item.ja} en={item.en} />
                         </li>
                       ))}
                     </ul>
@@ -212,13 +228,13 @@ export default function BusinessPage() {
                 <div>
                   <h3 className="text-sm font-semibold text-white/70 mb-3 flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-[#c9a84c]" />
-                    交付内容・品質保証
+                    <LangText ja="交付内容・品質管理" en="Deliverables & Quality Control" />
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-2">
                     {line.deliverables.map((item) => (
-                      <div key={item} className="flex items-center gap-2 text-sm text-white/50 bg-[#131b2e] rounded-lg px-4 py-3 border border-[#1e2a45]">
+                      <div key={item.ja} className="flex items-center gap-2 text-sm text-white/50 bg-[#131b2e] rounded-lg px-4 py-3 border border-[#1e2a45]">
                         <CheckCircle className="w-4 h-4 text-green-400/70 shrink-0" />
-                        {item}
+                        <LangText ja={item.ja} en={item.en} />
                       </div>
                     ))}
                   </div>
@@ -227,8 +243,12 @@ export default function BusinessPage() {
                 {/* Products (if any) */}
                 {line.products && (
                   <div>
-                    <h3 className="text-sm font-semibold text-white/70 mb-3">取扱商品</h3>
-                    <p className="text-sm text-white/45 leading-relaxed">{line.products}</p>
+                    <h3 className="text-sm font-semibold text-white/70 mb-3">
+                      <LangText ja="取扱商品" en="Products" />
+                    </h3>
+                    <p className="text-sm text-white/45 leading-relaxed">
+                      <LangText ja={line.products} en={line.productsEn} />
+                    </p>
                   </div>
                 )}
 
@@ -237,7 +257,7 @@ export default function BusinessPage() {
                   href={line.href}
                   className={`inline-flex items-center gap-2 text-sm font-medium ${line.color} hover:underline`}
                 >
-                  詳細ページへ <ArrowRight className="w-4 h-4" />
+                  <LangText ja="詳細ページへ" en={line.linkTextEn} /> <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -248,13 +268,19 @@ export default function BusinessPage() {
       {/* Workflow */}
       <section className="px-4 py-16">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-xl font-bold mb-10 text-center">ご利用の流れ</h2>
+          <h2 className="text-xl font-bold mb-10 text-center">
+            <LangText ja="ご利用の流れ" en="How It Works" />
+          </h2>
           <div className="grid sm:grid-cols-5 gap-4">
             {WORKFLOW.map((item) => (
               <div key={item.step} className="rounded-xl bg-[#131b2e] border border-[#1e2a45] p-5 text-center">
                 <div className="text-lg font-bold text-[#c9a84c] mb-2">{item.step}</div>
-                <h3 className="font-semibold text-sm mb-2">{item.title}</h3>
-                <p className="text-xs text-white/40">{item.desc}</p>
+                <h3 className="font-semibold text-sm mb-2">
+                  <LangText ja={item.title} en={item.titleEn} />
+                </h3>
+                <p className="text-xs text-white/40">
+                  <LangText ja={item.desc} en={item.descEn} />
+                </p>
               </div>
             ))}
           </div>
@@ -265,23 +291,27 @@ export default function BusinessPage() {
       <section className="px-4 py-12">
         <div className="max-w-3xl mx-auto text-center">
           <div className="rounded-xl bg-[#131b2e] border border-[#1e2a45] p-12">
-            <h2 className="text-xl font-bold mb-4">お取引・ご相談のお問い合わせ</h2>
+            <h2 className="text-xl font-bold mb-4">
+              <LangText ja="お取引・ご相談のお問い合わせ" en="Inquiries & Consultations" />
+            </h2>
             <p className="text-white/45 mb-8 max-w-lg mx-auto text-sm leading-relaxed">
-              商品のお見積り、法人向けのお取引、越境貿易に関するご相談など、
-              まずはお気軽にお問い合わせください。
+              <LangText
+                ja="商品のお見積り、法人向けのお取引、越境貿易に関するご相談など、まずはお気軽にお問い合わせください。"
+                en="For product quotes, B2B trade, and cross-border consulting, please feel free to contact us."
+              />
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-[#c9a84c] text-[#0a0f1a] font-semibold px-8 py-3.5 rounded-lg hover:bg-[#d4b85c] transition-colors"
               >
-                お問い合わせ <ArrowRight className="w-4 h-4" />
+                <LangText ja="お問い合わせ" en="Contact Us" /> <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/company"
                 className="inline-flex items-center justify-center gap-2 bg-white/8 text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-white/12 transition-colors border border-white/10"
               >
-                会社概要
+                <LangText ja="会社概要" en="Company" />
               </Link>
             </div>
           </div>
