@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Next.js build cache (server-side)
+.next/cache/
+.next/server/
+.next/BUILD_ID
+.next/app-build-manifest.json
+.next/app-path-routes-manifest.json
+.next/build-manifest.json
+.next/export-detail.json
+.next/export-marker.json
+.next/images-manifest.json
+.next/next-minimal-server.js.nft.json
+.next/next-server.js.nft.json
+.next/prerender-manifest.json
+.next/react-loadable-manifest.json
+.next/required-server-files.json
+.next/static/
+
+# Environment
+.env.local
+.env*.local
